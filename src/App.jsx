@@ -7,6 +7,7 @@ import Service from './Pages/Service'
 import Portfolio from './Pages/Portfolio'
 import Process from './Pages/Process'
 import Contact from './Pages/Contact'
+import ClientTestimonial from './Pages/ClientTestimonial'
 
 const App = () => {
   const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const App = () => {
         {
           path:"/Contact",
           element:<Contact/>
+        },
+        {
+          path:"/Testinomial",
+          element:<ClientTestimonial/>
         }
       ]
     }

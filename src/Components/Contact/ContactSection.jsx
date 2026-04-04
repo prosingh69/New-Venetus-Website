@@ -12,21 +12,24 @@ const ContactSection = () => {
         {
             id:1,
             Icon: Phone,
-            Method:"Call Us",
-            Detail:"+91 XXXXX XXXXX",
+            Title:"Call Us",
+            Method:"tel",
+            Detail:"+91 7830015110",
             Para:"Available Mon-Sat, 9 AM - 6 PM"
         },
         {
             id:2,
             Icon:Mail,
-            Method:"Email Us",
+            Title:"Email Us",
+            Method:"mailto",
             Detail:"info@interiordesign.com",
             Para:"We'll respond within 24 hours"
         },
         {
             id:3,
             Icon:MapPin,
-            Method:"Visit Us",
+            Title:"Visit Us",
+            Method: "map",
             Detail:"Bangalore, India",
             Para:"By appointment"
         }
