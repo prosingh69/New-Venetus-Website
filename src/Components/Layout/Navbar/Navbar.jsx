@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   const navLinkClasses = ({ isActive }) => {
-    return `transition-colors hover:text-[#B74B21] font-semibold ${isActive ? 'text-[#B74B21] font-bold' : 'text-gray-800'
+    return `transition-colors text-[19px] hover:text-[#B74B21] font-semibold ${isActive ? 'text-[#B74B21] font-bold' : 'text-gray-800'
       }`;
   };
 
@@ -24,21 +24,21 @@ const Navbar = () => {
     <>
       <nav className='sticky top-0 z-40 flex flex-row-reverse md:flex-row justify-between items-center p-4 bg-[#F9F5F3] border-b border-[#F3E5DE]'>
 
-        <a href='/' className='text-[#B74B21] font-bold text-2xl'>Venetus Interior</a>
+        <a href='/' className='text-[#B74B21] font-bold text-3xl'>Venetus Interior</a>
 
-        <div className='hidden md:flex gap-8 items-center'>
+        <div className='hidden md:flex gap-11 items-center'>
           <NavLink to="/About" className={navLinkClasses}>About</NavLink>
           <NavLink to="/Services" className={navLinkClasses}>Services</NavLink>
           <NavLink to="/Portfolio" className={navLinkClasses}>Portfolio</NavLink>
           <NavLink to="/Process" className={navLinkClasses}>Process</NavLink>
 
           {isContactPage ? (
-            <span className='text-[#B74B21] font-bold text-lg flex items-center gap-2'>
+            <span className='text-[#B74B21] font-semibold text-[19px] mr-6 flex items-center gap-2'>
               Contact
             </span>
           ) : (
 
-            <NavLink to="/Contact" className='ml-6 bg-[#B74B21] py-3 px-6 rounded-[10px] text-amber-50 font-bold cursor-pointer hover:bg-[#9c3e1b] transition-all'>
+            <NavLink to="/Contact" className=' bg-[#B74B21] py-3 px-6 rounded-[10px] text-amber-50 font-bold cursor-pointer hover:bg-[#9c3e1b] transition-all'>
               Get Started
             </NavLink>
           )}

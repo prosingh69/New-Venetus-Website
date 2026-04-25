@@ -38,7 +38,7 @@ const ContactSection = () => {
     <div>
     <section className='grid grid-cols-1 lg:grid-cols-3 gap-7 bg-[#F9F8F8] px-7 py-15'>
         {ContactDetailData.map((Data)=>(
-            <ContactDetail Icon={Data.Icon} Method ={Data.Method} Detail={Data.Detail} Para={Data.Para}/>
+            <ContactDetail key={Data.id} Icon={Data.Icon} Method ={Data.Method} Detail={Data.Detail} Para={Data.Para}/>
         ))}
     </section>
     <section className='grid grid-cols-1 lg:grid-cols-2 gap-8 p-7 bg-[#F9F8F8] pb-20'>
