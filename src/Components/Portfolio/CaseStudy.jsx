@@ -40,7 +40,7 @@ const CaseStudy = () => {
         <p className='text-lg text-[#6E4C40] mb-4 lg:mb-16'>Detailed look at our most impactful projects</p>
         <div className="w-full max-w-8xl mx-auto">
           {HorizontalPortfolioData.map((Data)=>(
-            <PortfolioCard layout="horizontal" Title={Data.Title} Location={Data.Location} BeforeImg={Data.Before} AfterImg={Data.After} Challenge={Data.Challenge} Solution={Data.Solution} Result={Data.Result} /> 
+            <PortfolioCard key={Data.id} layout="horizontal" Title={Data.Title} Location={Data.Location} BeforeImg={Data.Before} AfterImg={Data.After} Challenge={Data.Challenge} Solution={Data.Solution} Result={Data.Result} /> 
           ))}
         </div>
     </section>

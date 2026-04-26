@@ -51,7 +51,7 @@ const PortfolioDetail = () => {
     <section className='grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-10 px-7 py-4 lg:pb-30 bg-[#F9F8F8]'>
         {
             PortfolioData.map((Data)=>(
-                <PortfolioCard BeforeImg={Data.Before} AfterImg={Data.After} Title={Data.Title} Location={Data.Location}/>
+                <PortfolioCard key={Data.id} BeforeImg={Data.Before} AfterImg={Data.After} Title={Data.Title} Location={Data.Location}/>
             ))
 
         }

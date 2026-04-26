@@ -46,7 +46,7 @@ const WhyWorks = () => {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-5 p-7'>
             {
                 WhyWorkData.map((Data)=>(
-                    <WhyWorkCard Badge={Data.Badge} Name={Data.Name} Para={Data.Para}/>
+                    <WhyWorkCard key={Data.id} Badge={Data.Badge} Name={Data.Name} Para={Data.Para}/>
                 ))
             }
 

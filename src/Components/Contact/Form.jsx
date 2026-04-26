@@ -105,7 +105,7 @@ const Form = () => {
         )}
 
         <label className='block mb-1'>Message</label>
-        <textarea name="message" placeholder='Tell us about your project....' className='border border-black/20 w-full rounded-xl py-2 px-4 h-24 max-h-36' required />
+        <textarea name="message" placeholder='Tell us about your project....' className='border border-black/20 w-full rounded-xl py-2 px-4 h-20 max-h-24' required />
 
         <button
           type="submit"

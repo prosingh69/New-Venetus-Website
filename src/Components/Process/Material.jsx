@@ -46,7 +46,7 @@ const Material = () => {
         <p className='text-lg text-center text-[#6E4C5F] mb-2'>We use certified premium brands and grades for every project</p>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6 py-4 px-7'>
             {MaterialData.map((Data)=>(
-                <MaterialCard Name={Data.Name} Brands={Data.Brands} Grades={Data.Grades} />
+                <MaterialCard key={Data.id} Name={Data.Name} Brands={Data.Brands} Grades={Data.Grades} />
             ))}
 
         </div>
