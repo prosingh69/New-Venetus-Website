@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap ka link
+Sitemap: https://new-venetus-website.vercel.app/sitemap.xml
