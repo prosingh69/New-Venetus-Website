@@ -27,9 +27,9 @@ const Footer = () => {
           
           <div className='flex flex-col items-start gap-3'>
             <h3 className='font-semibold text-[18px] mb-2 text-white'>Services</h3>
-            <NavLink to="/services" className="text-gray-400 hover:text-[#B74B21] transition-colors">Kitchen Design</NavLink>
-            <NavLink to="/services" className="text-gray-400 hover:text-[#B74B21] transition-colors">Bedroom Design</NavLink>
-            <NavLink to="/services" className="text-gray-400 hover:text-[#B74B21] transition-colors">Full Home Design</NavLink>
+            <NavLink to="/Services" className="text-gray-400 hover:text-[#B74B21] transition-colors">Kitchen Design</NavLink>
+            <NavLink to="/Services" className="text-gray-400 hover:text-[#B74B21] transition-colors">Bedroom Design</NavLink>
+            <NavLink to="/Services" className="text-gray-400 hover:text-[#B74B21] transition-colors">Full Home Design</NavLink>
           </div>
           
           <div className='flex flex-col items-start gap-3'>
