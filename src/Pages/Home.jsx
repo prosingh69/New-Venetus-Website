@@ -7,6 +7,14 @@ import LastCTA from '../Components/LastCTA/LastCTA'
 
 const Home = () => {
   return (
+    <>
+    
+    <Helmet prioritizeSeoTags>
+        <title>Venetus Interiors | Premium Home & Interior Design</title>
+        <meta name="description" content="Transform your living space with Venetus Interiors. Experience modern home design, stunning before-and-after room transformations, and premium aesthetics." />
+        <meta name="keywords" content="interior design, home decor, modern interiors, living room transformation, Venetus Interiors" />
+        <link rel="canonical" href="https://new-venetus-website.vercel.app/" />
+      </Helmet>
     <div>
         <Hero/>
         <TrustBelt/>
@@ -14,6 +22,7 @@ const Home = () => {
         <Testimonial/>
         <LastCTA/>
     </div>
+    </>
   )
 }
 
