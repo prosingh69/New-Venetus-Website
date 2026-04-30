@@ -4,6 +4,7 @@ import TrustBelt from '../Components/TrustBelt/TrustBelt'
 import WhyChoose from '../Components/WhyChoose/WhyChoose'
 import Testimonial from '../Components/Testimonial/Testimonial'
 import LastCTA from '../Components/LastCTA/LastCTA'
+import { Helmet } from 'react-helmet-async'
 
 const Home = () => {
   return (
