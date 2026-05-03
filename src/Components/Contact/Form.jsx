@@ -7,8 +7,8 @@ import { PopupModal } from 'react-calendly'
 const Form = () => {
   const [projectType, setProjectType] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isOpen, setIsOpen] = useState(false); 
-  
+  const [isOpen, setIsOpen] = useState(false);
+
   const formRef = useRef();
   const GOOGLE_SHEET_API_URL = import.meta.env.VITE_GOOGLE_SHEET_API_URL;
 
@@ -36,15 +36,18 @@ const Form = () => {
         ),
         fetch(GOOGLE_SHEET_API_URL, {
           method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
           body: JSON.stringify(dataForSheet),
         })
       ]);
 
       toast.success("Details saved! Let's book a meeting.");
       setIsOpen(true); // Popup open
-      
-      e.target.reset(); 
+
+      e.target.reset();
       setProjectType("");
 
     } catch (error) {
@@ -64,7 +67,7 @@ const Form = () => {
         onModalClose={() => setIsOpen(false)}
         open={isOpen}
         rootElement={document.getElementById("root")}
-        
+
         /* 🎨 UI aur Design Customization (Venetus Theme) */
         pageSettings={{
           backgroundColor: 'ffffff', // White background
@@ -77,16 +80,16 @@ const Form = () => {
 
       <form ref={formRef} onSubmit={HandleData} className='rounded-2xl bg-white p-7 lg:h-169 shadow-xl hover:shadow-2xl transition-all'>
         <h1 className='text-2xl font-semibold mb-3'>Send us a Message</h1>
-        
+
         <label className='block mb-1'>Name</label>
         <input type="text" name="user_name" placeholder='Your Name' className='border border-black/20 w-full rounded-xl py-2 px-4 mb-3' required />
-        
+
         <label className='block mb-1'>Email</label>
         <input type="email" name="user_email" placeholder='Your@gmail.com' className='border border-black/20 w-full rounded-xl py-2 px-4 mb-3' required />
-        
+
         <label className='block mb-1'>Phone</label>
         <input type="text" name="user_phone" placeholder='+91 XXXXX XXXXX' className='border border-black/20 w-full rounded-xl py-2 px-4 mb-3' required />
-        
+
         <label className='block mb-1'>Project type</label>
         <select name="project_type" className='border border-black/20 w-full rounded-xl p-2 outline-none pr-20 bg-white mb-3' value={projectType} onChange={(e) => setProjectType(e.target.value)} required>
           <option value="">Select a project type</option>
