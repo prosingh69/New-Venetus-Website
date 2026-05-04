@@ -49,7 +49,7 @@ const Hero = () => {
             <img 
                 src="/design.jpg" 
                 alt="Venetus Interior Design Project" 
-                className='w-full max-w-md lg:max-w-lg h-[300px] md:h-[450px] rounded-2xl object-cover shadow-xl' 
+                className='w-full max-w-md lg:max-w-lg h-75 md:h-112.5 rounded-2xl object-cover shadow-xl' 
             />
         </div>
     </section>
