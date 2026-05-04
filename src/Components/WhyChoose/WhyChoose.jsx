@@ -43,16 +43,25 @@ const featuresData = [
 
 const WhyChoose = () => {
   return (
-    <section className='bg-[#F9F8F8] py-20 px-4'>
-        <div className='max-w-350 mx-auto'>
+    // Mobile aur Desktop padding adjust ki
+    <section className='bg-[#F9F8F8] py-16 md:py-24 px-5'>
+        
+        {/* Invalid max-w-350 ko hata kar valid max-w-7xl lagaya jo 3-grid ke liye perfect width hai */}
+        <div className='max-w-7xl mx-auto'>
             
-            <div className='flex flex-col items-center justify-center text-center mb-12'>
-                <h2 className='text-[38px] font-bold mb-3 text-gray-900'>Why Choose Us</h2>
-                <p className='text-lg text-[#804C40] max-w-2xl'>We build trust through transparency, quality, and exceptional service</p>
+            <div className='flex flex-col items-center justify-center text-center mb-12 md:mb-16'>
+                {/* Heading ko fully responsive kiya */}
+                <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-gray-900'>
+                    Why Choose Us
+                </h2>
+                {/* Orphan words rokne ke liye text-pretty aur responsive size add kiya */}
+                <p className='text-base md:text-lg text-[#6E4C40] max-w-2xl text-pretty'>
+                    We build trust through transparency, quality, and exceptional service.
+                </p>
             </div>
-
             
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {/* Grid gap ko mobile/desktop ke hisaab se tweak kiya */}
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
                 {featuresData.map((feature) => (
                     <WhyCard 
                         key={feature.id} 
