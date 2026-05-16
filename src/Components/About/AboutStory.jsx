@@ -8,7 +8,7 @@ const AboutStory = () => {
         {/* TEXT SECTION: Ab sirf ye text decide karega ki pure section ki height kitni badi ya choti hogi */}
         <div className='w-full md:w-1/2 pl-0 lg:pl-4 flex flex-col justify-center'>
             
-            <h2 className='text-center md:text-left text-3xl md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6'>
+            <h2 className='text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6'>
                 Our Story
             </h2>
             
@@ -29,7 +29,7 @@ const AboutStory = () => {
             <img 
                 src="/design.jpg" 
                 alt="Venetus Interior Design Project" 
-                className='w-full h-[250px] md:h-full md:absolute md:inset-0 object-cover rounded-2xl shadow-sm md:shadow-md'
+                className='w-full h-62.5 md:h-full md:absolute md:inset-0 object-cover rounded-2xl shadow-sm md:shadow-md'
             />
         </div>
     </section>

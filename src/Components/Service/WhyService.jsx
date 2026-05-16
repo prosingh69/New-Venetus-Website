@@ -37,7 +37,7 @@ const WhyService = () => {
   return (
     <section className='bg-[#FFFFFF] px-15 py-20'>
         <h2 className='text-4xl font-bold mb-12 text-center'>Why Choose Our Services</h2>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-13'>
+        <div className='grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-13'>
             {whyServiceData.map((Data,index)=>(
                 <WhyServiceCard key={index} Data={Data}/>
             ))}
