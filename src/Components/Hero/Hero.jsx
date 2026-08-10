@@ -1,13 +1,14 @@
 import React from 'react'
 import { ArrowRight } from "lucide-react"
 import { NavLink } from 'react-router-dom'
+import GoogleReviews from '../ClientReview/GoogleReviews'
 
 const Hero = () => {
   return (
 
-    <section className='bg-[#F8F6F4] py-16 md:py-24 px-5 md:px-10 flex flex-col md:flex-row md:justify-between md:items-center border-b border-[#F3E5DE] gap-12 lg:gap-16'>
+    <section className='bg-[#F8F6F4] py-16 md:py-5 px-5 md:px-10 flex flex-col md:flex-row md:justify-between md:items-center border-b border-[#F3E5DE] gap-12 lg:gap-16'>
         
-        {/* Text Section: Width 50% on desktop */}
+        
         <div className='w-full md:w-1/2 flex flex-col'>
             <div className='flex justify-center md:justify-start'>
                 <span className='bg-[#F7ECE2] text-[#E88B30] py-2 px-4 rounded-full font-semibold text-sm md:text-base'>
@@ -15,17 +16,16 @@ const Hero = () => {
                 </span>
             </div>
             
-            {/* Invalid leading-15/18 ko hata kar leading-tight/arbitrary values set ki. */}
+            
             <h1 className='text-4xl md:text-5xl lg:text-[66px] font-bold flex flex-col text-center md:text-left mt-6 mb-5 leading-tight lg:leading-[1.1] text-gray-900'>
                 Transform Your <span className="text-[#9c3e1b]">Bangalore Home</span> 
             </h1>
             
-            {/* pichle solution ka text-pretty yahan use kiya taaki orphan words na banein */}
+            
             <p className='text-center md:text-left text-[#6E4C40] text-lg md:text-[20px] mb-8 leading-relaxed text-pretty'>
                 Premium interior design with transparent pricing, guaranteed timelines, and material quality you can trust. We specialize in Bangalore apartments.
             </p>
-            
-            {/* Buttons Layout: Mobile par ek ke neeche ek (sm:flex-row se thoda wide screens par side-by-side) */}
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <NavLink 
                     to="/contact" 
@@ -43,14 +43,14 @@ const Hero = () => {
             </div>
         </div>
 
-        {/* Image Section: Width 50% on desktop */}
+      
         <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-4 md:mt-0">
-            {/* Invalid w-300 ko w-full max-w-lg me change kiya. Height responsive kardi. */}
-            <img 
-                src="/design.jpg" 
-                alt="Venetus Interior Design Project" 
-                className='w-full max-w-md lg:max-w-lg h-75 md:h-112.5 rounded-2xl object-cover shadow-xl' 
-            />
+           <img 
+    src="https://res.cloudinary.com/lbei6xmb/image/upload/v1786162858/WhatsApp_Image_2026-08-03_at_9.06.06_AM_1_ccp6rv.jpg" 
+    alt="Venetus Interior Design Project" 
+    className='w-full max-w-md lg:max-w-lg h-75 md:h-112.5 rounded-2xl object-cover object-top shadow-xl' 
+/>
+
         </div>
     </section>
   )

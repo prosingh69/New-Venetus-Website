@@ -14,9 +14,7 @@ const ClientTestimonial = () => {
         <Testimonial showButton={false}/>
         <ClientStory/>
         <WhyUs/>
-        <LastCTA/>
-        <GoogleReviews/>
-        
+        <LastCTA/>        
     </div>
     
   )

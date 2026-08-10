@@ -4,27 +4,38 @@ const GoogleReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+ useEffect(() => {
     const fetchReviews = async () => {
       try {
-        // 1. Vite Environment variables ko import karna
+        console.log("1. API Call Start ho gayi hai...");
+
         const apiKey = import.meta.env.VITE_PLACE_API_Key;
         const placeId = import.meta.env.VITE_Place_ID;
 
-        // 2. URL ko dynamically banana (Backticks ` ` ka use karke)
-        const apiUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,reviews&key=${apiKey}`;
+        
+        console.log("2. API Key:", apiKey ? "Mil gayi" : "Nahi mili!");
+        console.log("3. Place ID:", placeId ? "Mil gaya" : "Nahi mila!");
 
-        console.log("Mera API URL yeh hai:", apiUrl); // Checking ke liye
+        const apiUrl = `/api-google/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,reviews&key=${apiKey}`;
 
-        // 3. API Call karna
+       
         const response = await fetch(apiUrl);
-        const data = await response.json();
+        console.log("5. Raw Response Object:", response);
 
+     
+        const data = await response.json();
+        console.log("6. Final API Data (JSON):", data);
+
+       
         if (data.result && data.result.reviews) {
+          console.log("7. Reviews mil gaye! Total reviews:", data.result.reviews.length);
           setReviews(data.result.reviews);
+        } else {
+          console.warn("8. Data toh aaya, par usme 'reviews' nahi hain. Check Google API response.");
         }
+
       } catch (err) {
-        console.error("API call fail ho gayi:", err);
+        console.error("❌ API Call mein ERROR aaya:", err.message);
         setError(err.message);
       }
     };
@@ -37,7 +48,7 @@ const GoogleReviews = () => {
       <h2 className="text-2xl font-bold mb-4">Google Reviews</h2>
       
       {error && <p className="text-red-500">Error: {error}</p>}
-      
+      {console.log(reviews)}
       {reviews.map((review, index) => (
         <div key={index} className="border-b py-4">
           <h4 className="font-semibold">{review.author_name}</h4>
