@@ -1,7 +1,6 @@
 import React from 'react'
 import { ArrowRight } from "lucide-react"
 import { NavLink } from 'react-router-dom'
-import GoogleReviews from '../ClientReview/GoogleReviews'
 
 const Hero = () => {
   return (
@@ -46,7 +45,7 @@ const Hero = () => {
       
         <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-4 md:mt-0">
            <img 
-    src="https://res.cloudinary.com/lbei6xmb/image/upload/v1786162858/WhatsApp_Image_2026-08-03_at_9.06.06_AM_1_ccp6rv.jpg" 
+    src="https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786672515/WhatsApp_Image_2026-08-10_at_2.19.33_PM_cnokpi.jpg" 
     alt="Venetus Interior Design Project" 
     className='w-full max-w-md lg:max-w-lg h-75 md:h-112.5 rounded-2xl object-cover object-top shadow-xl' 
 />

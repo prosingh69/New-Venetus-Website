@@ -5,7 +5,6 @@ import ClientStory from '../Components/ClientReview/ClientStory'
 import Testimonial from '../Components/Testimonial/Testimonial'
 import WhyUs from '../Components/ClientReview/WhyUs'
 import LastCTA from "../Components/LastCTA/LastCTA"
-import GoogleReviews from '../Components/ClientReview/GoogleReviews'
 const ClientTestimonial = () => {
   return (
     <div>
