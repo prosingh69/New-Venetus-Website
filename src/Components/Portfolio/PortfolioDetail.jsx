@@ -30,6 +30,14 @@ const PortfolioDetail = () => {
         },
         {
             id: 4,
+            Before: "https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786848196/image22_ygmc9c.png",
+            After: "https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786848197/image21_crpxr1.png",
+            Title: "Modern Bathroom",
+            Location: "Indiranagar",
+            imagePosition: "object-center" 
+        },
+        {
+            id: 5,
             Before: "https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786160796/WhatsApp_Image_2026-08-08_at_9.15.27_AM_ntnmvq.jpg",
             After: "https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786160796/WhatsApp_Image_2026-08-08_at_9.15.27_AM_1_fx3xel.jpg",
             Title: "Luxury Bedroom",
@@ -37,13 +45,14 @@ const PortfolioDetail = () => {
             imagePosition: "object-[30%_30%]" 
         },
         {
-            id: 5,
+            id: 6,
             Before: "https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786157063/wmremove-transformed_5_xlwufw.png",
             After: "https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786157116/WhatsApp_Image_2026-08-07_at_6.44.25_PM_1_unfxvp.jpg",
             Title: "Luxury Bedroom",
             Location: "Whitefield",
             imagePosition: "object-center" 
-        }
+        },
+        
     ]
     
   return (

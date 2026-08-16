@@ -41,7 +41,7 @@ const Navbar = () => {
         <div className="flex justify-center md:justify-start">
           <NavLink to={"/"} className="flex items-center z-50">
             <img
-              src="/logo_1.png"
+              src="/logo_image.png"
               className='h-12 sm:h-14 md:h-16 w-auto object-contain scale-110'
               alt="Venetus Interiors logo"
             />
