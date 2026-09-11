@@ -7,6 +7,7 @@ const AppLayout = () => {
   return (
     <>
     <Navbar/>
+    <main className="pt-[100px] md:pt-[120px]">
     <main>
       <Outlet/>
     </main>

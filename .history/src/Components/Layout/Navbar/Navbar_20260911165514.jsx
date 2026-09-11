@@ -81,9 +81,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Spacer — same height as navbar, synced transition, eliminates white gap */}
-      <div className={'bg-[#F8F6F4] transition-all duration-500 ease-in-out shrink-0 ' + (isScrolled ? 'h-[60px] md:h-[70px]' : 'h-[100px] md:h-[120px]')} />
-
       {/* Sidebar Overlay */}
       <div className={'fixed inset-0 bg-black/40 z-40 md:hidden backdrop-blur-sm transition-opacity duration-300 ' + (isSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none')} onClick={toggleSidebar} />
 

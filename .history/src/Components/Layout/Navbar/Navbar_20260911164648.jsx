@@ -11,8 +11,7 @@ const Navbar = () => {
   const isContactPage = location.pathname === '/Contact';
 
   useEffect(() => {
-    const h = () => setIsScrolled(window.scrollY > 10);
-    h();
+    const h = () => setIsScrolled(window.scrollY > 60);
     window.addEventListener('scroll', h, { passive: true });
     return () => window.removeEventListener('scroll', h);
   }, []);
@@ -32,8 +31,8 @@ const Navbar = () => {
   return (
     <>
       {/* MAIN NAVBAR */}
-      <nav className={'fixed top-0 left-0 right-0 z-50 bg-[#F8F6F4] transition-all duration-500 ease-in-out ' + (isScrolled ? 'shadow-[0_2px_16px_rgba(0,0,0,0.09)] border-b border-[#EDE0D8]' : 'border-b border-transparent')}>
-        <div className={'max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14 flex items-center transition-all duration-500 ease-in-out ' + (isScrolled ? 'h-[60px] md:h-[70px]' : 'h-[100px] md:h-[120px]')}>
+      <nav className={'fixed top-0 left-0 right-0 z-50 bg-[#F8F6F4] transition-all duration-300 ' + (isScrolled ? 'shadow-[0_2px_16px_rgba(0,0,0,0.08)] border-b border-[#EDE0D8]' : 'border-b border-transparent')}>
+        <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14 flex items-center h-[72px] md:h-[88px]'>
 
           {/* Mobile Hamburger */}
           <button onClick={toggleSidebar} className='md:hidden relative w-10 h-10 flex justify-center items-center rounded-full hover:bg-black/5 transition-colors focus:outline-none mr-2' aria-label='Toggle Menu'>
@@ -44,9 +43,9 @@ const Navbar = () => {
             </div>
           </button>
 
-          {/* Logo — big at top, shrinks on scroll */}
+          {/* Logo */}
           <NavLink to='/' className='flex items-center flex-shrink-0'>
-            <img src='/logo_1.png' className={'w-auto object-contain hover:scale-105 transition-all duration-500 ease-in-out ' + (isScrolled ? 'h-[44px] md:h-[52px]' : 'h-[86px] md:h-[108px]')} alt='Venetus Interior logo' />
+            <img src='/logo_1.png' className='h-16 md:h-20 lg:h-[84px] w-auto object-contain hover:scale-105 transition-transform duration-300' alt='Venetus Interior logo' />
           </NavLink>
 
           {/* Desktop Nav Links - left of logo */}
@@ -80,9 +79,6 @@ const Navbar = () => {
 
         </div>
       </nav>
-
-      {/* Spacer — same height as navbar, synced transition, eliminates white gap */}
-      <div className={'bg-[#F8F6F4] transition-all duration-500 ease-in-out shrink-0 ' + (isScrolled ? 'h-[60px] md:h-[70px]' : 'h-[100px] md:h-[120px]')} />
 
       {/* Sidebar Overlay */}
       <div className={'fixed inset-0 bg-black/40 z-40 md:hidden backdrop-blur-sm transition-opacity duration-300 ' + (isSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none')} onClick={toggleSidebar} />
