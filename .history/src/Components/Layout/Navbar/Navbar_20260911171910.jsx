@@ -36,23 +36,21 @@ const Navbar = () => {
       <nav className={'fixed top-0 left-0 right-0 z-50 bg-[#F8F6F4] transition-all duration-500 ease-in-out ' + (isScrolled ? 'shadow-[0_2px_16px_rgba(0,0,0,0.09)] border-b border-[#EDE0D8]' : 'border-b border-transparent')}>
         <div className={'max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14 flex items-center transition-all duration-500 ease-in-out ' + (isScrolled ? 'h-[60px] md:h-[70px]' : 'h-[100px] md:h-[120px]')}>
 
-          {/* Mobile Hamburger — wrapped in flex-1 so logo lands in center */}
-          <div className='flex md:hidden flex-1'>
-            <button onClick={toggleSidebar} className='relative w-10 h-10 flex justify-center items-center rounded-full hover:bg-black/5 transition-colors focus:outline-none' aria-label='Toggle Menu'>
-              <div className='relative w-5 h-4'>
-                <span className={'absolute left-0 w-5 h-0.5 bg-[#B74B21] rounded-full transition-all duration-300 ' + (isSidebarOpen ? 'rotate-45 top-2' : 'top-0')} />
-                <span className={'absolute left-0 w-5 h-0.5 bg-[#B74B21] rounded-full transition-all duration-300 ' + (isSidebarOpen ? 'opacity-0 top-2' : 'top-2')} />
-                <span className={'absolute left-0 w-5 h-0.5 bg-[#B74B21] rounded-full transition-all duration-300 ' + (isSidebarOpen ? '-rotate-45 top-2' : 'top-4')} />
-              </div>
-            </button>
-          </div>
+          {/* Mobile Hamburger */}
+          <button onClick={toggleSidebar} className='md:hidden relative w-10 h-10 flex justify-center items-center rounded-full hover:bg-black/5 transition-colors focus:outline-none mr-2' aria-label='Toggle Menu'>
+            <div className='relative w-5 h-4'>
+              <span className={'absolute left-0 w-5 h-0.5 bg-[#B74B21] rounded-full transition-all duration-300 ' + (isSidebarOpen ? 'rotate-45 top-2' : 'top-0')} />
+              <span className={'absolute left-0 w-5 h-0.5 bg-[#B74B21] rounded-full transition-all duration-300 ' + (isSidebarOpen ? 'opacity-0 top-2' : 'top-2')} />
+              <span className={'absolute left-0 w-5 h-0.5 bg-[#B74B21] rounded-full transition-all duration-300 ' + (isSidebarOpen ? '-rotate-45 top-2' : 'top-4')} />
+            </div>
+          </button>
 
-          {/* Logo — centered on mobile, left-aligned on desktop */}
+          {/* Logo — big at top, shrinks on scroll */}
           <NavLink to='/' className='flex items-center flex-shrink-0'>
-            <img src='/logo_1.png' className={'w-auto object-contain hover:scale-105 transition-all duration-500 ease-in-out ' + (isScrolled ? 'h-[60px] md:h-[64px]' : 'h-[86px] md:h-[108px]')} alt='Venetus Interior logo' />
+            <img src='/logo_1.png' className={'w-auto object-contain hover:scale-105 transition-all duration-500 ease-in-out ' + (isScrolled ? 'h-[56px] md:h-[64px]' : 'h-[86px] md:h-[108px]')} alt='Venetus Interior logo' />
           </NavLink>
 
-          {/* Desktop Nav Links */}
+          {/* Desktop Nav Links - left of logo */}
           <div className='hidden md:flex items-center gap-7 lg:gap-10 ml-5 lg:ml-8'>
             {['About', 'Services', 'Portfolio', 'Process'].map(page => (
               <NavLink key={page} to={'/' + page} className={navLinkClasses}>
@@ -62,8 +60,8 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Desktop Spacer */}
-          <div className='hidden md:flex flex-1' />
+          {/* Spacer */}
+          <div className='flex-1' />
 
           {/* Desktop CTA */}
           <div className='hidden md:flex items-center'>
@@ -76,8 +74,8 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Mobile WhatsApp — flex-1 + justify-end balances the hamburger side, logo stays centered */}
-          <a href='https://wa.me/917830015110' target='_blank' rel='noopener noreferrer' className='flex md:hidden flex-1 justify-end items-center p-2 rounded-full hover:bg-green-100 transition-colors' aria-label='Chat on WhatsApp'>
+          {/* Mobile WhatsApp */}
+          <a href='https://wa.me/917830015110' target='_blank' rel='noopener noreferrer' className='flex md:hidden items-center justify-center p-2 rounded-full hover:bg-green-100 transition-colors ml-auto' aria-label='Chat on WhatsApp'>
             <svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' className='text-[#25D366] fill-current'><path d={WA_PATH} /></svg>
           </a>
 
