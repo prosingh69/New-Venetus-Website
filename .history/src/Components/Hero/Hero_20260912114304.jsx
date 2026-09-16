@@ -1,0 +1,147 @@
+import React from 'react'
+import React, { useRef } from 'react'
+import { ArrowRight } from "lucide-react"
+import { NavLink } from 'react-router-dom'
+import { motion, useInView } from 'framer-motion'
+import { LettersPullUp } from '../Animations/LettersPullUp'
+
+const Hero = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  return (
+    <section
+      ref={ref}
+      className='bg-[#F8F6F4] py-16 md:py-5 px-5 md:px-10 flex flex-col md:flex-row md:justify-between md:items-center border-b border-[#F3E5DE] gap-12 lg:gap-16'
+    >
+
+    <section className='bg-[#F8F6F4] py-16 md:py-5 px-5 md:px-10 flex flex-col md:flex-row md:justify-between md:items-center border-b border-[#F3E5DE] gap-12 lg:gap-16'>
+        
+        
+        <div className='w-full md:w-1/2 flex flex-col'>
+            <div className='flex justify-center md:justify-start'>
+                <span className='bg-[#F7ECE2] text-[#E88B30] py-2 px-4 rounded-full font-semibold text-sm md:text-base'>
+                    ✓ Trusted by 500+ Families
+                </span>
+            </div>
+            
+            
+            <h1 className='text-4xl md:text-5xl lg:text-[66px] font-bold flex flex-col text-center md:text-left mt-6 mb-5 leading-tight lg:leading-[1.1] text-gray-900'>
+                Transform Your <span className="text-[#9c3e1b]">Bangalore Home</span> 
+            </h1>
+            
+            
+            <p className='text-center md:text-left text-[#6E4C40] text-lg md:text-[20px] mb-8 leading-relaxed text-pretty'>
+                Premium interior design with transparent pricing, guaranteed timelines, and material quality you can trust. We specialize in Bangalore apartments.
+            </p>
+      <div className='w-full md:w-1/2 flex flex-col'>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <NavLink 
+                    to="/contact" 
+                    className='group flex justify-center gap-2 items-center bg-[#9c3e1b] hover:bg-[#B74B21] py-3 px-6 rounded-lg text-white font-medium transition-all duration-300 active:scale-95 shadow-md hover:shadow-lg'
+                >
+                    Schedule Free Consultation
+                    <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </NavLink>
+                <NavLink 
+                    to="/portfolio" 
+                    className="text-center transition-all duration-300 active:scale-95 border-2 border-[#F3E5DE] py-3 px-6 hover:border-[#9c3e1b] hover:bg-[#9c3e1b] rounded-lg hover:text-white font-medium text-[#6E4C40]"
+                >
+                    View Portfolio
+                </NavLink>
+            </div>
+        {/* Badge — slides down + fades in */}
+        <motion.div
+          className='flex justify-center md:justify-start'
+          initial={{ opacity: 0, y: -18 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 0 }}
+        >
+          <span className='bg-[#F7ECE2] text-[#E88B30] py-2 px-4 rounded-full font-semibold text-sm md:text-base'>
+            ✓ Trusted by 500+ Families
+          </span>
+        </motion.div>
+
+        {/* Heading — LettersPullUp per line, both start at delay 0.2s */}
+        <div className='text-4xl md:text-5xl lg:text-[66px] font-bold flex flex-col text-center md:text-left mt-6 mb-5 leading-tight lg:leading-[1.1]'>
+          <LettersPullUp
+            text="Transform Your"
+            className="text-gray-900"
+            startDelay={0.2}
+          />
+          <LettersPullUp
+            text="Bangalore Home"
+            className="text-[#9c3e1b]"
+            startDelay={0.2}
+          />
+        </div>
+
+      
+        <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-4 md:mt-0">
+           <img 
+    src="https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786672515/WhatsApp_Image_2026-08-10_at_2.19.33_PM_cnokpi.jpg" 
+    alt="Venetus Interior Design Project" 
+    className='w-full max-w-md lg:max-w-lg h-75 md:h-112.5 rounded-2xl object-cover object-top shadow-xl' 
+/>
+        {/* Paragraph — single block fade-in, runs in parallel with heading */}
+        <motion.p
+          className='text-center md:text-left text-[#6E4C40] text-lg md:text-[20px] mb-8 leading-relaxed text-pretty'
+          initial={{ opacity: 0, y: 14 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.65, ease: 'easeOut', delay: 0.2 }}
+        >
+          Premium interior design with transparent pricing, guaranteed timelines, and material quality you can trust. We specialize in Bangalore apartments.
+        </motion.p>
+
+        {/* Buttons — staggered slide-up, after heading settles */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.45, ease: 'easeOut', delay: 0.6 }}
+          >
+            <NavLink
+              to="/contact"
+              className='group flex justify-center gap-2 items-center bg-[#9c3e1b] hover:bg-[#B74B21] py-3 px-6 rounded-lg text-white font-medium transition-all duration-300 active:scale-95 shadow-md hover:shadow-lg'
+            >
+              Schedule Free Consultation
+              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </NavLink>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.45, ease: 'easeOut', delay: 0.72 }}
+          >
+            <NavLink
+              to="/portfolio"
+              className="text-center transition-all duration-300 active:scale-95 border-2 border-[#F3E5DE] py-3 px-6 hover:border-[#9c3e1b] hover:bg-[#9c3e1b] rounded-lg hover:text-white font-medium text-[#6E4C40]"
+            >
+              View Portfolio
+            </NavLink>
+          </motion.div>
+        </div>
+
+      </div>
+
+      {/* Hero Image — fade-in + subtle scale, near-simultaneous with content */}
+      <motion.div
+        className="w-full md:w-1/2 flex justify-center md:justify-end mt-4 md:mt-0"
+        initial={{ opacity: 0, scale: 0.97 }}
+        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
+      >
+        <img
+          src="https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786672515/WhatsApp_Image_2026-08-10_at_2.19.33_PM_cnokpi.jpg"
+          alt="Venetus Interior Design Project"
+          className='w-full max-w-md lg:max-w-lg h-75 md:h-112.5 rounded-2xl object-cover object-top shadow-xl'
+        />
+      </motion.div>
+
+    </section>
+  )
+}
+
+export default Hero

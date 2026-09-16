@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { ArrowRight } from "lucide-react"
 import { NavLink } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
-import { TypingEffect } from '../Animations/TypingEffect'
+import { LettersPullUp } from '../Animations/LettersPullUp'
 
 const Hero = () => {
   const ref = useRef(null);
@@ -28,62 +28,56 @@ const Hero = () => {
           </span>
         </motion.div>
 
-        {/* Heading — TypingEffect sequential: line 1 types, then line 2 starts */}
+        {/* Heading — LettersPullUp per line, both start at delay 0.2s */}
         <div className='text-4xl md:text-5xl lg:text-[66px] font-bold flex flex-col text-center md:text-left mt-6 mb-5 leading-tight lg:leading-[1.1]'>
-          {/* Line 1: "Transform Your" = 14 chars × 0.04s = 0.56s → done at 0.76s */}
-          <TypingEffect
+          <LettersPullUp
             text="Transform Your"
             className="text-gray-900"
             startDelay={0.2}
-            charDelay={0.04}
           />
-          {/* Line 2 starts after line 1 finishes: delay = 0.2 + 14×0.04 + 0.06 = 0.82s */}
-          <TypingEffect
+          <LettersPullUp
             text="Bangalore Home"
             className="text-[#9c3e1b]"
-            startDelay={0.82}
-            charDelay={0.04}
+            startDelay={0.2}
           />
         </div>
 
-        {/* Paragraph — single block fade-in, after both heading lines done (~1.4s) */}
+        {/* Paragraph — single block fade-in, runs in parallel with heading */}
         <motion.p
           className='text-center md:text-left text-[#6E4C40] text-lg md:text-[20px] mb-8 leading-relaxed text-pretty'
           initial={{ opacity: 0, y: 14 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.65, ease: 'easeOut', delay: 1.4 }}
+          transition={{ duration: 0.65, ease: 'easeOut', delay: 0.2 }}
         >
           Premium interior design with transparent pricing, guaranteed timelines, and material quality you can trust. We specialize in Bangalore apartments.
         </motion.p>
 
-        {/* Buttons — staggered slide-up after para starts appearing */}
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-start">
+        {/* Buttons — staggered slide-up, after heading settles */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.45, ease: 'easeOut', delay: 1.8 }}
-            className="w-full sm:w-auto flex"
+            transition={{ duration: 0.45, ease: 'easeOut', delay: 0.6 }}
           >
             <NavLink
               to="/contact"
-              className='group w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#9c3e1b] hover:bg-[#B74B21] border-2 border-[#9c3e1b] hover:border-[#B74B21] py-3 px-6 rounded-lg text-white font-medium transition-all duration-300 active:scale-95 shadow-md hover:shadow-lg leading-normal'
+              className='group flex justify-center gap-2 items-center bg-[#9c3e1b] hover:bg-[#B74B21] py-3 px-6 rounded-lg text-white font-medium transition-all duration-300 active:scale-95 shadow-md hover:shadow-lg'
             >
-              <span>Schedule Free Consultation</span>
-              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
+              Schedule Free Consultation
+              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </NavLink>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.45, ease: 'easeOut', delay: 1.92 }}
-            className="w-full sm:w-auto flex"
+            transition={{ duration: 0.45, ease: 'easeOut', delay: 0.72 }}
           >
             <NavLink
               to="/portfolio"
-              className="w-full sm:w-auto inline-flex justify-center items-center text-center transition-all duration-300 active:scale-95 border-2 border-[#F3E5DE] py-3 px-6 hover:border-[#9c3e1b] hover:bg-[#9c3e1b] rounded-lg hover:text-white font-medium text-[#6E4C40] leading-normal"
+              className="text-center transition-all duration-300 active:scale-95 border-2 border-[#F3E5DE] py-3 px-6 hover:border-[#9c3e1b] hover:bg-[#9c3e1b] rounded-lg hover:text-white font-medium text-[#6E4C40]"
             >
-              <span>View Portfolio</span>
+              View Portfolio
             </NavLink>
           </motion.div>
         </div>
@@ -108,4 +102,4 @@ const Hero = () => {
   )
 }
 
-export default Hero;
+export default Hero

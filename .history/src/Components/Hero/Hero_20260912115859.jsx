@@ -57,6 +57,7 @@ const Hero = () => {
         </motion.p>
 
         {/* Buttons — staggered slide-up after para starts appearing */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -66,8 +67,11 @@ const Hero = () => {
           >
             <NavLink
               to="/contact"
+              className='group flex justify-center gap-2 items-center bg-[#9c3e1b] hover:bg-[#B74B21] py-3 px-6 rounded-lg text-white font-medium transition-all duration-300 active:scale-95 shadow-md hover:shadow-lg'
               className='group w-full sm:w-auto inline-flex justify-center items-center gap-2 bg-[#9c3e1b] hover:bg-[#B74B21] border-2 border-[#9c3e1b] hover:border-[#B74B21] py-3 px-6 rounded-lg text-white font-medium transition-all duration-300 active:scale-95 shadow-md hover:shadow-lg leading-normal'
             >
+              Schedule Free Consultation
+              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
               <span>Schedule Free Consultation</span>
               <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
             </NavLink>
@@ -81,8 +85,10 @@ const Hero = () => {
           >
             <NavLink
               to="/portfolio"
+              className="text-center transition-all duration-300 active:scale-95 border-2 border-[#F3E5DE] py-3 px-6 hover:border-[#9c3e1b] hover:bg-[#9c3e1b] rounded-lg hover:text-white font-medium text-[#6E4C40]"
               className="w-full sm:w-auto inline-flex justify-center items-center text-center transition-all duration-300 active:scale-95 border-2 border-[#F3E5DE] py-3 px-6 hover:border-[#9c3e1b] hover:bg-[#9c3e1b] rounded-lg hover:text-white font-medium text-[#6E4C40] leading-normal"
             >
+              View Portfolio
               <span>View Portfolio</span>
             </NavLink>
           </motion.div>
@@ -108,4 +114,4 @@ const Hero = () => {
   )
 }
 
-export default Hero;
+export default Hero
