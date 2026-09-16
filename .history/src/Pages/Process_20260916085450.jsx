@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet-async'
 
 const Process = () => {
   return (
+    <div>
     <>
       <Helmet prioritizeSeoTags>
         <title>Our Process | Venetus Interior</title>
@@ -20,6 +21,7 @@ const Process = () => {
         <Material/>
         <WhyWorks/>
         <LastCTA/>
+    </div>
       </div>
     </>
   )
