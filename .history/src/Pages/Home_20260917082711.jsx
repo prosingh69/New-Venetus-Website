@@ -13,7 +13,7 @@ const Home = () => {
     <Helmet prioritizeSeoTags>
         <title>Venetus Interior | Premium Home & Interior Design</title>
         <meta name="description" content="Transform your living space with Venetus Interior. Experience modern home design, stunning before-and-after room transformations, and premium aesthetics." />
-        <meta name="keywords" content="interior design, home decor, modern interior design, living room transformation, Venetus Interior" />
+        <meta name="keywords" content="interior design, home decor, modern interiors, living room transformation, Venetus Interior" />
         <link rel="canonical" href="https://www.venetusinterior.in/" />
       </Helmet>
     <div>

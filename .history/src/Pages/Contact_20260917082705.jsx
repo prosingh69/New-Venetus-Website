@@ -7,6 +7,10 @@ const Contact = () => {
   return (
     <>
       <Helmet prioritizeSeoTags>
+        <title>Contact Us | Book a Consultation with Venetus Interiors</title>
+        <meta name="description" content="Ready to elevate your home? Get in touch with Venetus Interiors today to schedule a consultation and start your interior design journey." />
+        <meta name="keywords" content="contact interior designer, book design consultation, Venetus Interiors contact, hire interior decorator" />
+        <link rel="canonical" href="https://new-venetus-website.vercel.app/contact" />
         <title>Contact Us | Book a Consultation with Venetus Interior</title>
         <meta name="description" content="Ready to elevate your home? Get in touch with Venetus Interior today to schedule a consultation and start your interior design journey." />
         <meta name="keywords" content="contact interior designer, book design consultation, Venetus Interior contact, hire interior decorator" />

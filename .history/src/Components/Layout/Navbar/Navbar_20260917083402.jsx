@@ -33,6 +33,7 @@ const Navbar = () => {
   return (
     <>
       {/* MAIN NAVBAR */}
+      <nav className={'fixed top-0 left-0 right-0 z-40 bg-[#F8F6F4] transition-all duration-500 ease-in-out ' + (isScrolled ? 'shadow-[0_2px_16px_rgba(0,0,0,0.09)] border-b border-[#EDE0D8]' : 'border-b border-transparent')}>
       <nav aria-label="Main Navigation" className={'fixed top-0 left-0 right-0 z-40 bg-[#F8F6F4] transition-all duration-500 ease-in-out ' + (isScrolled ? 'shadow-[0_2px_16px_rgba(0,0,0,0.09)] border-b border-[#EDE0D8]' : 'border-b border-transparent')}>
         <div className={'max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14 flex items-center transition-all duration-500 ease-in-out ' + (isScrolled ? 'h-[60px] md:h-[70px]' : 'h-[100px] md:h-[120px]')}>
 

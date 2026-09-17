@@ -9,9 +9,12 @@ const Portfolio = () => {
   return (
     <>
       <Helmet prioritizeSeoTags>
+        <title>Design Portfolio & Transformations | Venetus Interiors</title>
+        <meta name="description" content="Browse the Venetus Interiors portfolio. View our interactive before-and-after galleries and discover our signature sleek, modern room designs." />
         <title>Design Portfolio & Transformations | Venetus Interior</title>
         <meta name="description" content="Browse the Venetus Interior portfolio. View our interactive before-and-after galleries and discover our signature sleek, modern room designs." />
-        <meta name="keywords" content="interior design portfolio, before and after interior design, modern home gallery, design projects" />
+        <meta name="keywords" content="interior design portfolio, before and after interiors, modern home gallery, design projects" />
+        <link rel="canonical" href="https://new-venetus-website.vercel.app/portfolio" />
         <link rel="canonical" href="https://www.venetusinterior.in/portfolio" />
       </Helmet>
 
