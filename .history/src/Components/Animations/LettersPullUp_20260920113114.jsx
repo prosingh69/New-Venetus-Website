@@ -8,17 +8,21 @@ import { useRef } from 'react';
  * @param {number} startDelay  - Seconds before first letter starts animating
  * @param {number} charDelay   - Seconds between each letter (default 0.045)
  */
+export function LettersPullUp({ text, className = '', startDelay = 0 }) {
 const LettersPullUp = ({ text, className = '', startDelay = 0, charDelay = 0.045 }) => {
   const letters = text.split('');
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   const variant = {
+    initial: { y: 12, opacity: 0 },
     initial: { y: 14, opacity: 0 },
     animate: (i) => ({
       y: 0,
       opacity: 1,
       transition: {
+        delay: startDelay + i * 0.045,
+        duration: 0.35,
         delay: startDelay + i * charDelay,
         duration: 0.38,
         ease: 'easeOut',
@@ -42,6 +46,7 @@ const LettersPullUp = ({ text, className = '', startDelay = 0, charDelay = 0.045
       ))}
     </span>
   );
+}
 };
 
 // Named export (backward compat with Hero.jsx)
