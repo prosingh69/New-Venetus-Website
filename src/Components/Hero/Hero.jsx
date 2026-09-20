@@ -80,10 +80,10 @@ const Hero = () => {
             className="w-full sm:w-auto flex"
           >
             <NavLink
-              to="/Portfolio"
+              to="/portfolio"
               className='w-full sm:w-auto inline-flex justify-center items-center py-2.5 sm:py-3 px-5 sm:px-6 rounded-lg border-2 border-gray-300 text-gray-700 text-sm sm:text-base font-medium hover:border-[#9c3e1b] hover:text-[#9c3e1b] transition-all duration-300 active:scale-95 text-center leading-normal'
             >
-              View Portfolio
+              <span>View Portfolio</span>
             </NavLink>
           </motion.div>
         </div>
@@ -92,15 +92,15 @@ const Hero = () => {
 
       {/* Hero Image — smooth fade + scale */}
       <motion.div
-        className='w-full md:w-1/2 flex justify-center'
+        className="w-full md:w-1/2 flex justify-center md:justify-end mt-4 md:mt-0"
         initial={{ opacity: 0, scale: 0.97 }}
         animate={isInView ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
+        transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
       >
         <img
-          src="/hero_img.webp"
-          alt="Modern Bangalore living room designed by Venetus Interior"
-          className="rounded-2xl shadow-xl w-full max-w-lg md:max-w-none object-cover h-64 sm:h-80 md:h-auto"
+          src="https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786672515/WhatsApp_Image_2026-08-10_at_2.19.33_PM_cnokpi.jpg"
+          alt="Venetus Interior Design Project"
+          className="w-full max-w-md lg:max-w-lg h-72 sm:h-80 md:h-112.5 rounded-2xl object-cover object-top shadow-xl"
           loading="eager"
         />
       </motion.div>
@@ -109,4 +109,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default Hero;
