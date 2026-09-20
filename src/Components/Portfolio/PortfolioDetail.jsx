@@ -1,7 +1,6 @@
 import React from 'react'
 import PortfolioCard from './PortfolioCard'
 import { motion } from 'framer-motion'
-import FadeUp from '../Animations/FadeUp'
 
 const PortfolioData = [
   { id: 1, Before: "https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786154536/wmremove-transformed_hrezhf.png",   After: "https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786158021/WhatsApp_Image_2026-08-08_at_8.29.42_AM_gqiqg2.jpg",  Title: "Modern Kitchen",  Location: "Indiranagar", imagePosition: "object-[center_40%]" },
@@ -18,7 +17,7 @@ const gridVariants = {
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
   visible: {
     opacity: 1, y: 0, scale: 1,
     transition: { type: 'spring', stiffness: 240, damping: 22 },
@@ -27,9 +26,9 @@ const cardVariants = {
 
 const PortfolioDetail = () => {
   return (
-    <section className='bg-[#F9F8F8] px-7 py-4 lg:pb-30'>
+    <section className='bg-[#F9F8F8] px-4 sm:px-6 md:px-8 py-8 lg:pb-24 max-w-7xl mx-auto'>
       <motion.div
-        className='grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-10'
+        className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8'
         variants={gridVariants}
         initial="hidden"
         whileInView="visible"

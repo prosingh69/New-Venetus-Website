@@ -9,7 +9,7 @@ const PortfolioCard = ({
   Challenge,           
   Solution,
   Result,
-  imagePosition = "object-center" // Default position set ki hai
+  imagePosition = "object-center"
 }) => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const containerRef = useRef(null);
@@ -29,17 +29,17 @@ const PortfolioCard = ({
   let wrapperClasses, imageSectionClasses, textSectionClasses, titleClasses, locationClasses;
 
   if (layout === 'horizontal') {
-    wrapperClasses = 'flex flex-col md:flex-row p-5 md:p-6 gap-6 md:gap-8 bg-white rounded-[30px] shadow-[0_4px_20px_rgba(0,0,0,0.12)] font-sans mb-8';
-    imageSectionClasses = 'w-full md:w-1/2 h-80 md:h-[370px] rounded-3xl overflow-hidden'; 
-    textSectionClasses = 'md:w-1/2 flex flex-col justify-start py-2';
-    titleClasses = 'font-bold text-[#0A1A2F] text-xl md:text-[23px]';
-    locationClasses = 'text-orange-600 font-semibold text-[15px] mt-2 mb-5';
+    wrapperClasses = 'flex flex-col lg:flex-row p-4 sm:p-5 md:p-6 gap-5 sm:gap-6 lg:gap-8 bg-white rounded-2xl sm:rounded-[30px] shadow-[0_4px_20px_rgba(0,0,0,0.08)] font-sans';
+    imageSectionClasses = 'w-full lg:w-1/2 h-64 sm:h-72 md:h-80 lg:h-[370px] rounded-xl sm:rounded-2xl overflow-hidden'; 
+    textSectionClasses = 'w-full lg:w-1/2 flex flex-col justify-start py-2';
+    titleClasses = 'font-bold text-[#0A1A2F] text-lg sm:text-xl md:text-[23px]';
+    locationClasses = 'text-orange-600 font-semibold text-xs sm:text-sm md:text-[15px] mt-1 mb-4';
   } else {
-    wrapperClasses = 'flex flex-col bg-white rounded-[20px] shadow-[0_4px_20px_rgba(0,0,0,0.06)] overflow-hidden font-sans mb-8';
-    imageSectionClasses = 'w-full h-70 sm:h-80 relative'; 
-    textSectionClasses = 'p-5 flex flex-col'; 
-    titleClasses = 'font-bold text-gray-900 text-base';
-    locationClasses = 'text-gray-500 text-sm mt-1';
+    wrapperClasses = 'flex flex-col bg-white rounded-xl sm:rounded-[20px] shadow-[0_4px_20px_rgba(0,0,0,0.06)] overflow-hidden font-sans';
+    imageSectionClasses = 'w-full h-60 sm:h-72 relative'; 
+    textSectionClasses = 'p-4 sm:p-5 flex flex-col'; 
+    titleClasses = 'font-bold text-gray-900 text-sm sm:text-base';
+    locationClasses = 'text-gray-500 text-xs sm:text-sm mt-1';
   }
 
   return (
@@ -56,66 +56,62 @@ const PortfolioCard = ({
           src={AfterImg} 
           alt="After" 
           loading="lazy" 
-          // imagePosition prop ko yahan add kiya
           className={`absolute inset-0 w-full h-full object-cover pointer-events-none ${imagePosition}`} 
-          draggable="false" 
-        />
-        
-        <img 
-          src={BeforeImg} 
-          alt="Before" 
-          loading="lazy"
-          // imagePosition prop ko yahan add kiya
-          className={`absolute inset-0 w-full h-full object-cover pointer-events-none ${imagePosition}`} 
-          draggable="false" 
-          style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }} 
         />
 
-        <div className={`absolute top-4 left-4 bg-gray-500/80 px-3 py-1 rounded-md text-white text-[11px] font-bold tracking-wider z-20 transition-opacity duration-300 ${showBeforeLabel ? 'opacity-100' : 'opacity-0'}`}>
-          {layout === 'horizontal'? "Before Renovation" : "BEFORE"}
-        </div>
-        <div className={`absolute top-4 right-4 bg-gray-500/80 px-3 py-1 rounded-md text-white text-[11px] font-bold tracking-wider z-20 transition-opacity duration-300 ${showAfterLabel ? 'opacity-100' : 'opacity-0'}`}>
-          {layout === 'horizontal'? "After Renovation" : "AFTER"}
+        <div 
+          className="absolute inset-0 overflow-hidden" 
+          style={{ width: `${sliderPosition}%` }}
+        >
+          <img 
+            src={BeforeImg} 
+            alt="Before" 
+            loading="lazy" 
+            className={`absolute inset-0 w-full h-full object-cover pointer-events-none max-w-none ${imagePosition}`}
+            style={{ 
+              width: containerRef.current ? `${containerRef.current.clientWidth}px` : '100%',
+              height: '100%' 
+            }} 
+          />
         </div>
 
-        <div className="absolute top-0 bottom-0 w-1 bg-white pointer-events-none z-30" style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center transition-transform duration-200 group-hover:scale-105">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4 text-gray-700">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15L4.5 12l3.75-3m7.5 6L19.5 12l-3.75-3" />
+        <div 
+          className="absolute top-0 bottom-0 w-0.75 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] cursor-ew-resize z-10"
+          style={{ left: `${sliderPosition}%` }}
+        >
+          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full shadow-md flex items-center justify-center border border-gray-200">
+            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M8 9l4-4 4 4m0 6l-4 4-4-4" transform="rotate(90 12 12)" />
             </svg>
           </div>
         </div>
+
+        <div className={`absolute top-3 left-3 sm:top-4 sm:left-4 bg-gray-500/80 px-2 sm:px-3 py-0.5 sm:py-1 rounded-md text-white text-[10px] sm:text-[11px] font-bold tracking-wider z-20 transition-opacity duration-300 ${showBeforeLabel ? 'opacity-100' : 'opacity-0'}`}>
+          BEFORE
+        </div>
+        <div className={`absolute top-3 right-3 sm:top-4 sm:right-4 bg-gray-500/80 px-2 sm:px-3 py-0.5 sm:py-1 rounded-md text-white text-[10px] sm:text-[11px] font-bold tracking-wider z-20 transition-opacity duration-300 ${showAfterLabel ? 'opacity-100' : 'opacity-0'}`}>
+          AFTER
+        </div>
       </div>
 
-      {/* Text Section niche same rahega */}
       <div className={textSectionClasses}>
-        <h3 className={titleClasses}>
-          {Title}
-        </h3>
-        <p className={locationClasses}>
-          {Location}
-        </p>
+        <h3 className={titleClasses}>{Title}</h3>
+        <p className={locationClasses}>{Location}</p>
 
         {layout === 'horizontal' && (
-          <div className="flex flex-col gap-5 mt-1">
-            {Challenge && (
-              <div>
-                <h4 className="font-semibold text-[#1F2937] text-[16px]">Challenge</h4>
-                <p className="text-gray-600 text-[15px] mt-1 leading-relaxed">{Challenge}</p>
-              </div>
-            )}
-            {Solution && (
-              <div>
-                <h4 className="font-semibold text-[#1F2937] text-[16px]">Our Solution</h4>
-                <p className="text-gray-600 text-[15px] mt-1 leading-relaxed">{Solution}</p>
-              </div>
-            )}
-            {Result && (
-              <div>
-                <h4 className="font-semibold text-[#1F2937] text-[16px]">Result</h4>
-                <p className="text-gray-600 text-[15px] mt-1 leading-relaxed">{Result}</p>
-              </div>
-            )}
+          <div className="space-y-3 sm:space-y-4">
+            <div>
+              <h4 className="font-semibold text-[#1F2937] text-xs sm:text-sm md:text-[16px]">Challenge</h4>
+              <p className="text-gray-600 text-xs sm:text-sm md:text-[15px] mt-1 leading-relaxed text-pretty">{Challenge}</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-[#1F2937] text-xs sm:text-sm md:text-[16px]">Our Solution</h4>
+              <p className="text-gray-600 text-xs sm:text-sm md:text-[15px] mt-1 leading-relaxed text-pretty">{Solution}</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-[#1F2937] text-xs sm:text-sm md:text-[16px]">Result</h4>
+              <p className="text-gray-600 text-xs sm:text-sm md:text-[15px] mt-1 leading-relaxed text-pretty">{Result}</p>
+            </div>
           </div>
         )}
       </div>

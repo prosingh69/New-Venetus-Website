@@ -1,5 +1,4 @@
 import React from 'react'
-import Testimonial from '../Testimonial/Testimonial'
 import ClientReviewCard from './ClientReviewCard'
 
 const ClientStory = () => {
@@ -48,14 +47,16 @@ const ClientStory = () => {
         }
     ]
   return (
-    <section className='flex justify-center items-center flex-col bg-[#F9F4F1] px-7 py-10 md:py-20'>
-        <h2 className='text-4xl font-bold mb-3'>All Client Testimonials</h2>
-        <p className='text-[#6E4C40] text-lg mb-7'>Read what 500+ satisfied families have to say</p>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
+    <section className='flex justify-center items-center flex-col bg-[#F9F4F1] px-4 sm:px-6 md:px-8 py-10 sm:py-16 md:py-20'>
+      <div className="max-w-7xl mx-auto w-full flex flex-col items-center">
+        <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-center text-balance'>All Client Testimonials</h2>
+        <p className='text-[#6E4C40] text-sm sm:text-base md:text-lg mb-8 sm:mb-10 text-center text-balance px-2'>Read what 500+ satisfied families have to say</p>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full'>
             {reviewData.map((Data)=>(
                 <ClientReviewCard key={Data.id} Para={Data.Para} Name={Data.Name} Location={Data.Location} Type={Data.Type}/>
             ))}
         </div>
+      </div>
     </section>
   )
 }

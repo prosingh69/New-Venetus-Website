@@ -11,18 +11,22 @@ const HorizontalPortfolioData = [
 
 const CaseStudy = () => {
   return (
-    <section className='py-10 px-7 md:p-10 flex flex-col justify-center items-center'>
+    <section className='py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 flex flex-col justify-center items-center'>
       <FadeUp delay={0.05} duration={0.65}>
-        <h2 className='text-4xl font-bold mb-4 text-center'>Featured Case Studies</h2>
+        <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-center text-balance'>
+          Featured Case Studies
+        </h2>
       </FadeUp>
-      <FadeUp delay={0.2} duration={0.6}>
-        <p className='text-lg text-[#6E4C40] mb-4 lg:mb-16'>Detailed look at our most impactful projects</p>
+      <FadeUp delay={0.18} duration={0.6}>
+        <p className='text-sm sm:text-base md:text-lg text-[#6E4C40] mb-6 sm:mb-10 text-center text-balance px-2'>
+          Detailed look at our most impactful projects
+        </p>
       </FadeUp>
-      <div className="w-full max-w-8xl mx-auto">
+      <div className="w-full max-w-7xl mx-auto space-y-6 sm:space-y-8">
         {HorizontalPortfolioData.map((Data, i) => (
           <motion.div
             key={Data.id}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 35 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.65, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}

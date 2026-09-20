@@ -21,7 +21,7 @@ const gridVariants = {
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 36, scale: 0.93 },
+  hidden: { opacity: 0, y: 28, scale: 0.93 },
   visible: {
     opacity: 1, y: 0, scale: 1,
     transition: { type: 'spring', stiffness: 260, damping: 22 },
@@ -33,7 +33,7 @@ const ContactSection = () => {
     <div>
       {/* Contact detail cards — staggered */}
       <motion.section
-        className='grid grid-cols-1 lg:grid-cols-3 gap-7 bg-[#F9F8F8] px-7 py-15'
+        className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7 bg-[#F9F8F8] px-4 sm:px-6 md:px-8 py-10 sm:py-14 max-w-7xl mx-auto'
         variants={gridVariants}
         initial="hidden"
         whileInView="visible"
@@ -47,9 +47,9 @@ const ContactSection = () => {
       </motion.section>
 
       {/* Form + sidebar — slide in from opposite sides */}
-      <section className='grid grid-cols-1 lg:grid-cols-2 gap-8 p-7 bg-[#F9F8F8] pb-20'>
+      <section className='grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 p-4 sm:p-6 md:p-8 bg-[#F9F8F8] pb-14 sm:pb-20 max-w-7xl mx-auto'>
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -57,10 +57,11 @@ const ContactSection = () => {
           <Form />
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="flex flex-col gap-4 sm:gap-6"
         >
           <Whatsapp />
           <WhyContact />

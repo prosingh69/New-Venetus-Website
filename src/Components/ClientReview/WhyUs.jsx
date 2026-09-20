@@ -35,9 +35,9 @@ const WhyUs = () => {
     }
   ]
   return (
-    <section className='lg:py-20 py-10 px-7'>
-        <h2 className='text-4xl font-bold text-center'>Why Families Trust Us</h2>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-5 md:mt-10'>
+    <section className='py-10 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto'>
+        <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-center text-balance px-2'>Why Families Trust Us</h2>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mt-6 sm:mt-10'>
              {familyData.map((Data)=>(
               <ClientTrust key={Data.id} Title={Data.Title} Para={Data.Para}/>
              ))}

@@ -19,7 +19,7 @@ const gridVariants = {
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 32, scale: 0.92 },
+  hidden: { opacity: 0, y: 24, scale: 0.93 },
   visible: {
     opacity: 1, y: 0, scale: 1,
     transition: { type: 'spring', stiffness: 260, damping: 20 },
@@ -28,21 +28,25 @@ const cardVariants = {
 
 const WhyWorks = () => {
   return (
-    <section className='bg-[#F9F8F8] py-20'>
-      <FadeUp delay={0.05} duration={0.65}>
-        <h1 className='text-4xl font-bold text-center mb-4'>Why Our Process Works</h1>
-      </FadeUp>
-      <motion.div
-        className='grid grid-cols-1 md:grid-cols-3 gap-5 p-7'
-        variants={gridVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-60px' }}
-      >
-        {WhyWorkData.map((Data) => (
-          <WhyWorkCard key={Data.id} Badge={Data.Badge} Name={Data.Name} Para={Data.Para} motionVariants={cardVariants} />
-        ))}
-      </motion.div>
+    <section className='bg-[#F9F8F8] py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8'>
+      <div className="max-w-7xl mx-auto">
+        <FadeUp delay={0.05} duration={0.65}>
+          <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 text-balance px-2'>
+            Why Our Process Works
+          </h2>
+        </FadeUp>
+        <motion.div
+          className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6'
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+        >
+          {WhyWorkData.map((Data) => (
+            <WhyWorkCard key={Data.id} Badge={Data.Badge} Name={Data.Name} Para={Data.Para} motionVariants={cardVariants} />
+          ))}
+        </motion.div>
+      </div>
     </section>
   )
 }

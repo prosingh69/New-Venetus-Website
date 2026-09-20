@@ -59,20 +59,20 @@ const Form = () => {
     <>
       <Toaster position="top-center" reverseOrder={false} />
 
-      <form ref={formRef} onSubmit={HandleData} className='rounded-2xl bg-white p-7 lg:h-169 shadow-xl hover:shadow-2xl transition-all'>
-        <h1 className='text-2xl font-semibold mb-3'>Send us a Message</h1>
+      <form ref={formRef} onSubmit={HandleData} className='rounded-xl sm:rounded-2xl bg-white p-5 sm:p-7 shadow-lg hover:shadow-xl transition-all'>
+        <h2 className='text-xl sm:text-2xl font-semibold mb-3 text-gray-900'>Send us a Message</h2>
 
-        <label className='block mb-1'>Name</label>
-        <input type="text" name="user_name" placeholder='Your Name' className='border border-black/20 w-full rounded-xl py-2 px-4 mb-3' required />
+        <label className='block mb-1 text-xs sm:text-sm font-medium text-gray-700'>Name</label>
+        <input type="text" name="user_name" placeholder='Your Name' className='border border-black/20 w-full rounded-lg sm:rounded-xl py-2 px-3 sm:px-4 mb-3 text-sm sm:text-base focus:border-[#B74B21] outline-none' required />
 
-        <label className='block mb-1'>Email</label>
-        <input type="email" name="user_email" placeholder='Your@gmail.com' className='border border-black/20 w-full rounded-xl py-2 px-4 mb-3' required />
+        <label className='block mb-1 text-xs sm:text-sm font-medium text-gray-700'>Email</label>
+        <input type="email" name="user_email" placeholder='Your@gmail.com' className='border border-black/20 w-full rounded-lg sm:rounded-xl py-2 px-3 sm:px-4 mb-3 text-sm sm:text-base focus:border-[#B74B21] outline-none' required />
 
-        <label className='block mb-1'>Phone</label>
-        <input type="text" name="user_phone" placeholder='+91 XXXXX XXXXX' className='border border-black/20 w-full rounded-xl py-2 px-4 mb-3' required />
+        <label className='block mb-1 text-xs sm:text-sm font-medium text-gray-700'>Phone</label>
+        <input type="text" name="user_phone" placeholder='+91 XXXXX XXXXX' className='border border-black/20 w-full rounded-lg sm:rounded-xl py-2 px-3 sm:px-4 mb-3 text-sm sm:text-base focus:border-[#B74B21] outline-none' required />
 
-        <label className='block mb-1'>Project type</label>
-        <select name="project_type" className='border border-black/20 w-full rounded-xl p-2 outline-none pr-20 bg-white mb-3' value={projectType} onChange={(e) => setProjectType(e.target.value)} required>
+        <label className='block mb-1 text-xs sm:text-sm font-medium text-gray-700'>Project type</label>
+        <select name="project_type" className='border border-black/20 w-full rounded-lg sm:rounded-xl p-2 sm:p-2.5 outline-none bg-white mb-3 text-sm sm:text-base focus:border-[#B74B21]' value={projectType} onChange={(e) => setProjectType(e.target.value)} required>
           <option value="">Select a project type</option>
           <option value="Kitchen Design">Kitchen Design</option>
           <option value="Bedroom Design">Bedroom Design</option>
@@ -83,22 +83,21 @@ const Form = () => {
 
         {projectType === 'Others' && (
           <div className="mb-3">
-            <label className='block mb-1'>Please specify</label>
-            <input type="text" name="other_project_type" placeholder='What is the other project?' className='border border-black/20 w-full rounded-xl py-2 px-4' required />
+            <label className='block mb-1 text-xs sm:text-sm font-medium text-gray-700'>Please specify</label>
+            <input type="text" name="other_project_type" placeholder='What is the other project?' className='border border-black/20 w-full rounded-lg sm:rounded-xl py-2 px-3 sm:px-4 text-sm sm:text-base' required />
           </div>
         )}
 
-        <label className='block mb-1'>Message</label>
-        <textarea name="message" placeholder='Tell us about your project....' className='border border-black/20 w-full rounded-xl py-2 px-4 h-20 max-h-24' required />
+        <label className='block mb-1 text-xs sm:text-sm font-medium text-gray-700'>Message</label>
+        <textarea name="message" placeholder='Tell us about your project....' className='border border-black/20 w-full rounded-lg sm:rounded-xl py-2 px-3 sm:px-4 h-20 max-h-24 text-sm sm:text-base outline-none focus:border-[#B74B21]' required />
 
         <button
           type="submit"
           disabled={isLoading}
-          className={`w-full text-white flex items-center justify-center gap-2 py-3 mt-2 rounded-xl bg-[#B74B21] transition-all 
-            ${isLoading ? 'opacity-70 cursor-not-allowed' : 'active:scale-98 cursor-pointer hover:bg-[#a0411d]'}`}
+          className={`w-full text-white flex items-center justify-center gap-2 py-2.5 sm:py-3 mt-3 rounded-lg sm:rounded-xl bg-[#B74B21] text-sm sm:text-base font-semibold transition-all ${isLoading ? 'opacity-70 cursor-not-allowed' : 'active:scale-98 cursor-pointer hover:bg-[#a0411d]'}`}
         >
           <span>{isLoading ? 'Sending...' : 'Send Message'}</span>
-          {isLoading ? <Loader2 size={20} className="mt-1.25 animate-spin" /> : <ArrowRight size={20} className="mt-1.25" />}
+          {isLoading ? <Loader2 size={18} className="animate-spin" /> : <ArrowRight size={18} />}
         </button>
       </form>
     </>

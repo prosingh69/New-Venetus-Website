@@ -18,7 +18,7 @@ const gridVariants = {
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1, y: 0,
     transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] },
@@ -27,12 +27,14 @@ const cardVariants = {
 
 const WhyService = () => {
   return (
-    <section className='bg-[#FFFFFF] px-15 py-20'>
+    <section className='bg-[#FFFFFF] px-4 sm:px-8 md:px-12 lg:px-15 py-12 sm:py-16 md:py-20 max-w-7xl mx-auto'>
       <FadeUp delay={0.05} duration={0.65}>
-        <h2 className='text-4xl font-bold mb-12 text-center'>Why Choose Our Services</h2>
+        <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center text-balance'>
+          Why Choose Our Services
+        </h2>
       </FadeUp>
       <motion.div
-        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-13'
+        className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12'
         variants={gridVariants}
         initial="hidden"
         whileInView="visible"

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import FadeUp from '../Animations/FadeUp'
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 36, scale: 0.93 },
+  hidden: { opacity: 0, y: 30, scale: 0.93 },
   visible: {
     opacity: 1, y: 0, scale: 1,
     transition: { type: 'spring', stiffness: 250, damping: 22 },
@@ -42,19 +42,19 @@ const MeetTeam = () => {
   ]
 
   return (
-    <section className='flex flex-col justify-center items-center bg-white py-10 md:py-20 px-5 md:px-10'>
+    <section className='flex flex-col justify-center items-center bg-white py-10 sm:py-16 md:py-20 px-4 sm:px-6 md:px-10'>
       <FadeUp delay={0.05} duration={0.65}>
-        <h2 className='text-3xl md:text-4xl font-bold mb-3 md:mb-4 lg:mb-3 text-center'>
+        <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-center text-balance'>
           Meet Our Team
         </h2>
       </FadeUp>
-      <FadeUp delay={0.2} duration={0.6}>
-        <p className='text-[#6E4C40] text-base md:text-lg mb-8 md:mb-10 lg:mb-12 text-center max-w-2xl'>
+      <FadeUp delay={0.18} duration={0.6}>
+        <p className='text-[#6E4C40] text-sm sm:text-base md:text-lg mb-8 sm:mb-10 text-center text-balance max-w-2xl px-2'>
           Expert designers with years of experience in Bangalore interior design
         </p>
       </FadeUp>
       <motion.div
-        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6 w-full max-w-6xl'
+        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl'
         variants={gridVariants}
         initial="hidden"
         whileInView="visible"

@@ -16,7 +16,7 @@ const gridVariants = {
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.93 },
+  hidden: { opacity: 0, y: 30, scale: 0.94 },
   visible: {
     opacity: 1, y: 0, scale: 1,
     transition: { type: 'spring', stiffness: 250, damping: 22 },
@@ -26,7 +26,7 @@ const cardVariants = {
 const AboutService = () => {
   return (
     <motion.section
-      className='grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#F8F7F7] p-8 md:p-16'
+      className='grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 bg-[#F8F7F7] p-4 sm:p-8 md:p-12 lg:p-16 max-w-7xl mx-auto'
       variants={gridVariants}
       initial="hidden"
       whileInView="visible"
