@@ -1,11 +1,12 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
-const WhyServiceCard = ({Data}) => {
+const WhyServiceCard = ({ Data, motionVariants }) => {
   return (
-    <div className='flex flex-col text-center'>
-        <h2 className='text-xl mb-3 font-medium'>{Data.Title}</h2>
-        <p>{Data.Para}</p>
-    </div>
+    <motion.div variants={motionVariants} className='flex flex-col text-center'>
+      <h2 className='text-xl mb-3 font-medium'>{Data.Title}</h2>
+      <p>{Data.Para}</p>
+    </motion.div>
   )
 }
 
