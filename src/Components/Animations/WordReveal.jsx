@@ -11,7 +11,7 @@ const WordReveal = ({ text, className = '', startDelay = 0, wordDelay = 0.08, al
   return (
     <span
       ref={ref}
-      className={`inline-flex flex-wrap ${justifyClass} items-center gap-[0.28em] ${className}`}
+      className={`inline-flex flex-wrap ${justifyClass} items-center gap-[0.28em] w-full ${className}`}
       style={{ justifyContent: align === 'left' ? 'flex-start' : align === 'right' ? 'flex-end' : 'center' }}
     >
       {words.map((word, i) => (
@@ -24,7 +24,8 @@ const WordReveal = ({ text, className = '', startDelay = 0, wordDelay = 0.08, al
             delay: startDelay + i * wordDelay,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
-          style={{ display: 'inline-block' }}
+          className="inline-block whitespace-nowrap shrink-0"
+          style={{ display: 'inline-block', whiteSpace: 'nowrap' }}
         >
           {word}
         </motion.span>

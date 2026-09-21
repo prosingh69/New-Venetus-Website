@@ -2,9 +2,16 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 /**
- * LettersPullUp - animates each letter upward with stagger, preserving word integrity.
+ * LettersPullUp - animates each letter upward with stagger.
  */
-const LettersPullUp = ({ text, className = '', startDelay = 0, charDelay = 0.045, align = 'center' }) => {
+const LettersPullUp = ({ 
+  text, 
+  className = '', 
+  startDelay = 0, 
+  charDelay = 0.045, 
+  align = 'center',
+  nowrap = false 
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -18,11 +25,18 @@ const LettersPullUp = ({ text, className = '', startDelay = 0, charDelay = 0.045
   let globalCharIndex = 0;
 
   return (
-    <span ref={ref} className={`inline-flex flex-wrap ${justifyClass} items-center gap-[0.25em] w-full`}>
+    <span 
+      ref={ref} 
+      className={`inline-flex ${nowrap ? 'flex-nowrap whitespace-nowrap' : 'flex-wrap'} ${justifyClass} items-center gap-x-[0.25em] w-full`}
+    >
       {words.map((word, wIdx) => {
         const letters = word.split('');
         return (
-          <span key={wIdx} className="inline-flex whitespace-nowrap">
+          <span
+            key={wIdx}
+            className="inline-block whitespace-nowrap shrink-0"
+            style={{ whiteSpace: 'nowrap', display: 'inline-block' }}
+          >
             {letters.map((char) => {
               const i = globalCharIndex++;
               return (

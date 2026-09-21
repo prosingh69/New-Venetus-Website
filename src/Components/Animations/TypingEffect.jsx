@@ -2,9 +2,17 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 /**
- * TypingEffect — animates letters sequentially, grouping words so words don't split awkwardly across lines.
+ * TypingEffect — animates letters sequentially.
+ * With nowrap={true}, words in the line stay together on a single line!
  */
-export function TypingEffect({ text, className = '', startDelay = 0, charDelay = 0.04, align = 'responsive-hero' }) {
+export function TypingEffect({ 
+  text, 
+  className = '', 
+  startDelay = 0, 
+  charDelay = 0.04, 
+  align = 'responsive-hero',
+  nowrap = true 
+}) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -18,11 +26,18 @@ export function TypingEffect({ text, className = '', startDelay = 0, charDelay =
   let globalCharIndex = 0;
 
   return (
-    <span ref={ref} className={`inline-flex flex-wrap ${justifyClass} items-center gap-x-[0.28em] w-full`}>
+    <span 
+      ref={ref} 
+      className={`inline-flex ${nowrap ? 'flex-nowrap whitespace-nowrap' : 'flex-wrap'} ${justifyClass} items-center gap-x-[0.26em]`}
+    >
       {words.map((word, wIdx) => {
         const letters = word.split('');
         return (
-          <span key={wIdx} className="inline-flex whitespace-nowrap">
+          <span
+            key={wIdx}
+            className="inline-block whitespace-nowrap shrink-0"
+            style={{ whiteSpace: 'nowrap', display: 'inline-block' }}
+          >
             {letters.map((letter) => {
               const index = globalCharIndex++;
               return (
@@ -32,6 +47,7 @@ export function TypingEffect({ text, className = '', startDelay = 0, charDelay =
                   animate={isInView ? { opacity: 1 } : {}}
                   transition={{ duration: 0.1, delay: startDelay + index * charDelay }}
                   className={className}
+                  style={{ display: 'inline-block' }}
                 >
                   {letter}
                 </motion.span>

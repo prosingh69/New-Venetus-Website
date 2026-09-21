@@ -26,28 +26,30 @@ const cardVariants = {
 
 const PortfolioDetail = () => {
   return (
-    <section className='bg-[#F9F8F8] px-4 sm:px-6 md:px-8 py-8 lg:pb-24 max-w-7xl mx-auto'>
-      <motion.div
-        className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8'
-        variants={gridVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-60px' }}
-      >
-        {PortfolioData.map((Data) => (
-          <motion.div key={Data.id} variants={cardVariants}>
-            <PortfolioCard
-              BeforeImg={Data.Before}
-              AfterImg={Data.After}
-              Title={Data.Title}
-              Location={Data.Location}
-              imagePosition={Data.imagePosition}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
+    <section className='bg-[#F9F8F8] px-5 md:px-10 lg:px-14 py-8 lg:pb-24'>
+      <div className='max-w-screen-xl mx-auto'>
+        <motion.div
+          className='grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-8 lg:gap-10'
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+        >
+          {PortfolioData.map((Data) => (
+            <motion.div key={Data.id} variants={cardVariants}>
+              <PortfolioCard
+                BeforeImg={Data.Before}
+                AfterImg={Data.After}
+                Title={Data.Title}
+                Location={Data.Location}
+                imagePosition={Data.imagePosition}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   )
 }
 
-export default PortfolioDetail
+export default PortfolioDetail;
