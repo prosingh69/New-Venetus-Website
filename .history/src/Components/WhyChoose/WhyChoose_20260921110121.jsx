@@ -35,10 +35,12 @@ const WhyChoose = () => {
       <div className='max-w-7xl mx-auto'>
 
         <div className='flex flex-col items-center justify-center text-center mb-8 sm:mb-12 md:mb-16 px-2'>
+          <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 text-gray-900 text-center text-balance'>
           <h2 className='text-3xl sm:text-4xl md:text-[44px] lg:text-[50px] font-bold mb-3 md:mb-4 text-gray-900 text-center text-balance leading-tight'>
             <LettersPullUp text="Why Choose Us" startDelay={0.1} align="center" />
           </h2>
           <FadeUp delay={0.4} duration={0.6}>
+            <p className='text-sm sm:text-base md:text-lg text-[#6E4C40] max-w-2xl text-pretty text-center'>
             <p className='text-base sm:text-lg lg:text-xl text-[#6E4C40] max-w-2xl text-pretty text-center'>
               We build trust through transparency, quality, and exceptional service.
             </p>

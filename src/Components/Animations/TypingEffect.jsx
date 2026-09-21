@@ -11,7 +11,7 @@ export function TypingEffect({
   startDelay = 0, 
   charDelay = 0.04, 
   align = 'responsive-hero',
-  nowrap = true 
+  nowrap = false 
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });

@@ -7,7 +7,7 @@ const AppLayout = () => {
   return (
     <>
     <Navbar/>
-    <main>
+    <main className="w-full overflow-x-hidden">
       <Outlet/>
     </main>
     <Footer/>

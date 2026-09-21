@@ -48,10 +48,12 @@ const Testimonial = ({ showButton = true }) => {
     return (
         <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4" ref={sectionRef}>
             <div className='flex flex-col items-center text-center px-2 mb-8 sm:mb-10 max-w-3xl mx-auto'>
+                <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-bold mb-3 text-gray-900 text-center text-balance w-full'>
                 <h2 className='text-3xl sm:text-4xl md:text-[44px] lg:text-[50px] font-bold mb-3 text-gray-900 text-center text-balance w-full leading-tight'>
                     <WordReveal text="What Our Clients Say" startDelay={0.05} wordDelay={0.08} align="center" />
                 </h2>
                 <FadeUp delay={0.4} duration={0.6}>
+                    <p className='text-sm sm:text-base md:text-lg text-[#804C40] max-w-2xl text-center text-balance px-2'>
                     <p className='text-base sm:text-lg lg:text-xl text-[#804C40] max-w-2xl text-center text-balance px-2'>
                         Join 500+ satisfied families who have transformed their Bangalore homes
                     </p>

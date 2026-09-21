@@ -29,7 +29,7 @@ const PortfolioDetail = () => {
     <section className='bg-[#F9F8F8] px-5 md:px-10 lg:px-14 py-8 lg:pb-24'>
       <div className='max-w-screen-xl mx-auto'>
         <motion.div
-          className='grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-8 lg:gap-10'
+          className='grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10'
           variants={gridVariants}
           initial="hidden"
           whileInView="visible"

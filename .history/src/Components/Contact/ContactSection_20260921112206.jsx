@@ -47,6 +47,7 @@ const ContactSection = () => {
       </motion.section>
 
       {/* Form + sidebar — slide in from opposite sides */}
+      <section className='grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 p-4 sm:p-6 md:p-8 bg-[#F9F8F8] pb-14 sm:pb-20 max-w-7xl mx-auto'>
       <section className='grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 p-4 sm:p-6 md:p-8 bg-[#F9F8F8] pb-14 sm:pb-20 max-w-7xl mx-auto items-stretch'>
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -62,6 +63,7 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="flex flex-col gap-4 sm:gap-6"
           className="flex flex-col gap-4 sm:gap-6 justify-between h-full"
         >
           <Whatsapp />
