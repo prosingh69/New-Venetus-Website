@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 
 const HeroCard = ({ Title, Para }) => {
   return (
-    <section className='bg-[#F9F5F3] py-10 sm:py-14 md:py-18 px-5 md:px-10 lg:px-14 border-b border-[#F3E5DE]/50'>
-      <div className='max-w-screen-xl mx-auto flex flex-col items-center md:items-start text-center md:text-left w-full'>
+    <section className='w-full bg-[#F9F5F3] py-10 sm:py-14 md:py-18 border-b border-[#F3E5DE]/50'>
+      <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14 flex flex-col items-center md:items-start text-center md:text-left w-full'>
         <motion.h1
           className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 leading-tight text-balance'
           initial={{ opacity: 0, y: 30 }}

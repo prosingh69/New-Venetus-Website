@@ -6,9 +6,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className='bg-[#111111] text-white px-5 sm:px-8 md:px-12 lg:px-24 py-12 md:py-16'>
-      
-      <div className='border-b border-[#2A2A2A] pb-10 sm:pb-12 flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-16'>
+    <footer className='w-full bg-[#111111] text-white py-12 md:py-16'>
+      <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14'>
+        <div className='border-b border-[#2A2A2A] pb-10 sm:pb-12 flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-16'>
 
         {/* Brand Column */}
         <div className='flex flex-col items-start max-w-sm'>
@@ -76,6 +76,7 @@ const Footer = () => {
         <p className='text-gray-600 text-xs'>
           Designed with quality & craftsmanship
         </p>
+        </div>
       </div>
     </footer>
   );

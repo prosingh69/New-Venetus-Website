@@ -25,13 +25,15 @@ const cardVariants = {
 
 const AboutService = () => {
   return (
-    <motion.section
-      className='grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 bg-[#F8F7F7] p-4 sm:p-8 md:p-12 lg:p-16 max-w-7xl mx-auto'
-      variants={gridVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-60px' }}
-    >
+    <section className='w-full bg-[#F8F7F7] py-10 sm:py-14 md:py-18'>
+      <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14'>
+        <motion.div
+          className='grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8'
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+        >
       {ServiceData.map((Data) => (
         <ServiceCard
           key={Data.id}
@@ -42,7 +44,9 @@ const AboutService = () => {
           motionVariants={cardVariants}
         />
       ))}
-    </motion.section>
+        </motion.div>
+      </div>
+    </section>
   )
 }
 

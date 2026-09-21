@@ -4,8 +4,8 @@ import FadeUp from '../Animations/FadeUp'
 
 const AboutStory = () => {
   return (
-    <section className='bg-[#F9F8F8] py-10 sm:py-14 md:py-20 px-5 md:px-10 lg:px-14'>
-      <div className='max-w-screen-xl mx-auto flex flex-col md:flex-row md:items-stretch gap-8 lg:gap-16 w-full'>
+    <section className='w-full bg-[#F9F8F8] py-10 sm:py-14 md:py-20'>
+      <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14 flex flex-col md:flex-row md:items-stretch gap-8 lg:gap-16 w-full'>
 
         <div className='w-full md:w-1/2 flex flex-col justify-center text-center md:text-left'>
           <FadeUp delay={0.05} duration={0.65}>

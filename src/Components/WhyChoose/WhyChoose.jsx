@@ -31,8 +31,8 @@ const cardVariants = {
 
 const WhyChoose = () => {
   return (
-    <section className='bg-[#F9F8F8] py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8'>
-      <div className='max-w-7xl mx-auto'>
+    <section className='w-full bg-[#F9F8F8] py-12 sm:py-16 md:py-24'>
+      <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14'>
 
         <div className='flex flex-col items-center justify-center text-center mb-8 sm:mb-12 md:mb-16 px-2'>
           <h2 className='text-3xl sm:text-4xl md:text-[44px] lg:text-[50px] font-bold mb-3 md:mb-4 text-gray-900 text-center text-balance leading-tight'>

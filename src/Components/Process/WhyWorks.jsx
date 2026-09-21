@@ -28,8 +28,8 @@ const cardVariants = {
 
 const WhyWorks = () => {
   return (
-    <section className='bg-[#F9F8F8] py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8'>
-      <div className="max-w-7xl mx-auto">
+    <section className='w-full bg-[#F9F8F8] py-12 sm:py-16 md:py-20'>
+      <div className="max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14">
         <FadeUp delay={0.05} duration={0.65}>
           <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 text-balance px-2'>
             Why Our Process Works

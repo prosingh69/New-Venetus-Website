@@ -42,8 +42,9 @@ const MeetTeam = () => {
   ]
 
   return (
-    <section className='flex flex-col justify-center items-center bg-white py-10 sm:py-16 md:py-20 px-4 sm:px-6 md:px-10'>
-      <FadeUp delay={0.05} duration={0.65}>
+    <section className='w-full bg-white py-10 sm:py-16 md:py-20'>
+      <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14 flex flex-col items-center'>
+        <FadeUp delay={0.05} duration={0.65}>
         <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-center text-balance'>
           Meet Our Team
         </h2>
@@ -64,6 +65,7 @@ const MeetTeam = () => {
           <TeamCard key={data.id} data={data} motionVariants={cardVariants} />
         ))}
       </motion.div>
+      </div>
     </section>
   )
 }

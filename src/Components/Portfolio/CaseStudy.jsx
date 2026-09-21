@@ -11,8 +11,9 @@ const HorizontalPortfolioData = [
 
 const CaseStudy = () => {
   return (
-    <section className='py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 flex flex-col justify-center items-center'>
-      <FadeUp delay={0.05} duration={0.65}>
+    <section className='w-full py-8 sm:py-12 md:py-16 flex flex-col justify-center items-center'>
+      <div className='w-full max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14 flex flex-col items-center'>
+        <FadeUp delay={0.05} duration={0.65}>
         <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-center text-balance'>
           Featured Case Studies
         </h2>
@@ -22,7 +23,7 @@ const CaseStudy = () => {
           Detailed look at our most impactful projects
         </p>
       </FadeUp>
-      <div className="w-full max-w-7xl mx-auto space-y-6 sm:space-y-8">
+      <div className="w-full space-y-6 sm:space-y-8 mt-2">
         {HorizontalPortfolioData.map((Data, i) => (
           <motion.div
             key={Data.id}
@@ -44,6 +45,7 @@ const CaseStudy = () => {
             />
           </motion.div>
         ))}
+      </div>
       </div>
     </section>
   )

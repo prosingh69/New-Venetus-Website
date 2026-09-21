@@ -27,8 +27,8 @@ const cardVariants = {
 
 const ProcessStep = () => {
   return (
-    <section className='py-12 sm:py-16 md:py-20 bg-[#F9F8F8] px-4 sm:px-6 md:px-8'>
-      <div className="max-w-7xl mx-auto">
+    <section className='w-full py-12 sm:py-16 md:py-20 bg-[#F9F8F8]'>
+      <div className="max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14">
         <FadeUp delay={0.05} duration={0.65}>
           <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-balance px-2'>
             6-Step Design & Execution Process

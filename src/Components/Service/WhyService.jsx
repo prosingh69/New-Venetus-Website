@@ -27,8 +27,9 @@ const cardVariants = {
 
 const WhyService = () => {
   return (
-    <section className='bg-[#FFFFFF] px-4 sm:px-8 md:px-12 lg:px-15 py-12 sm:py-16 md:py-20 max-w-7xl mx-auto'>
-      <FadeUp delay={0.05} duration={0.65}>
+    <section className='w-full bg-[#FFFFFF] py-12 sm:py-16 md:py-20'>
+      <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14'>
+        <FadeUp delay={0.05} duration={0.65}>
         <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center text-balance'>
           Why Choose Our Services
         </h2>
@@ -43,7 +44,8 @@ const WhyService = () => {
         {whyServiceData.map((Data, index) => (
           <WhyServiceCard key={index} Data={Data} motionVariants={cardVariants} />
         ))}
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   )
 }

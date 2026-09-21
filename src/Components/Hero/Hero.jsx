@@ -11,9 +11,9 @@ const Hero = () => {
   return (
     <section
       ref={ref}
-      className='bg-[#F8F6F4] pt-6 md:pt-8 pb-12 md:pb-16 px-5 md:px-10 lg:px-14 border-b border-[#F3E5DE]'
+      className='w-full bg-[#F8F6F4] pt-6 md:pt-8 pb-12 md:pb-16 border-b border-[#F3E5DE]'
     >
-      <div className='max-w-screen-xl mx-auto flex flex-col md:flex-row md:justify-between md:items-center gap-10 lg:gap-16 w-full'>
+      <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14 flex flex-col md:flex-row md:justify-between md:items-center gap-10 lg:gap-16 w-full'>
 
         <div className='w-full md:w-1/2 flex flex-col'>
 

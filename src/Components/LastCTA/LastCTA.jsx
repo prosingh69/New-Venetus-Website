@@ -22,7 +22,7 @@ const LastCTA = () => {
       </motion.h2>
 
       <motion.p
-        className='text-sm sm:text-base md:text-lg text-white/95 mb-6 sm:mb-8 text-center text-balance max-w-xl px-2 leading-relaxed'
+        className='text-sm sm:text-base md:text-lg text-white/95 mb-6 sm:mb-8 text-center max-w-3xl px-4 leading-relaxed'
         initial={{ opacity: 0, y: 24 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
