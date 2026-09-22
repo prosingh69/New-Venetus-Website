@@ -58,6 +58,7 @@ const Testimonial = ({ showButton = true }) => {
                 </FadeUp>
             </div>
 
+            <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 relative">
             <div className="w-full max-w-5xl lg:max-w-6xl mx-auto px-4 sm:px-6 relative">
                 {loading ? (
                     <div className="flex justify-center items-center py-16 sm:py-20">
@@ -66,12 +67,19 @@ const Testimonial = ({ showButton = true }) => {
                 ) : testimonialsData.length > 0 ? (
                     <>
                         <motion.div
+                            initial={{ opacity: 0, x: 40 }}
+                            animate={isInView ? { opacity: 1, x: 0 } : {}}
+                            transition={{ duration: 0.65, delay: 0.2, type: 'spring', stiffness: 200, damping: 24 }}
                             key={currentIndex}
                             initial={{ opacity: 0, x: 25 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.45, ease: 'easeOut' }}
                         >
                             <TestimonialCard 
+                            key={testimonialsData[currentIndex]?._id || currentIndex} 
+                            testimonial={testimonialsData[currentIndex]} 
+                            index={currentIndex}
+                        />
                                 key={testimonialsData[currentIndex]?._id || currentIndex} 
                                 testimonial={testimonialsData[currentIndex]} 
                                 index={currentIndex}

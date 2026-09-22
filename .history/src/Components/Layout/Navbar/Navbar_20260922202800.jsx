@@ -78,6 +78,7 @@ const Navbar = () => {
 
           {/* Mobile WhatsApp — hidden when sidebar is open, centered layout */}
           <a
+            href='https://wa.me/917830015110'
             href='https://wa.me/919916565945'
             target='_blank'
             rel='noopener noreferrer'
@@ -111,6 +112,7 @@ const Navbar = () => {
           <NavLink to='/Process' className={sidebarLinkClasses}><Route size={20} className='text-[#B74B21]' />Process</NavLink>
           <div className='mt-4 pt-5 border-t border-[#EDE0D8] flex flex-col gap-3'>
             <NavLink to='/Contact' className='block w-full text-center bg-[#B74B21] py-3 px-6 rounded-xl text-white font-bold hover:bg-[#9c3e1b] transition-all duration-300 shadow-md active:scale-95'>Get Started</NavLink>
+            <a href='https://wa.me/917830015110' target='_blank' rel='noopener noreferrer' className='flex items-center justify-center gap-2 border border-[#25D366] text-[#25D366] py-2.5 px-6 rounded-xl font-semibold hover:bg-green-50 transition-all'>
             <a href='https://wa.me/919916565945' target='_blank' rel='noopener noreferrer' className='flex items-center justify-center gap-2 border border-[#25D366] text-[#25D366] py-2.5 px-6 rounded-xl font-semibold hover:bg-green-50 transition-all'>
               <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' className='fill-current'><path d={WA_PATH} /></svg>
               WhatsApp Us

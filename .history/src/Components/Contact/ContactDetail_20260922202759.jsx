@@ -3,6 +3,8 @@ import React from 'react'
 const ContactDetail = ({Icon,Title,Method,Detail,Para}) => {
     const Symbols = Icon;
     const generateLink = () => {
+    if (Method === "tel") return `tel:${Detail}`;
+    if (Method === "mailto") return `mailto:${Detail}`;
     if (Method === "tel") return `tel:${Detail.replace(/\s+/g, '')}`;
     if (Method === "mailto") return `mailto:${Detail.trim()}`;
     if (Method === "map") return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(Detail)}`;

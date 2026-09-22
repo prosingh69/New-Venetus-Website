@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Whatsapp = () => {
+    const phoneNumber = "917830015110"; 
     const phoneNumber = "919916565945"; 
     
     const message = "Hi Venetus Interior, I want to know more about your design services!";

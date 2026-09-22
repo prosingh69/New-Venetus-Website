@@ -55,12 +55,16 @@ const Footer = () => {
               <MapPin size={15} className="text-[#B74B21] shrink-0" />
               <span>Bangalore, Karnataka, India</span>
             </div>
+            <a href="tel:+917830015110" className="flex items-center gap-2.5 text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
             <a href="tel:+919916565945" className="flex items-center gap-2.5 text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
               <Phone size={15} className="text-[#B74B21] shrink-0" />
+              <span>+91 78300 15110</span>
               <span>+91 99165 65945</span>
             </a>
+            <a href="mailto:info@venetusinterior.com" className="flex items-center gap-2.5 text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
             <a href="mailto:support@venetusinterior.in" className="flex items-center gap-2.5 text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
               <Mail size={15} className="text-[#B74B21] shrink-0" />
+              <span>info@venetusinterior.com</span>
               <span>support@venetusinterior.in</span>
             </a>
           </div>
