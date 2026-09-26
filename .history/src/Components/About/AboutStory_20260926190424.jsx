@@ -15,11 +15,13 @@ const AboutStory = () => {
           </FadeUp>
           <FadeUp delay={0.18} duration={0.6}>
             <p className='text-[#6E4C40] text-sm sm:text-base md:text-lg mb-3 sm:mb-4 leading-relaxed text-pretty'>
+              Founded in 2009, our journey began with a simple mission: to bring affordable luxury interior design to Bangalore homes without compromising on quality or transparency.
               Started in 2024, our journey began with a simple mission: to bring affordable luxury interior design to Bangalore homes without compromising on quality or transparency.
             </p>
           </FadeUp>
           <FadeUp delay={0.28} duration={0.6}>
             <p className='text-[#6E4C40] text-sm sm:text-base md:text-lg mb-3 sm:mb-4 leading-relaxed text-pretty'>
+              Over 15 years, we've completed 500+ projects, earning the trust of families across Bangalore. We believe that great design is not just about aesthetics—it's about creating spaces where families feel at home.
               We have completed 20+ projects and currently have 5+ ongoing projects, earning the trust of families across Bangalore. We believe that great design is not just about aesthetics—it's about creating spaces where families feel at home.
             </p>
           </FadeUp>
