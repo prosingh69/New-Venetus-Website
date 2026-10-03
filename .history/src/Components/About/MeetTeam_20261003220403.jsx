@@ -27,6 +27,10 @@ const MeetTeam = () => {
     },
     {
       id: 2,
+      Profile: "https://randomuser.me/api/portraits/men/45.jpg",
+      Name: "Rahul Sharma",
+      Profession: "Project Manager",
+      Detail: "10+ years managing high-end residential projects. Ensures timely and seamless execution."
       Profile: "https://res.cloudinary.com/lbei6xmb/image/upload/v1791044677/Gemini_Generated_Image_v7j1l3v7j1l3v7j1-clean_cxv1ml.png",
       Name: "Yashwanth J",
       Profession: "Founder",
@@ -45,36 +49,29 @@ const MeetTeam = () => {
     <section className='w-full bg-white py-10 sm:py-16 md:py-20'>
       <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14 flex flex-col items-center'>
         <FadeUp delay={0.05} duration={0.65}>
-          <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-center text-balance'>
-            Meet Our Team
-          </h2>
-        </FadeUp>
-        <FadeUp delay={0.18} duration={0.6}>
-          <p className='text-[#6E4C40] text-sm sm:text-base md:text-lg mb-8 sm:mb-10 text-center text-balance max-w-2xl px-2'>
-            Expert designers with years of experience in Bangalore interior design
-          </p>
-        </FadeUp>
-        <motion.div
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl'
-          variants={gridVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-        >
-          {TeamMemberData.map((data, index) => (
-            <TeamCard
-              key={data.id}
-              data={data}
-              motionVariants={cardVariants}
-              isFeatured={index === 1}
-              isBlurred={index !== 1}
-            />
-          ))}
-        </motion.div>
+        <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-center text-balance'>
+          Meet Our Team
+        </h2>
+      </FadeUp>
+      <FadeUp delay={0.18} duration={0.6}>
+        <p className='text-[#6E4C40] text-sm sm:text-base md:text-lg mb-8 sm:mb-10 text-center text-balance max-w-2xl px-2'>
+          Expert designers with years of experience in Bangalore interior design
+        </p>
+      </FadeUp>
+      <motion.div
+        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl'
+        variants={gridVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-60px' }}
+      >
+        {TeamMemberData.map((data) => (
+          <TeamCard key={data.id} data={data} motionVariants={cardVariants} />
+        ))}
+      </motion.div>
       </div>
     </section>
   )
 }
 
 export default MeetTeam
-
