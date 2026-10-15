@@ -89,16 +89,25 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [isSidebarOpen, isMenuOpen]);
 
-  // Clean body scroll lock without DOM filter blur (prevents white flashes/layout repaints)
+  // Bulletproof body scroll lock for mobile & desktop (prevents mobile elastic drag while preserving scroll position)
   useEffect(() => {
     if (isMenuOpen || isSidebarOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+      document.documentElement.style.overflow = 'hidden';
+
+      return () => {
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+        window.scrollTo(0, scrollY);
+      };
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
   }, [isMenuOpen, isSidebarOpen]);
 
   // Mobile drawer handlers
@@ -140,16 +149,10 @@ const Navbar = () => {
             <button
               type="button"
               onClick={toggleSidebar}
-              className={`relative flex justify-center items-center rounded-full hover:bg-white/10 transition-all duration-300 focus:outline-none cursor-pointer ${
-                isScrolled ? 'w-9 h-9 scale-90' : 'w-10 h-10 scale-100'
-              }`}
+              className="relative flex justify-center items-center w-10 h-10 rounded-full hover:bg-white/10 transition-all duration-300 focus:outline-none cursor-pointer"
               aria-label="Toggle Menu"
             >
-              <div
-                className={`relative transition-all duration-300 ${
-                  isScrolled ? 'w-4 h-3.5 scale-90' : 'w-5 h-4 scale-100'
-                }`}
-              >
+              <div className="relative w-5 h-4 transition-all duration-300">
                 <span
                   className={`absolute left-0 w-full h-0.5 rounded-full transition-all duration-300 ${
                     isLightText ? 'bg-white' : 'bg-primary'
@@ -233,6 +236,7 @@ const Navbar = () => {
           isSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         onClick={closeSidebar}
+        onTouchMove={(e) => e.preventDefault()}
         aria-hidden="true"
       />
 
