@@ -136,7 +136,7 @@ const Navbar = () => {
           }
         >
           {/* MOBILE ONLY: Hamburger button on the left (scales slightly down when scrolled) */}
-          <div className="flex md:hidden flex-1">
+          <div className="flex md:hidden items-center">
             <button
               type="button"
               onClick={toggleSidebar}
@@ -169,7 +169,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* LOGO: Centered on mobile (< md), Left-aligned on tablet & desktop (md:) */}
+          {/* LOGO: Right-aligned on mobile (< md), Left-aligned on tablet & desktop (md:) */}
           {/* Scales down slightly when page is scrolled, full big size when scroll is 0 */}
           <NavLink
             to="/"
@@ -177,7 +177,7 @@ const Navbar = () => {
               closeSidebar();
               closeMenu();
             }}
-            className="flex items-center flex-shrink-0"
+            className="flex items-center flex-shrink-0 ml-auto md:ml-0"
           >
             <img
               src="https://res.cloudinary.com/lbei6xmb/image/upload/v1792067711/Venetus_Interior_gold-and-white_logo_gqrlmw.png"
@@ -188,29 +188,6 @@ const Navbar = () => {
               alt="Venetus Interior logo"
             />
           </NavLink>
-
-          {/* MOBILE ONLY: WhatsApp Button on the right */}
-          <a
-            href="https://wa.me/919916565945"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={
-              'flex md:hidden flex-1 justify-end items-center p-2 rounded-full hover:bg-white/10 transition-all duration-300 ' +
-              (isSidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100') +
-              (isScrolled ? ' scale-90' : ' scale-100')
-            }
-            aria-label="Chat on WhatsApp"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              className="text-whatsapp fill-current"
-            >
-              <path d={WA_PATH} />
-            </svg>
-          </a>
 
           {/* TABLET & DESKTOP ONLY: McButton Hamburger Toggle on the right (scales slightly down when scrolled) */}
           <div className="hidden md:flex items-center">
