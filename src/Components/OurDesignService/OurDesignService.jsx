@@ -115,16 +115,17 @@ const OurDesignService = ({ locationName = 'Bangalore' }) => {
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 md:mb-16 px-4">
-          <h2 className="font-heading text-[24px] xs:text-[27px] sm:text-h2 font-medium text-white tracking-[-0.02em] leading-[1.2] sm:leading-[1.15] mb-4 text-center">
-            <span className="block sm:inline">
+          {/* Mobile view (< sm): Strictly 2 lines */}
+          <h2 className="sm:hidden font-heading text-[24px] xs:text-[27px] font-medium text-white tracking-[-0.02em] leading-[1.2] mb-4 text-center">
+            <span className="block">
               <LettersPullUp
                 text="Our Interior Design Services"
                 startDelay={0.1}
                 charDelay={0.035}
                 align="center"
               />
-            </span>{' '}
-            <span className="block sm:inline">
+            </span>
+            <span className="block">
               <LettersPullUp
                 text={`in ${locationName}`}
                 highlightWord={locationName}
@@ -134,6 +135,18 @@ const OurDesignService = ({ locationName = 'Bangalore' }) => {
                 align="center"
               />
             </span>
+          </h2>
+
+          {/* Desktop & Tablet view (sm and up): Exactly as it was originally */}
+          <h2 className="hidden sm:block font-heading text-h2 font-medium text-white tracking-[-0.02em] leading-[1.15] text-balance mb-4 text-center">
+            <LettersPullUp
+              text={`Our Interior Design Services in ${locationName}`}
+              highlightWord={locationName}
+              highlightClass="text-[#E9C27A] italic font-heading font-medium"
+              startDelay={0.1}
+              charDelay={0.035}
+              align="center"
+            />
           </h2>
 
           <FadeUp delay={0.4} duration={0.6}>
