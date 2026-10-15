@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import LettersPullUp from '../Animations/LettersPullUp';
 import FadeUp from '../Animations/FadeUp';
 import { useConsultationModal } from '../../context/ConsultationModalContext';
+import { ArrowRight } from 'lucide-react';
 
 const stepsData = [
   {
@@ -159,14 +160,18 @@ const SimpleProcess = ({ locationName = 'Bangalore' }) => {
               />
             </div>
 
-            <button
-              type="button"
-              onClick={() => openModal({ title: `Step ${currentStep.id} · ${currentStep.title}`, subtitle: currentStep.description })}
-              className="group inline-flex items-center gap-3 bg-[#E9C27A] hover:bg-[#DFB86A] text-black font-body text-[14px] font-semibold px-7 py-[14px] rounded-full transition-all duration-200 active:scale-[0.98] shadow-md shadow-black/20 hover:shadow-lg hover:shadow-primary/15 cursor-pointer"
-            >
-              <span>Book A Free Consultation</span>
-              <span className="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">→</span>
-            </button>
+            <div className="w-full flex justify-center lg:justify-start">
+              <button
+                type="button"
+                onClick={() => openModal({ title: `Step ${currentStep.id} · ${currentStep.title}`, subtitle: currentStep.description })}
+                className="group inline-flex items-center justify-center gap-3 bg-[#E9C27A] hover:bg-[#DFB86A] text-black font-body text-[14px] font-semibold px-7 py-[14px] rounded-full transition-all duration-200 active:scale-[0.98] shadow-md shadow-black/20 hover:shadow-lg hover:shadow-primary/15 cursor-pointer"
+              >
+                <span className="leading-none">Book A Free Consultation</span>
+                <span className="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center shrink-0 group-hover:translate-x-0.5 transition-transform">
+                  <ArrowRight className="w-3.5 h-3.5 text-white" strokeWidth={2.5} />
+                </span>
+              </button>
+            </div>
           </div>
 
           {/* RIGHT - BORDER HATA DIYA */}

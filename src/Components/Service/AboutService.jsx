@@ -75,16 +75,28 @@ const AboutService = () => {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-14 relative z-10">
 
         {/* Section Header matching Homepage & About theme */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 px-4">
-          <h2 className="font-heading text-h2 font-medium text-white tracking-[-0.02em] leading-[1.15] mb-3 sm:mb-4 text-center text-balance">
-            <LettersPullUp
-              text="Explore Our Comprehensive Interior Design Services"
-              highlightWord="Comprehensive Interior Design"
-              highlightClass="text-[#E9C27A] italic font-heading font-medium"
-              startDelay={0.08}
-              charDelay={0.025}
-              align="center"
-            />
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-10 sm:mb-12 md:mb-16 px-4">
+          <h2 className="font-heading text-[24px] xs:text-[28px] sm:text-h2 font-medium text-white tracking-[-0.02em] leading-[1.2] sm:leading-[1.15] mb-3 sm:mb-4 text-center">
+            <span className="block sm:whitespace-nowrap">
+              <LettersPullUp
+                text="Explore Our Comprehensive"
+                highlightWord="Comprehensive"
+                highlightClass="text-[#E9C27A] italic font-heading font-medium"
+                startDelay={0.08}
+                charDelay={0.025}
+                align="center"
+              />
+            </span>
+            <span className="block sm:whitespace-nowrap">
+              <LettersPullUp
+                text="Interior Design Services"
+                highlightWord="Interior Design"
+                highlightClass="text-[#E9C27A] italic font-heading font-medium"
+                startDelay={0.08 + 26 * 0.025}
+                charDelay={0.025}
+                align="center"
+              />
+            </span>
           </h2>
 
           <FadeUp delay={0.35} duration={0.6}>

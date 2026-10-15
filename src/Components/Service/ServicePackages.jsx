@@ -9,50 +9,58 @@ const packagesData = [
   {
     id: '1bhk',
     title: 'Urban Starter — 1 BHK',
+    badge: 'Starter',
     scope: 'Compact modular kitchen, 2 custom wardrobes, TV entertainment unit & shoe console.',
-    priceRange: 'Starts at ₹3.2 Lakhs*',
+    priceRange: 'Starts at ₹3.5 Lakhs*',
     image: '/design.jpg',
     objectPosition: 'object-center',
+    hiddenOnMobile: true,
   },
   {
     id: '2bhk',
-    title: 'Smart Living — 2 BHK',
-    scope: 'Ergonomic modular kitchen, 3 wardrobes, 2 TV units, crockery cabinet & pooja unit.',
-    priceRange: '₹5.2 – ₹8.5 Lakhs*',
+    title: 'Premium 2 BHK',
+    badge: 'Premium',
+    scope: 'High-gloss acrylic/PU modular kitchen with Blum hardware, 2-3 master wardrobes, ambient TV lounge, crockery console & false ceiling with warm profile lighting.',
+    priceRange: '₹9 – ₹13 Lakhs*',
     image: 'https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786109877/WhatsApp_Image_2026-08-03_at_9.06.08_AM_2_w26yyi.jpg',
     objectPosition: 'object-[center_25%]',
   },
   {
     id: '3bhk',
-    title: 'Family Signature — 3 BHK',
-    scope: 'Large modular kitchen, 4 wardrobes, curated living, dining & 3 full bedrooms.',
-    priceRange: '₹7.8 – ₹13.5 Lakhs*',
+    title: 'Premium 3 BHK',
+    badge: 'Premium',
+    scope: 'Grand island modular kitchen with quartz top, 3-4 floor-to-ceiling wardrobes, curated living & dining consoles, decorative wall paneling & luxury ambient lighting.',
+    priceRange: '₹13 – ₹18 Lakhs*',
     image: '/bedroom3.jpeg',
     objectPosition: 'object-center',
   },
   {
     id: '4bhk',
-    title: 'Grand Villa — 4 BHK / Duplex',
-    scope: 'Turnkey interiors with walk-in wardrobe, custom bar unit, study & designer ceilings.',
-    priceRange: '₹14 – ₹22 Lakhs*',
+    title: 'Premium 4 BHK',
+    badge: 'Premium',
+    scope: 'Turnkey luxury interiors with master walk-in closet, custom bar lounge, executive home office, acoustic designer ceilings & premium veneer finishes.',
+    priceRange: '₹18 – ₹22 Lakhs*',
     image: '/kitchen1.jpeg',
     objectPosition: 'object-center',
   },
   {
+    id: 'luxe',
+    title: 'Premium Villa LUXE',
+    badge: 'Ultra Luxe',
+    scope: 'Ultra-luxury bespoke estate styling with Italian marble accents, German Blum/Hafele fittings, smart home automation, private bar & tailored craftsmanship.',
+    priceRange: '₹22 Lakhs* Onwards',
+    image: '/package-kitchen.jpg',
+    objectPosition: 'object-[center_35%]',
+  },
+  {
     id: 'rental',
     title: 'Quick Refresh — Rental Setup',
+    badge: 'Rental',
     scope: 'Durable HDHMR modular kitchen, essential wardrobes & TV unit with 25-day handover.',
     priceRange: '₹1.8 – ₹3.8 Lakhs*',
     image: 'https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786158021/WhatsApp_Image_2026-08-08_at_8.29.42_AM_gqiqg2.jpg',
     objectPosition: 'object-[center_35%]',
-  },
-  {
-    id: 'luxe',
-    title: 'Venetus LUXE — Ultra Premium',
-    scope: 'Acrylic, PU & veneer finishes with German fittings, profile lights & bespoke craftsmanship.',
-    priceRange: 'Starts at ₹18 Lakhs*',
-    image: '/package-kitchen.jpg',
-    objectPosition: 'object-[center_35%]',
+    hiddenOnMobile: true,
   },
 ]
 
@@ -124,7 +132,7 @@ const ServicePackages = () => {
                   subtitle: `Plan your dream ${pkg.title} (${pkg.priceRange}) with transparent Bangalore pricing and custom 3D layouts.`,
                 })
               }
-              className="group cursor-pointer flex flex-col rounded-[24px] overflow-hidden bg-[#161619] border border-white/10 hover:border-[#E9C27A]/40 transition-all duration-500 shadow-xl hover:shadow-[0_24px_50px_rgba(0,0,0,0.8)]"
+              className={`group cursor-pointer flex-col rounded-[24px] overflow-hidden bg-[#161619] border border-white/10 hover:border-[#E9C27A]/40 transition-all duration-500 shadow-xl hover:shadow-[0_24px_50px_rgba(0,0,0,0.8)] ${pkg.hiddenOnMobile ? 'hidden sm:flex' : 'flex'}`}
             >
               {/* Edge-to-Edge Vertical Portrait Image Container */}
               <div className="relative w-full aspect-[4/4.8] sm:aspect-[4/4.6] overflow-hidden bg-[#0A0A0B]">
@@ -144,6 +152,14 @@ const ServicePackages = () => {
 
                 {/* Subtle Cinematic Vignette Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#161619] via-transparent to-black/40 pointer-events-none" />
+
+                {/* Floating Top-Left Luxury Badge */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-[#E9C27A]/40 text-[#E9C27A] text-[10px] sm:text-[11px] font-body font-semibold tracking-[0.16em] uppercase shadow-lg">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#E9C27A]" />
+                    {pkg.badge || 'Premium'}
+                  </span>
+                </div>
 
                 {/* Circle with Arrow: Rotates from -45° to 0° on Card Hover */}
                 <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white flex items-center justify-center group-hover:bg-[#E9C27A] group-hover:text-black group-hover:border-[#E9C27A] shadow-xl z-10 transition-all duration-300">

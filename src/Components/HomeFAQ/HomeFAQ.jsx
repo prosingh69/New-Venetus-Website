@@ -60,11 +60,49 @@ const HomeFAQ = ({ locationName = 'Bangalore' }) => {
         {/* Grid with items-stretch so left images match the exact height of right title + all questions */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
           
-          {/* FAQ Left Stack - GAP WITH CURVE, NO BORDER */}
+          {/* FAQ Left Stack */}
           <div className="lg:col-span-5 flex justify-center lg:justify-start h-full">
-            <div className="relative w-full max-w-[440px] sm:max-w-[480px] lg:max-w-none h-[540px] sm:h-[620px] lg:h-full min-h-[520px]">
+            {/* Mobile & Tablet View: Clean 2-Image Collage (< lg) */}
+            <div className="lg:hidden relative w-full max-w-[420px] sm:max-w-[460px] h-[380px] sm:h-[460px]">
+              {/* Top Main Image */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="relative w-[86%] h-[56%] rounded-3xl overflow-hidden shadow-lg border border-white/10 z-10"
+              >
+                <img
+                  src="/kitchen1.jpeg"
+                  alt={`Venetus Interior Modular Kitchen in ${locationName}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </motion.div>
 
-              {/* Image 1: Top - NO BORDER / NO PADDING */}
+              {/* Bottom Overlapping Image */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.94, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                className="absolute bottom-0 right-0 w-[78%] h-[54%] rounded-3xl overflow-hidden shadow-2xl z-20"
+                style={{
+                  boxShadow: '0 0 0 8px #18181b'
+                }}
+              >
+                <img
+                  src="/design.jpg"
+                  alt={`Venetus Interior Living Room Design in ${locationName}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </motion.div>
+            </div>
+
+            {/* Desktop View: 3-Image Stack with Curved Cutout (lg:) */}
+            <div className="hidden lg:block relative w-full h-full min-h-[520px]">
+              {/* Image 1: Top */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -80,7 +118,7 @@ const HomeFAQ = ({ locationName = 'Bangalore' }) => {
                 />
               </motion.div>
 
-              {/* Image 2: Middle - YAHI PAR GAP BANEGA */}
+              {/* Image 2: Middle Cutout */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.92, x: 20 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
@@ -88,7 +126,6 @@ const HomeFAQ = ({ locationName = 'Bangalore' }) => {
                 transition={{ duration: 0.6, delay: 0.15 }}
                 className="absolute top-[32%] right-0 w-[58%] h-[34%] rounded-[28px] overflow-hidden shadow-2xl z-20"
                 style={{ 
-                  // Exact match with section background #18181b for seamless curved cutout gap
                   boxShadow: '0 0 0 12px #18181b' 
                 }}
               >
@@ -100,7 +137,7 @@ const HomeFAQ = ({ locationName = 'Bangalore' }) => {
                 />
               </motion.div>
 
-              {/* Image 3: Bottom - NO BORDER / NO PADDING */}
+              {/* Image 3: Bottom */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.94, y: 20 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -115,7 +152,6 @@ const HomeFAQ = ({ locationName = 'Bangalore' }) => {
                   loading="lazy"
                 />
               </motion.div>
-
             </div>
           </div>
 

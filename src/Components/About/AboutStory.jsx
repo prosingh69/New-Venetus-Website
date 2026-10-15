@@ -131,7 +131,7 @@ const AboutStory = () => {
               initial={{ opacity: 0, y: 18 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.65, delay: 0.38, ease }}
-              className="font-body text-body-normal text-[#CCCCCC] leading-[1.7] mb-4 text-pretty max-w-[65ch]"
+              className="w-full font-body text-body-normal text-[#CCCCCC] leading-[1.7] mb-4 text-pretty max-w-[65ch] text-center sm:text-left mx-auto sm:mx-0 px-2 sm:px-0"
             >
               Started in 2023, our journey began with a simple mission: to bring affordable luxury interior design to Bangalore homes without compromising on quality or transparency.
             </motion.p>
@@ -139,7 +139,7 @@ const AboutStory = () => {
               initial={{ opacity: 0, y: 18 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.65, delay: 0.48, ease }}
-              className="font-body text-body-normal text-[#CCCCCC] leading-[1.7] mb-9 sm:mb-10 text-pretty max-w-[65ch]"
+              className="w-full font-body text-body-normal text-[#CCCCCC] leading-[1.7] mb-9 sm:mb-10 text-pretty max-w-[65ch] text-center sm:text-left mx-auto sm:mx-0 px-2 sm:px-0"
             >
               We have completed{' '}
               <span className="text-primary font-semibold">40+ projects</span> and
@@ -150,7 +150,7 @@ const AboutStory = () => {
             </motion.p>
 
             {/* Core Values Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {coreValues.map(({ icon: Icon, label, desc }, i) => (
                 <motion.div
                   key={label}
