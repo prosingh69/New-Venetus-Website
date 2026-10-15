@@ -96,7 +96,7 @@ const Footer = () => {
             <div className="space-y-3 sm:space-y-3.5">
               <NavLink to="/" className="inline-block transition-transform hover:scale-105 duration-300">
                 <img
-                  src="/logo_1.png"
+                  src="https://res.cloudinary.com/lbei6xmb/image/upload/v1792067711/Venetus_Interior_gold-and-white_logo_gqrlmw.png"
                   alt="Venetus Interior Bangalore"
                   className="h-16 sm:h-20 md:h-[84px] w-auto object-contain"
                 />

@@ -30,6 +30,7 @@ const HeroPanel1 = () => {
         ref={videoRef}
         key="hero-architectural-suites-video"
         src="/architectural-suites.mp4"
+        poster="https://res.cloudinary.com/lbei6xmb/image/upload/v1792067913/frame_001_4_sqw4m4.jpg"
         autoPlay
         loop
         muted

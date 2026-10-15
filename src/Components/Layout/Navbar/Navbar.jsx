@@ -180,7 +180,7 @@ const Navbar = () => {
             className="flex items-center flex-shrink-0"
           >
             <img
-              src="/logo_1.png"
+              src="https://res.cloudinary.com/lbei6xmb/image/upload/v1792067711/Venetus_Interior_gold-and-white_logo_gqrlmw.png"
               className={
                 'w-auto object-contain hover:scale-105 transition-all duration-300 ease-in-out ' +
                 (isScrolled ? 'h-[60px] md:h-[70px] scale-95' : 'h-[80px] md:h-[104px] scale-100')
@@ -268,7 +268,7 @@ const Navbar = () => {
         {/* Mobile Header */}
         <div className="flex justify-between items-center px-5 py-4 border-b border-white/10">
           <NavLink to="/" onClick={closeSidebar} className="flex items-center">
-            <img src="/logo_1.png" className="h-9 w-auto object-contain brightness-105" alt="Venetus Interior logo" />
+            <img src="https://res.cloudinary.com/lbei6xmb/image/upload/v1792067711/Venetus_Interior_gold-and-white_logo_gqrlmw.png" className="h-9 w-auto object-contain brightness-105" alt="Venetus Interior logo" />
           </NavLink>
           <button
             type="button"
