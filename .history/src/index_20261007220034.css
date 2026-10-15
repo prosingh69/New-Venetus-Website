@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  /* ========================================================
+     UNIVERSAL BRAND COLOR SYSTEM - VENETUS INTERIOR
+     Change colors here to update them across the entire site!
+     ======================================================== */
+  --primary: #B74B21;          /* Main Action, Buttons, Key Brand Color */
+  --primary-hover: #9C3E1B;    /* Hover State for Buttons and Links */
+  --secondary: #6E4C40;        /* Subtitles, Paragraphs, Explanatory Text */
+  --accent: #E78B30;           /* Highlights, Star Ratings, Badges, Step Numbers */
+  --brand-light: #F3E5DE;      /* Light Tint for Badge Backgrounds & Borders */
+  --surface-soft: #F9F8F8;     /* Off-white Section & Card Surface Background */
+  --whatsapp: #25D366;         /* Official WhatsApp Green */
+}
+
+@theme {
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-brand-light: var(--brand-light);
+  --color-surface-soft: var(--surface-soft);
+  --color-whatsapp: var(--whatsapp);
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-serif, .font-title {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans, .font-body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.ubuntu-medium {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+

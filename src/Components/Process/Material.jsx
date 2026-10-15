@@ -35,7 +35,7 @@ const Material = () => {
           </h2>
         </FadeUp>
         <FadeUp delay={0.18} duration={0.6}>
-          <p className='text-sm sm:text-base md:text-lg text-center text-[#6E4C5F] mb-6 sm:mb-8 text-balance px-2'>
+          <p className='text-sm sm:text-base md:text-lg text-center text-secondary mb-6 sm:mb-8 text-balance px-2'>
             We use certified premium brands and grades for every project
           </p>
         </FadeUp>

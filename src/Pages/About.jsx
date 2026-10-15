@@ -1,8 +1,10 @@
 import React from 'react'
 import AboutStory from '../Components/About/AboutStory'
 import MeetTeam from '../Components/About/MeetTeam'
+import HomeFAQ from '../Components/HomeFAQ/HomeFAQ'
 import AboutLastCta from '../Components/About/AboutLastCta'
-import HeroCard from '../Components/CommonComponent/HeroCard'
+import AboutHero from '../Components/About/AboutHero'
+import AboutIntro from '../Components/About/AboutIntro'
 import { Helmet } from 'react-helmet-async'
 
 const About = () => {
@@ -20,15 +22,14 @@ const About = () => {
         <meta property="og:url" content="https://www.venetusinterior.in/about" />
       </Helmet>
 
-      <main className="w-full overflow-x-hidden">
-        <HeroCard 
-          Title={"About Our Team"} 
-          Para={"We are a team of passionate interior designers dedicated to transforming Bangalore homes with elegance, transparency, and quality craftsmanship."} 
-        />
+      <div className="w-full bg-black min-h-screen text-white overflow-hidden">
+        <AboutHero />
+        <AboutIntro />
         <AboutStory />
         <MeetTeam />
+        <HomeFAQ />
         <AboutLastCta />
-      </main>
+      </div>
     </>
   )
 }

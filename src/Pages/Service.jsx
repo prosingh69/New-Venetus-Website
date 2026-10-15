@@ -1,8 +1,10 @@
 import React from 'react'
 import LastCTA from '../Components/LastCTA/LastCTA'
-import HeroCard from '../Components/CommonComponent/HeroCard'
+import ServiceHero from '../Components/Service/ServiceHero'
 import AboutService from '../Components/Service/AboutService'
-import WhyService from '../Components/Service/WhyService'
+import ServiceGallery from '../Components/Service/ServiceGallery'
+import ServicePackages from '../Components/Service/ServicePackages'
+import SimpleProcess from '../Components/Process/SimpleProcess'
 import { Helmet } from 'react-helmet-async'
 
 const Service = () => {
@@ -15,10 +17,12 @@ const Service = () => {
         <link rel="canonical" href="https://www.venetusinterior.in/services" />
       </Helmet>
 
-      <div>
-        <HeroCard Title={"Our Services"} Para={"Specialized interior design services for Bangalore homes, from single rooms to complete home transformations."} />
+      <div className="w-full bg-black min-h-screen text-white overflow-hidden">
+        <ServiceHero />
         <AboutService />
-        <WhyService />
+        <ServiceGallery />
+        <ServicePackages />
+        <SimpleProcess />
         <LastCTA />
       </div>
     </>

@@ -20,7 +20,7 @@ const WhyCard = ({ icon, title, description, motionVariants }) => {
       <h3 className='font-bold text-lg sm:text-xl text-gray-900 tracking-tight'>
         {title}
       </h3>
-      <p className='text-[#6E4C40] text-xs sm:text-sm md:text-base leading-relaxed text-pretty'>
+      <p className='text-secondary text-xs sm:text-sm md:text-base leading-relaxed text-pretty'>
         {description}
       </p>
     </motion.div>

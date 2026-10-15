@@ -7,7 +7,7 @@ import FadeUp from '../Animations/FadeUp'
 const WhyWorkData = [
   { id:1, Badge: NotepadText, Name:"Transparency",       Para:"Every step is documented. You know exactly what materials are used and why." },
   { id:2, Badge: CheckCheck,  Name:"Quality Control",    Para:"Multiple quality checks ensure perfection at each stage of execution." },
-  { id:3, Badge: Timer,       Name:"Timeline Guarantee", Para:"We commit to delivery dates and have maintained 100% on-time delivery for 15+ years." },
+  { id:3, Badge: Timer,       Name:"Timeline Guarantee", Para:"We commit to delivery dates and maintain a strict 45-day handover guarantee." },
   { id:4, Badge: HandCoins,   Name:"Budget Adherence",   Para:"No hidden costs. We provide detailed quotes and stick to budget." },
   { id:5, Badge: Phone,       Name:"Regular Updates",    Para:"Weekly progress updates keep you informed throughout the project." },
   { id:6, Badge: ShieldUser,  Name:"Warranty Backed",    Para:"10-year comprehensive warranty on all work and materials." },
@@ -28,7 +28,7 @@ const cardVariants = {
 
 const WhyWorks = () => {
   return (
-    <section className='w-full bg-[#F9F8F8] py-12 sm:py-16 md:py-20'>
+    <section className='w-full bg-surface-soft py-12 sm:py-16 md:py-20'>
       <div className="max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14">
         <FadeUp delay={0.05} duration={0.65}>
           <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 text-balance px-2'>

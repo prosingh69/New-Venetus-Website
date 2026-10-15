@@ -1,7 +1,304 @@
 @import "tailwindcss";
 
-.ubuntu-medium {
-  font-family: "Ubuntu", sans-serif;
+:root {
+  /* ========================================================
+     UNIVERSAL BRAND COLOR SYSTEM - VENETUS INTERIOR
+     ======================================================== */
+  /* BRAND COLORS */
+  --primary: #f0ca6b;
+  --primary-hover: #deb24e;
+  --gold-accent: #E9C27A;
+  --gold-label: #F2C572;
+  --secondary: #545454;
+  --secondary-dark-1: #2c2c2c;
+  --secondary-dark-2: #383838;
+  --secondary-dark: #2c2c2c;
+  --accent: #f0ca6b;
+  --brand-light: #fdf8ec;
+
+  /* SURFACES */
+  --surface-soft: #FAF8F5;
+  --surface-charcoal: #545454;
+  --pure-dark: #0a0a0a;
+  --pure-black: #000000;
+  --pure-white: #ffffff;
+  --whatsapp: #25D366;
+
+  /* BORDERS & TEXT CONTRAST */
+  --border-light: rgba(255, 255, 255, 0.10);
+  --border-gold: rgba(240, 202, 107, 0.20);
+  --text-white: #ffffff;
+  --text-soft: #EAEAEA;
+  --text-muted: #CCCCCC;
+  --text-body-dim: #E5E5E5;
+
+  /* ONLY 2 FONT FAMILIES: Cormorant Garamond & Inter (From Exact Reference Image) */
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@theme {
+  --color-primary: #f0ca6b;
+  --color-primary-hover: #deb24e;
+  --color-secondary: #545454;
+  --color-secondary-dark: #2c2c2c;
+  --color-secondary-deep: #383838;
+  --color-accent: #f0ca6b;
+  --color-brand-light: #fdf8ec;
+  --color-surface-soft: #FAF8F5;
+  --color-surface-charcoal: #545454;
+  --color-dark: #0a0a0a;
+  --color-dark-pure: #000000;
+  --color-dark-111: #111111;
+  --color-whatsapp: #25D366;
+
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-playfair: 'Cormorant Garamond', Georgia, serif;
+  --font-jakarta: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+  overflow-x: clip;
+  background-color: #0A0A0B;
+}
+
+body {
+  font-family: var(--font-body);
+  overflow-x: clip;
+  min-height: 100vh;
+  background-color: #0A0A0B;
+  color: #EAEAEA;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  background-color: #0A0A0B;
+  min-height: 100vh;
+}
+
+h1, h2 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+}
+
+p, span, button, input, select, textarea, label {
+  font-family: var(--font-body);
+}
+
+/* ========================================================
+   GLOBAL FLUID TYPOGRAPHY SCALE (VENETUS LUXURY BRAND)
+   ======================================================== */
+
+.font-heading, .font-serif, .font-playfair, .font-cormorant {
+  font-family: var(--font-heading) !important;
+}
+
+.font-body, .font-sans, .font-jakarta, .font-inter {
+  font-family: var(--font-body) !important;
+}
+
+/* H1: Hero Display Heading ("Your Dream Interiors") */
+.text-display, .h1-display {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 6.8vw, 5.6rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: #FFFFFF;
+}
+
+/* H2: Section Headings ("Our Interior Design Services") */
+.text-h2, .h2-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4.5vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  color: #FFFFFF;
+}
+
+/* H3 / Stats Numbers (12+, 20+, 99.9%, 10Yrs) */
+.text-stats-num {
+  font-family: var(--font-body);
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 700;
-  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #f0ca6b;
+}
+
+/* Stats Label (Years of Experience, Warranty Guarantee) */
+.text-stats-label {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-top: 0.5rem;
+  color: #EAEAEA;
+  text-wrap: balance;
+}
+
+/* Body Large (20+ homes crafted paragraph) */
+.text-body-lg {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.5vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  max-width: 65ch;
+  text-wrap: pretty;
+  color: #E5E5E5;
+}
+
+/* Body Normal (Service / feature descriptions) */
+.text-body-normal {
+  font-family: var(--font-body);
+  font-size: clamp(0.76rem, 1vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 65ch;
+  text-wrap: pretty;
+  color: #CCCCCC;
+}
+
+/* Label / Small Caps (VENETUS INTERIOR · BANGALORE LIVING) */
+.text-label-caps {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #F2C572;
+}
+
+/* Button Text */
+.btn-text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Gold Italic Accent (Designed Within Your Budget, Bangalore) */
+.gold-italic {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 500;
+  color: #E9C27A;
+  letter-spacing: -0.02em;
+}
+
+/* Centered paragraph constraint */
+.centered-body {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+}
+
+/* Sleek custom primary scrollbar for modals */
+.custom-modal-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-modal-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 16px 0;
+}
+.custom-modal-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 9999px;
+}
+.custom-modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+.custom-modal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
+}
+
+/* ========================================================
+   MCBUTTON HAMBURGER ANIMATION (3-bar morph to X)
+   ======================================================== */
+.McButton {
+  position: relative;
+  width: 36px;
+  height: 24px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  transform: rotate(0deg);
+  transition: transform 0.7s cubic-bezier(0.5, 0, 0.2, 1);
+  transform-origin: center center;
+}
+
+@media (min-width: 768px) {
+  .McButton {
+    width: 40px;
+    height: 26px;
+  }
+}
+
+.McButton b {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  border-radius: 9999px;
+  background-color: currentColor;
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+/* Inactive default state */
+.McButton b:nth-child(1) {
+  top: 0;
+  transform: translateY(0) rotate(0deg);
+  transition: top 0.25s ease 0.35s, transform 0.3s ease;
+}
+
+.McButton b:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: opacity 0.3s ease;
+}
+
+.McButton b:nth-child(3) {
+  top: 100%;
+  transform: translateY(-100%) rotate(0deg);
+  transition: transform 0.5s cubic-bezier(0.5, 0, 0.2, 1), top 0.25s ease 0.35s;
+}
+
+/* Active State — morphs into X */
+.McButton.active {
+  transform: rotate(135deg);
+  transition: transform 0.7s cubic-bezier(0.5, 0, 0.2, 1) 0.15s;
+}
+
+.McButton.active b:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: top 0.2s ease;
+}
+
+.McButton.active b:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.McButton.active b:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transition: top 0.2s ease, transform 0.6s cubic-bezier(0.5, 0, 0.2, 1) 0.2s;
 }

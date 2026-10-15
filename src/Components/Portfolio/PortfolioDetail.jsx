@@ -1,6 +1,8 @@
 import React from 'react'
 import PortfolioCard from './PortfolioCard'
 import { motion } from 'framer-motion'
+import LettersPullUp from '../Animations/LettersPullUp'
+import FadeUp from '../Animations/FadeUp'
 
 const PortfolioData = [
   { id: 1, Before: "https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786154536/wmremove-transformed_hrezhf.png",   After: "https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786158021/WhatsApp_Image_2026-08-08_at_8.29.42_AM_gqiqg2.jpg",  Title: "Modern Kitchen",  Location: "Indiranagar", imagePosition: "object-[center_40%]" },
@@ -26,8 +28,29 @@ const cardVariants = {
 
 const PortfolioDetail = () => {
   return (
-    <section className='w-full bg-[#F9F8F8] py-8 lg:pb-24'>
-      <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14'>
+    <section className='w-full bg-[#0A0A0B] py-16 sm:py-20 md:py-24 border-b border-white/10 text-white relative overflow-hidden'>
+      {/* Subtle ambient lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-primary/[0.03] blur-[140px] rounded-full pointer-events-none" />
+
+      <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14 relative z-10'>
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 md:mb-16 px-4">
+          <h2 className="font-heading text-h2 font-medium text-white tracking-[-0.02em] leading-[1.15] mb-4 text-center text-balance">
+            <LettersPullUp
+              text="Interactive Transformation Gallery"
+              highlightWord="Transformation"
+              highlightClass="text-[#E9C27A] italic font-heading font-medium"
+              startDelay={0.1}
+              charDelay={0.035}
+              align="center"
+            />
+          </h2>
+          <FadeUp delay={0.35} duration={0.6}>
+            <p className="font-body text-[15.5px] md:text-[16.5px] text-[#D4D4D8] leading-[1.7] max-w-2xl mx-auto px-2 text-pretty">
+              Slide across each project to witness how our design engineering transforms bare structures into warm, bespoke luxury realities.
+            </p>
+          </FadeUp>
+        </div>
         <motion.div
           className='grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10'
           variants={gridVariants}

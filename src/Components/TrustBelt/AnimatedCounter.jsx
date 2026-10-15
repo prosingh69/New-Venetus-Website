@@ -48,7 +48,7 @@ const AnimatedCounter = ({ endValue, suffix = "", duration = 2000, decimals = 0 
   }, [isVisible, endValue, duration]);
 
   return (
-    <span ref={counterRef} className="saira-class tabular-nums inline-block">
+    <span ref={counterRef} className="font-body tabular-nums inline-block">
       {Number(count).toFixed(decimals)}{suffix}
     </span>
   );

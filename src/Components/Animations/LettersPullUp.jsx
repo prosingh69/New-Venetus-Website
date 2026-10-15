@@ -10,16 +10,20 @@ const LettersPullUp = ({
   startDelay = 0, 
   charDelay = 0.045, 
   align = 'center',
-  nowrap = false 
+  nowrap = false,
+  highlightWord = '',
+  highlightClass = ''
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
   const justifyClass = align === 'left' 
     ? 'justify-start text-left' 
-    : align === 'responsive-hero' 
-      ? 'justify-center md:justify-start text-center md:text-left' 
-      : 'justify-center text-center';
+    : align === 'responsive-lg'
+      ? 'justify-center lg:justify-start text-center lg:text-left'
+      : align === 'responsive-hero' 
+        ? 'justify-center md:justify-start text-center md:text-left' 
+        : 'justify-center text-center';
 
   const words = text.split(' ');
   let globalCharIndex = 0;
@@ -27,15 +31,20 @@ const LettersPullUp = ({
   return (
     <span 
       ref={ref} 
-      className={`inline-flex ${nowrap ? 'flex-nowrap whitespace-nowrap' : 'flex-wrap'} ${justifyClass} items-center gap-x-[0.25em] w-full`}
+      className={`inline-flex ${nowrap ? 'flex-nowrap whitespace-nowrap' : 'flex-wrap'} ${justifyClass} items-baseline gap-x-[0.25em] w-full`}
     >
       {words.map((word, wIdx) => {
+        const cleanWord = word.replace(/[^a-zA-Z0-9]/g, '');
+        const highlightList = highlightWord 
+          ? highlightWord.toLowerCase().split(/\s+/).filter(Boolean)
+          : [];
+        const isHighlight = highlightList.includes(cleanWord.toLowerCase());
         const letters = word.split('');
         return (
           <span
             key={wIdx}
-            className="inline-block whitespace-nowrap shrink-0"
-            style={{ whiteSpace: 'nowrap', display: 'inline-block' }}
+            className={`inline-flex items-baseline whitespace-nowrap shrink-0 ${isHighlight ? highlightClass : ''}`}
+            style={{ whiteSpace: 'nowrap' }}
           >
             {letters.map((char) => {
               const i = globalCharIndex++;
@@ -49,8 +58,8 @@ const LettersPullUp = ({
                     duration: 0.38,
                     ease: 'easeOut',
                   }}
-                  className={className}
-                  style={{ display: 'inline-block' }}
+                  className={`${className} ${isHighlight ? highlightClass : ''}`}
+                  style={{ display: 'inline-block', verticalAlign: 'baseline' }}
                 >
                   {char}
                 </motion.span>

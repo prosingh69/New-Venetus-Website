@@ -23,7 +23,7 @@ const MeetTeam = () => {
       Profile: "https://randomuser.me/api/portraits/men/32.jpg",
       Name: "Abhinay Singh",
       Profession: "Designer",
-      Detail: "15+ years of experience in luxury interior design. Specializes in modern and contemporary designs."
+      Detail: "Expert in luxury interior styling and space planning. Specializes in modern and contemporary designs."
     },
     {
       id: 2,
@@ -42,16 +42,19 @@ const MeetTeam = () => {
   ]
 
   return (
-    <section className='w-full bg-white py-10 sm:py-16 md:py-20'>
-      <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14 flex flex-col items-center'>
+    <section className='w-full bg-[#0A0A0B] py-16 sm:py-20 md:py-24 border-t border-b border-white/10 text-white relative overflow-hidden'>
+      {/* Subtle ambient lighting */}
+      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-96 h-96 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#E9C27A]/[0.03] via-transparent to-transparent pointer-events-none" />
+
+      <div className='max-w-screen-xl mx-auto px-5 md:px-10 lg:px-14 flex flex-col items-center relative z-10'>
         <FadeUp delay={0.05} duration={0.65}>
-          <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-center text-balance'>
-            Meet Our Team
+          <h2 className="font-heading text-h2 font-medium text-white tracking-[-0.02em] leading-[1.15] mb-4 text-center text-balance">
+            The Creative Minds Behind <span className="text-[#E9C27A] italic font-heading font-medium">Venetus Interior</span>
           </h2>
         </FadeUp>
         <FadeUp delay={0.18} duration={0.6}>
-          <p className='text-[#6E4C40] text-sm sm:text-base md:text-lg mb-8 sm:mb-10 text-center text-balance max-w-2xl px-2'>
-            Expert designers with years of experience in Bangalore interior design
+          <p className="font-body text-[15.5px] md:text-[16.5px] font-[400] text-[#D4D4D8] md:text-[#D1D1D1] leading-[1.7] tracking-[-0.01em] mb-10 sm:mb-14 text-center text-pretty max-w-[680px] mx-auto px-2">
+            Dedicated designers, planners & craftsmen turning your Bangalore spaces into personalized works of art.
           </p>
         </FadeUp>
         <motion.div

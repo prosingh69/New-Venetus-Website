@@ -15,7 +15,7 @@ const TestimonialCard = ({ testimonial, index = 0 }) => {
   const displayImage = images && images.length > 0 && images[0] ? images[0] : fallback;
 
   return (
-    <div className="flex flex-col md:flex-row bg-white rounded-2xl overflow-hidden p-3 sm:p-4 md:p-5 w-full mx-auto shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-[#F3E5DE]/70 items-stretch gap-4 md:gap-6 md:min-h-[340px] lg:min-h-[360px]">
+    <div className="flex flex-col md:flex-row bg-gradient-to-br from-[#1c1c20] to-[#141416] rounded-3xl overflow-hidden p-3 sm:p-4 md:p-5 w-full mx-auto shadow-2xl border border-white/10 hover:border-primary/40 transition-all duration-300 items-stretch gap-4 md:gap-6 md:min-h-[340px] lg:min-h-[360px] text-white">
       
       {/* Content Column */}
       <div className="flex-1 p-2 sm:p-4 md:p-6 flex flex-col justify-between">
@@ -23,14 +23,14 @@ const TestimonialCard = ({ testimonial, index = 0 }) => {
           {/* Star Rating */}
           <div className="flex space-x-1 mb-3 sm:mb-4">
             {[...Array(ratingCount)].map((_, i) => (
-              <svg key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400 fill-current" viewBox="0 0 24 24">
+              <svg key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-primary fill-current" viewBox="0 0 24 24">
                 <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
               </svg>
             ))}
           </div>
 
           {/* Review Text */}
-          <p className="text-sm sm:text-base md:text-[17px] lg:text-[18px] italic text-gray-800 mb-6 font-serif leading-relaxed text-pretty">
+          <p className="text-sm sm:text-base md:text-[17px] text-[#CCCCCC] mb-6 font-body leading-[1.6] text-pretty">
             "{review}"
           </p>
         </div>
@@ -38,13 +38,13 @@ const TestimonialCard = ({ testimonial, index = 0 }) => {
         {/* User Info */}
         <div>
           <div className="flex items-center">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-lg sm:text-xl mr-3 sm:mr-4 shadow-sm shrink-0">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary text-neutral-950 font-bold text-lg sm:text-xl mr-3 sm:mr-4 shadow-sm shrink-0 flex items-center justify-center font-body">
                 {name ? name.charAt(0).toUpperCase() : 'U'}
             </div>
             <div>
-              <h4 className="font-bold text-gray-900 text-sm sm:text-base md:text-lg leading-tight">{name}</h4>
+              <h4 className="font-heading font-medium text-white text-base sm:text-lg md:text-xl leading-tight">{name}</h4>
               {(project || location) && (
-                <p className="text-xs sm:text-sm text-[#804C40] mt-0.5 font-medium">
+                <p className="text-xs sm:text-sm text-primary/90 mt-0.5 font-body font-medium">
                   {[project, location].filter(Boolean).join(' • ')}
                 </p>
               )}
@@ -54,7 +54,7 @@ const TestimonialCard = ({ testimonial, index = 0 }) => {
       </div>
 
       {/* Image Column - Consistent dimensions across all cards and devices */}
-      <div className="w-full md:w-[42%] lg:w-[40%] shrink-0 h-60 sm:h-72 md:h-auto min-h-[220px] md:min-h-full relative bg-gray-100 rounded-xl overflow-hidden">
+      <div className="w-full md:w-[42%] lg:w-[40%] shrink-0 h-60 sm:h-72 md:h-auto min-h-[220px] md:min-h-full relative bg-neutral-900 border border-white/10 rounded-2xl overflow-hidden">
         <img 
           key={displayImage}
           src={displayImage} 

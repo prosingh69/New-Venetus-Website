@@ -3,10 +3,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import TestimonialCard from './TestimonialCard';
 import { NavLink } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
-import WordReveal from '../Animations/WordReveal';
+import LettersPullUp from '../Animations/LettersPullUp';
 import FadeUp from '../Animations/FadeUp';
 
-const Testimonial = ({ showButton = true }) => {
+const Testimonial = ({ showButton = true, locationName = 'Bangalore' }) => {
     const [testimonialsData, setTestimonialsData] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [loading, setLoading] = useState(true);
@@ -46,14 +46,34 @@ const Testimonial = ({ showButton = true }) => {
     const nextSlide = () => setCurrentIndex((prev) => (prev === testimonialsData.length - 1 ? 0 : prev + 1));
 
     return (
-        <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4" ref={sectionRef}>
-            <div className='flex flex-col items-center text-center px-2 mb-8 sm:mb-10 max-w-3xl mx-auto'>
-                <h2 className='text-3xl sm:text-4xl md:text-[44px] lg:text-[50px] font-bold mb-3 text-gray-900 text-center text-balance w-full leading-tight'>
-                    <WordReveal text="What Our Clients Say" startDelay={0.05} wordDelay={0.08} align="center" />
+        <section className="w-full bg-[#121214] py-14 sm:py-18 md:py-22 px-3 sm:px-4 border-t border-b border-white/10 text-white relative overflow-hidden" ref={sectionRef}>
+            {/* Subtle ambient lighting */}
+            <div className="absolute top-0 right-1/3 w-96 h-96 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" />
+
+            <div className='flex flex-col items-center text-center px-2 mb-10 sm:mb-12 max-w-3xl mx-auto relative z-10'>
+                <h2 className='font-heading text-h2 font-medium text-white tracking-[-0.02em] leading-[1.15] mb-4 text-center text-balance'>
+                    <span className="block">
+                        <LettersPullUp
+                            text="What Our Clients Say in"
+                            startDelay={0.08}
+                            charDelay={0.03}
+                            align="center"
+                        />
+                    </span>
+                    <span className="block mt-1 sm:mt-1.5">
+                        <LettersPullUp
+                            text={locationName}
+                            highlightWord={locationName}
+                            highlightClass="text-[#E9C27A] italic font-heading font-medium"
+                            startDelay={0.55}
+                            charDelay={0.035}
+                            align="center"
+                        />
+                    </span>
                 </h2>
                 <FadeUp delay={0.4} duration={0.6}>
-                    <p className='text-base sm:text-lg lg:text-xl text-[#804C40] max-w-2xl text-center text-balance px-2'>
-                        Join 500+ satisfied families who have transformed their Bangalore homes
+                    <p className='font-body text-body-normal centered-body text-[#CCCCCC] text-center text-pretty px-2 leading-[1.6]'>
+                        Join satisfied families who have transformed their Bangalore homes with Venetus Interior
                     </p>
                 </FadeUp>
             </div>
@@ -86,7 +106,7 @@ const Testimonial = ({ showButton = true }) => {
                         >
                             <motion.button
                                 onClick={prevSlide}
-                                className="p-2 sm:p-2.5 rounded-full bg-orange-50 text-orange-600 hover:bg-orange-100 transition cursor-pointer"
+                                className="p-2 sm:p-2.5 rounded-full bg-neutral-800 text-white hover:bg-primary hover:text-neutral-950 border border-white/10 transition cursor-pointer shadow-md"
                                 initial={{ opacity: 0, scale: 0.7 }}
                                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                                 transition={{ type: 'spring', stiffness: 300, damping: 18, delay: 0.5 }}
@@ -100,7 +120,7 @@ const Testimonial = ({ showButton = true }) => {
                                     <button
                                         key={index}
                                         onClick={() => setCurrentIndex(index)}
-                                        className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${currentIndex === index ? 'bg-orange-500 w-5 sm:w-6' : 'bg-orange-200 w-1.5 sm:w-2'}`}
+                                        className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${currentIndex === index ? 'bg-primary w-5 sm:w-6' : 'bg-white/30 w-1.5 sm:w-2'}`}
                                         aria-label={`Go to slide ${index + 1}`}
                                     />
                                 ))}
@@ -108,7 +128,7 @@ const Testimonial = ({ showButton = true }) => {
 
                             <motion.button
                                 onClick={nextSlide}
-                                className="p-2 sm:p-2.5 rounded-full bg-orange-50 text-orange-600 hover:bg-orange-100 transition cursor-pointer"
+                                className="p-2 sm:p-2.5 rounded-full bg-neutral-800 text-white hover:bg-primary hover:text-neutral-950 border border-white/10 transition cursor-pointer shadow-md"
                                 initial={{ opacity: 0, scale: 0.7 }}
                                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                                 transition={{ type: 'spring', stiffness: 300, damping: 18, delay: 0.6 }}
@@ -120,7 +140,7 @@ const Testimonial = ({ showButton = true }) => {
                     </>
                 ) : (
                     <div className="text-center py-10">
-                        <p className="text-gray-500">No testimonials found.</p>
+                        <p className="text-white/60">No testimonials found.</p>
                     </div>
                 )}
 
@@ -133,7 +153,7 @@ const Testimonial = ({ showButton = true }) => {
                     >
                         <NavLink
                             to="/Testinomial"
-                            className='border-2 border-[#BF5F3A] text-[#BF5F3A] text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-2.5 rounded-lg font-semibold cursor-pointer active:scale-[0.97] transition hover:bg-[#BF5F3A] hover:text-white'
+                            className='border-2 border-primary text-primary hover:bg-primary hover:text-neutral-950 text-sm sm:text-base px-5 py-2.5 rounded-lg font-bold cursor-pointer active:scale-[0.97] transition shadow-md'
                         >
                             Read All Testimonials
                         </NavLink>

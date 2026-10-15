@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+:root {
+  /* ========================================================
+     UNIVERSAL BRAND COLOR SYSTEM - VENETUS INTERIOR
+     Change colors here to update them across the entire site!
+     ======================================================== */
+  --primary: #f0ca6b;          /* Main Action, Buttons, Key Brand Gold */
+  --primary-hover: #deb24e;    /* Hover State for Buttons and Links */
+  --secondary: #545454;        /* Secondary Charcoal Gray — Text, Badges, Borders & Backgrounds */
+  --secondary-dark: #2c2c2c;   /* Dark Tone of Secondary for Off-white BG Headings & High-contrast Text */
+  --accent: #f0ca6b;           /* Highlights, Star Ratings, Badges, Step Numbers */
+  --brand-light: #fdf8ec;      /* Soft Light Gold Tint for Badge Backgrounds & Borders */
+  --surface-soft: #FAF8F5;     /* Warm Off-white Section & Card Surface Background */
+  --surface-charcoal: #545454; /* Secondary Charcoal Color for Background Surfaces */
+  --whatsapp: #25D366;         /* Official WhatsApp Green */
+}
+
+@theme {
+  --color-primary: #f0ca6b;
+  --color-primary-hover: #deb24e;
+  --color-secondary: #545454;
+  --color-secondary-dark: #383838;
+  --color-accent: #f0ca6b;
+  --color-brand-light: #fdf8ec;
+  --color-surface-soft: #383838;
+  --color-surface-charcoal: #545454;
+  --color-whatsapp: #25D366;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Michroma', 'Syncopate', sans-serif;
+  --font-calsans: 'Cal Sans', sans-serif;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-serif, .font-title {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans, .font-body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.font-display, .font-michroma {
+  font-family: 'Michroma', 'Syncopate', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-josefin {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.ubuntu-medium {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cal Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/CalSans.ttf') format('truetype'),
+       url('https://fonts.gstatic.com/s/calsans/v2/fdN99sWUv3gWqXxqqSBb.ttf') format('truetype');
+}
+
+.font-calsans {
+  font-family: 'Cal Sans', sans-serif;
+}
+
+
+/* Sleek custom primary scrollbar for modals */
+.custom-modal-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-modal-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 16px 0;
+}
+.custom-modal-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 9999px;
+}
+.custom-modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+.custom-modal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
+}
+
+/* ========================================================
+   MCBUTTON HAMBURGER ANIMATION (3-bar morph to X)
+   ======================================================== */
+.McButton {
+  position: relative;
+  width: 36px;
+  height: 24px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  transform: rotate(0deg);
+  transition: transform 0.7s cubic-bezier(0.5, 0, 0.2, 1);
+  transform-origin: center center;
+}
+
+@media (min-width: 768px) {
+  .McButton {
+    width: 40px;
+    height: 26px;
+  }
+}
+
+.McButton b {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  border-radius: 9999px;
+  background-color: currentColor;
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+/* Inactive default state */
+.McButton b:nth-child(1) {
+  top: 0;
+  transform: translateY(0) rotate(0deg);
+  transition: top 0.25s ease 0.35s, transform 0.3s ease;
+}
+
+.McButton b:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: opacity 0.3s ease;
+}
+
+.McButton b:nth-child(3) {
+  top: 100%;
+  transform: translateY(-100%) rotate(0deg);
+  transition: transform 0.5s cubic-bezier(0.5, 0, 0.2, 1), top 0.25s ease 0.35s;
+}
+
+/* Active State — morphs into X */
+.McButton.active {
+  transform: rotate(135deg);
+  transition: transform 0.7s cubic-bezier(0.5, 0, 0.2, 1) 0.15s;
+}
+
+.McButton.active b:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: top 0.2s ease;
+}
+
+.McButton.active b:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.McButton.active b:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transition: top 0.2s ease, transform 0.6s cubic-bezier(0.5, 0, 0.2, 1) 0.2s;
+}
+
+
+
+

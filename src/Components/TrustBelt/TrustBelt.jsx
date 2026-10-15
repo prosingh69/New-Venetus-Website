@@ -21,49 +21,60 @@ const itemVariants = {
   },
 };
 
-const TrustBelt = () => {
+const TrustBelt = ({ embedded = false }) => {
   return (
-    <div className="py-8 sm:py-12 md:py-16 px-4 md:px-10 lg:px-20 border-b border-[#F3E5DE]">
+    <div
+      className={
+        embedded
+          ? "w-full py-2 sm:py-4 px-4 md:px-10 lg:px-16 relative overflow-hidden"
+          : "w-full bg-gradient-to-b from-black via-[#111113] to-black py-8 sm:py-12 md:py-14 px-4 md:px-10 lg:px-20 relative overflow-hidden"
+      }
+    >
+      {/* Subtle background ambient glow for non-embedded */}
+      {!embedded && (
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" />
+      )}
+
       <motion.div
-        className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-y-8 sm:gap-y-12 gap-x-4 md:gap-x-6"
+        className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center text-center relative z-10"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-60px' }}
+        viewport={{ once: true, margin: '-40px' }}
       >
 
         <motion.div variants={itemVariants} className="flex flex-col items-center justify-center text-center w-full px-1">
-          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#E86321] tracking-tight mb-1 sm:mb-2">
-            <AnimatedCounter endValue={15} suffix="+" duration={2000} />
+          <span className="font-body text-stats-num tracking-[-0.04em] leading-none text-[#F2C572]">
+            <AnimatedCounter endValue={12} suffix="+" duration={2000} />
           </span>
-          <span className="text-xs sm:text-sm md:text-base lg:text-[18px] ubuntu-medium text-[#9C3E1B] text-balance">
+          <span className="font-body text-stats-label text-[#EAEAEA] text-balance tracking-[0.02em] drop-shadow-sm">
             Years Of Experience
           </span>
         </motion.div>
 
         <motion.div variants={itemVariants} className="flex flex-col items-center justify-center text-center w-full px-1">
-          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#E86321] tracking-tight mb-1 sm:mb-2">
-            <AnimatedCounter endValue={500} suffix="+" duration={2000} />
+          <span className="font-body text-stats-num tracking-[-0.04em] leading-none text-[#F2C572]">
+            <AnimatedCounter endValue={40} suffix="+" duration={2000} />
           </span>
-          <span className="text-xs sm:text-sm md:text-base lg:text-[18px] ubuntu-medium text-[#9C3E1B] text-balance">
-            Project Completed
+          <span className="font-body text-stats-label text-[#EAEAEA] text-balance tracking-[0.02em] drop-shadow-sm">
+            Projects Completed
           </span>
         </motion.div>
 
         <motion.div variants={itemVariants} className="flex flex-col items-center justify-center text-center w-full px-1">
-          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#E86321] tracking-tight mb-1 sm:mb-2">
-            <AnimatedCounter endValue={100} suffix="%" duration={2000} />
+          <span className="font-body text-stats-num tracking-[-0.04em] leading-none text-[#F2C572]">
+            <AnimatedCounter endValue={99.9} decimals={1} suffix="%" duration={2000} />
           </span>
-          <span className="text-xs sm:text-sm md:text-base lg:text-[18px] ubuntu-medium text-[#9C3E1B] text-balance">
+          <span className="font-body text-stats-label text-[#EAEAEA] text-balance tracking-[0.02em] drop-shadow-sm">
             On-Time Delivery
           </span>
         </motion.div>
 
         <motion.div variants={itemVariants} className="flex flex-col items-center justify-center text-center w-full px-1">
-          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#E86321] tracking-tight mb-1 sm:mb-2">
+          <span className="font-body text-stats-num tracking-[-0.04em] leading-none text-[#F2C572]">
             <AnimatedCounter endValue={10} suffix="Yrs" duration={2000} />
           </span>
-          <span className="text-xs sm:text-sm md:text-base lg:text-[18px] ubuntu-medium text-[#9C3E1B] text-balance">
+          <span className="font-body text-stats-label text-[#EAEAEA] text-balance tracking-[0.02em] drop-shadow-sm">
             Warranty Guarantee
           </span>
         </motion.div>

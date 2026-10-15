@@ -14,10 +14,10 @@ const WhyWorkCard = ({ Badge, Name, Para, motionVariants }) => {
         viewport={{ once: true }}
         transition={{ type: 'spring', stiffness: 300, damping: 18, delay: 0.1 }}
       >
-        <Icons size={36} className="sm:w-10 sm:h-10" color="#B74B21" strokeWidth={1.75} />
+        <Icons size={36} className="sm:w-10 sm:h-10" color="var(--primary)" strokeWidth={1.75} />
       </motion.div>
       <h3 className='text-lg sm:text-xl font-semibold mt-2.5 mb-1.5 text-gray-900'>{Name}</h3>
-      <p className='text-center text-[#6E4C40] text-xs sm:text-sm md:text-base leading-relaxed text-pretty'>{Para}</p>
+      <p className='text-center text-secondary text-xs sm:text-sm md:text-base leading-relaxed text-pretty'>{Para}</p>
     </motion.div>
   )
 }

@@ -1,10 +1,11 @@
 import React from 'react'
-import HeroCard from '../Components/CommonComponent/HeroCard'
-import PortfolioTrust from "../Components/Portfolio/PortfolioTrust"
+import PortfolioHero from '../Components/Portfolio/PortfolioHero'
+import PortfolioShowcaseSequence from '../Components/Portfolio/PortfolioShowcaseSequence'
 import PortfolioDetail from '../Components/Portfolio/PortfolioDetail'
 import CaseStudy from '../Components/Portfolio/CaseStudy'
 import AboutLastCta from '../Components/About/AboutLastCta'
 import { Helmet } from 'react-helmet-async'
+
 const Portfolio = () => {
   return (
     <>
@@ -15,9 +16,9 @@ const Portfolio = () => {
         <link rel="canonical" href="https://www.venetusinterior.in/portfolio" />
       </Helmet>
 
-      <div>
-        <HeroCard Title={"Our Portfolio"} Para={"Explore our collection of completed projects showcasing our expertise in Bangalore interior design."} />
-        <PortfolioTrust />
+      <div className="w-full bg-black min-h-screen text-white overflow-hidden">
+        <PortfolioHero />
+        <PortfolioShowcaseSequence />
         <PortfolioDetail />
         <CaseStudy />
         <AboutLastCta />

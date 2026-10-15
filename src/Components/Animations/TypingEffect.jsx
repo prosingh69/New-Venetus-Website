@@ -7,10 +7,12 @@ import { motion, useInView } from 'framer-motion';
  */
 export function TypingEffect({ 
   text, 
+  segments,
   className = '', 
   startDelay = 0, 
   charDelay = 0.04, 
   align = 'responsive-hero',
+  itemsAlign = 'items-center',
   nowrap = false 
 }) {
   const ref = useRef(null);
@@ -22,16 +24,20 @@ export function TypingEffect({
       ? 'justify-center text-center'
       : 'justify-center md:justify-start text-center md:text-left';
 
-  const words = text.split(' ');
+  // Build word items from segments if provided, or from text
+  const items = segments && segments.length > 0 
+    ? segments.flatMap(seg => seg.text.split(' ').filter(Boolean).map(w => ({ word: w, className: seg.className || className })))
+    : (text ? text.split(' ').map(w => ({ word: w, className })) : []);
+
   let globalCharIndex = 0;
 
   return (
     <span 
       ref={ref} 
-      className={`inline-flex ${nowrap ? 'flex-nowrap whitespace-nowrap' : 'flex-wrap'} ${justifyClass} items-center gap-x-[0.26em]`}
+      className={`inline-flex ${nowrap ? 'flex-nowrap whitespace-nowrap' : 'flex-wrap'} ${justifyClass} ${itemsAlign} gap-x-[0.52em] sm:gap-x-[0.58em]`}
     >
-      {words.map((word, wIdx) => {
-        const letters = word.split('');
+      {items.map((item, wIdx) => {
+        const letters = item.word.split('');
         return (
           <span
             key={wIdx}
@@ -46,7 +52,7 @@ export function TypingEffect({
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : {}}
                   transition={{ duration: 0.1, delay: startDelay + index * charDelay }}
-                  className={className}
+                  className={item.className}
                   style={{ display: 'inline-block' }}
                 >
                   {letter}
