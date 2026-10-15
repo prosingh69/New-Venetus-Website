@@ -8,16 +8,21 @@ import TrustBelt from '../TrustBelt/TrustBelt'
 /* ─── Panel 1 — Heading + Tag + Centered Description & Action Buttons (100vh Full Viewport) ─── */
 const HeroPanel1 = () => {
   const ref = useRef(null);
-  const videoRef = useRef(null);
+  const mobileVideoRef = useRef(null);
+  const desktopVideoRef = useRef(null);
   const isInView = useInView(ref, { once: true });
   const { openModal } = useConsultationModal();
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(() => {});
-    }
+    const playVideo = (v) => {
+      if (v) {
+        v.defaultMuted = true;
+        v.muted = true;
+        v.play().catch(() => {});
+      }
+    };
+    playVideo(mobileVideoRef.current);
+    playVideo(desktopVideoRef.current);
   }, []);
 
   return (
@@ -25,9 +30,26 @@ const HeroPanel1 = () => {
       ref={ref}
       className="relative w-full h-screen min-h-[100dvh] flex items-center justify-center overflow-hidden bg-black"
     >
-      {/* Background Video */}
+      {/* Background Video — Mobile View (< md) */}
       <video
-        ref={videoRef}
+        ref={mobileVideoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        disablePictureInPicture
+        disableRemotePlayback
+        poster="https://res.cloudinary.com/lbei6xmb/image/upload/v1792069015/frame_002_sbjukj.jpg"
+        className="block md:hidden absolute inset-0 w-full h-full object-cover transform-gpu pointer-events-none scale-105"
+      >
+        <source src="https://res.cloudinary.com/lbei6xmb/video/upload/v1792068946/herosection1_ipuoq7.mp4" type="video/mp4" />
+        <source src="/herosection1.mp4" type="video/mp4" />
+      </video>
+
+      {/* Background Video — Tablet & Desktop (md:) */}
+      <video
+        ref={desktopVideoRef}
         key="hero-architectural-suites-video"
         src="/architectural-suites.mp4"
         poster="https://res.cloudinary.com/lbei6xmb/image/upload/v1792067913/frame_001_4_sqw4m4.jpg"
@@ -38,7 +60,7 @@ const HeroPanel1 = () => {
         preload="auto"
         disablePictureInPicture
         disableRemotePlayback
-        className="absolute inset-0 w-full h-full object-cover transform-gpu pointer-events-none scale-105"
+        className="hidden md:block absolute inset-0 w-full h-full object-cover transform-gpu pointer-events-none scale-105"
       >
         <source src="/architectural-suites.mp4" type="video/mp4" />
       </video>
