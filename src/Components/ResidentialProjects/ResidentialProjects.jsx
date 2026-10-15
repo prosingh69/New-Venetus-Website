@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import LettersPullUp from '../Animations/LettersPullUp';
 import FadeUp from '../Animations/FadeUp';
@@ -84,6 +84,44 @@ const residentialProjects = [
 
 const ResidentialProjects = ({ locationName = 'Bangalore' }) => {
   const [playingId, setPlayingId] = useState(null);
+  const [iframeLoading, setIframeLoading] = useState({});
+
+  useEffect(() => {
+    // Preconnect to YouTube CDN and video streaming endpoints
+    const domains = [
+      'https://www.youtube-nocookie.com',
+      'https://googlevideo.com',
+      'https://i.ytimg.com'
+    ];
+    domains.forEach((d) => {
+      if (!document.querySelector(`link[href="${d}"]`)) {
+        const link = document.createElement('link');
+        link.rel = 'preconnect';
+        link.href = d;
+        link.crossOrigin = 'anonymous';
+        document.head.appendChild(link);
+      }
+    });
+
+    // Prefetch embed document so it is cached in browser before click
+    const prefetchUrl = `https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}`;
+    if (!document.querySelector(`link[href="${prefetchUrl}"]`)) {
+      const prefetch = document.createElement('link');
+      prefetch.rel = 'prefetch';
+      prefetch.href = prefetchUrl;
+      prefetch.as = 'document';
+      document.head.appendChild(prefetch);
+    }
+  }, []);
+
+  const handlePlay = (id) => {
+    setPlayingId(id);
+    setIframeLoading((prev) => ({ ...prev, [id]: true }));
+  };
+
+  const handleIframeLoad = (id) => {
+    setIframeLoading((prev) => ({ ...prev, [id]: false }));
+  };
 
   return (
     <section className="w-full bg-[#121214] pt-12 sm:pt-16 md:pt-20 pb-12 sm:pb-16 md:pb-20 border-t border-b border-white/10 overflow-hidden text-white relative">
@@ -131,16 +169,36 @@ const ResidentialProjects = ({ locationName = 'Bangalore' }) => {
                 {/* Video Card Container */}
                 <div className="relative w-full aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_12px_36px_rgba(240,202,107,0.18)] transition-all duration-300 bg-neutral-900 border border-white/10 hover:border-primary/50">
                   {isPlaying ? (
-                    <iframe
-                      src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&start=${project.startTime}&rel=0&modestbranding=1`}
-                      title={project.title}
-                      className="w-full h-full border-0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    />
+                    <div className="relative w-full h-full bg-black">
+                      {/* Loading state indicator while video buffers */}
+                      {iframeLoading[project.id] !== false && (
+                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/85 z-10 pointer-events-none">
+                          <img
+                            src={project.thumbnail}
+                            alt=""
+                            className="absolute inset-0 w-full h-full object-cover opacity-25 filter blur-[1px]"
+                          />
+                          <div className="relative z-10 flex flex-col items-center gap-2.5">
+                            <div className="w-8 h-8 rounded-full border-2 border-[#E9C27A]/30 border-t-[#E9C27A] animate-spin" />
+                            <span className="text-[11px] font-sans text-[#E9C27A] tracking-wider uppercase font-semibold drop-shadow">
+                              Loading Video...
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                      <iframe
+                        src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&start=${project.startTime}&rel=0&modestbranding=1&playsinline=1&enablejsapi=0`}
+                        title={project.title}
+                        className="w-full h-full border-0 relative z-20"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        loading="eager"
+                        onLoad={() => handleIframeLoad(project.id)}
+                      />
+                    </div>
                   ) : (
                     <div
-                      onClick={() => setPlayingId(project.id)}
+                      onClick={() => handlePlay(project.id)}
                       className="relative w-full h-full cursor-pointer group"
                       role="button"
                       tabIndex={0}
