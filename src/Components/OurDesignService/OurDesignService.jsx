@@ -12,13 +12,13 @@ const servicesData = [
     id: 1,
     title: "Living Room Interiors",
     description: "We design luxury living room interiors in Bangalore with bespoke furniture, premium materials, ambient lighting and planned layouts, creating welcoming spaces.",
-    image: "/design.jpg"
+    image: "https://res.cloudinary.com/lbei6xmb/image/upload/v1792114838/WhatsApp_Image_2026-10-16_at_6.43.55_AM_2_dtrpxo.jpg"
   },
   {
     id: 2,
     title: "Bedroom Interiors",
     description: "We design sophisticated bedrooms tailored to your lifestyle, bespoke wardrobes, furnishings and premium finishes for an elegant and organised space for Bangalore's residences.",
-    image: "/bedroom.jpeg"
+    image: "https://res.cloudinary.com/lbei6xmb/image/upload/v1792114832/WhatsApp_Image_2026-10-15_at_9.01.51_PM_aa1dgr.jpg"
   },
   {
     id: 3,
@@ -36,13 +36,13 @@ const servicesData = [
     id: 5,
     title: "Dining Room Interiors",
     description: "Exquisite dining spaces designed for intimate family dinners and grand hosting, featuring custom dining tables, statement lighting, crockery units, and bar counters.",
-    image: "/premium.jpg"
+    image: "https://res.cloudinary.com/lbei6xmb/image/upload/v1792114837/WhatsApp_Image_2026-10-15_at_9.02.22_PM_2_txzbfw.jpg"
   },
   {
     id: 6,
     title: "Foyer & Entrance Design",
     description: "Bespoke entryway designs that make a grand first impression, complete with ambient warm lighting, custom shoe consoles, partition jaalis, and statement mirrors.",
-    image: "/yellow.jpg"
+    image: "https://res.cloudinary.com/lbei6xmb/image/upload/v1792114833/WhatsApp_Image_2026-10-15_at_9.01.55_PM_iz8zge.jpg"
   },
   {
     id: 7,
@@ -60,7 +60,7 @@ const servicesData = [
     id: 9,
     title: "Complete Home Transformation",
     description: "End-to-end turnkey interior design and execution for apartments, villas, and penthouses across Bangalore with 100% in-house manufacturing and guaranteed timelines.",
-    image: "/bedroom2.jpeg"
+    image: "https://res.cloudinary.com/lbei6xmb/image/upload/v1792114838/WhatsApp_Image_2026-10-16_at_6.43.54_AM_tjcche.jpg"
   }
 ];
 

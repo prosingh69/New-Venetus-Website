@@ -350,140 +350,60 @@ const Navbar = () => {
             <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/[0.07] via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-10 right-1/4 w-[500px] h-[400px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#E9C27A]/[0.05] via-transparent to-transparent pointer-events-none" />
 
-            {/* Main Content Container */}
-            <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-14 my-auto relative z-10 py-3 sm:py-5">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-12 items-center">
-
-                {/* LEFT: All 8 Navlinks in luxury editorial typography */}
-                <div className="md:col-span-7 xl:col-span-7 flex flex-col justify-center">
-                  <div className="flex items-center gap-2 mb-3 md:mb-4">
-                    <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                    <span className="font-body text-label-caps text-[#F2C572] font-semibold tracking-[0.22em] uppercase text-[10px] sm:text-xs">
-                      Venetus Architecture & Living
-                    </span>
-                  </div>
-
-                  <nav className="flex flex-col space-y-1 sm:space-y-1.5 md:space-y-2" aria-label="Main Menu Links">
-                    {navItems.map(({ label, to, count, desc }, idx) => (
-                      <motion.div
-                        key={label}
-                        initial={{ opacity: 0, x: -16 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: 0.08 + idx * 0.03, ease: 'easeOut' }}
-                      >
-                        <NavLink
-                          to={to}
-                          end={to === '/'}
-                          onClick={closeMenu}
-                          className={({ isActive }) =>
-                            `group flex items-center justify-between py-1.5 sm:py-2 px-3 rounded-xl transition-all duration-300 ${
-                              isActive
-                                ? 'bg-white/[0.04] text-[#E9C27A]'
-                                : 'text-white/80 hover:text-white hover:bg-white/[0.02]'
-                            }`
-                          }
-                        >
-                          {({ isActive }) => (
-                            <div className="flex items-center gap-3 sm:gap-5 md:gap-6">
-                              <span
-                                className={`font-body font-sans lining-nums text-[11px] sm:text-xs md:text-sm font-semibold tracking-[0.25em] transition-colors w-7 sm:w-8 ${
-                                  isActive ? 'text-[#E9C27A]' : 'text-white/35 group-hover:text-[#E9C27A]/80'
-                                }`}
-                              >
-                                {count}
-                              </span>
-                              <span
-                                className={`font-heading text-xl sm:text-2xl md:text-3xl lg:text-[36px] tracking-wide transition-all duration-300 group-hover:translate-x-2 ${
-                                  isActive
-                                    ? 'text-[#E9C27A] italic font-medium drop-shadow-[0_2px_12px_rgba(233,194,122,0.3)]'
-                                    : 'font-normal'
-                                }`}
-                              >
-                                {label}
-                              </span>
-                              <span className="hidden lg:inline-block font-body text-xs text-white/40 group-hover:text-white/70 tracking-normal transition-colors ml-2">
-                                — {desc}
-                              </span>
-                            </div>
-                          )}
-                        </NavLink>
-                      </motion.div>
-                    ))}
-                  </nav>
-                </div>
-
-                {/* RIGHT: Studio Showcase Card & Direct Actions */}
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
-                  className="hidden md:flex md:col-span-5 xl:col-span-5 flex-col bg-[#141417] border border-white/[0.08] hover:border-[#E9C27A]/30 rounded-[22px] p-6 lg:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300"
-                >
-                  <div className="relative w-full h-36 lg:h-40 rounded-xl overflow-hidden mb-4">
-                    <img
-                      src="/residential-thumb-4.jpg"
-                      alt="Venetus Interior Luxury Architecture"
-                      className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                    <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-xs font-body">
-                      <span className="bg-primary text-neutral-950 font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider text-[10px]">
-                        Venetus Living
-                      </span>
-                      <span className="text-white/90 drop-shadow text-[11px]">Bangalore Flagship</span>
-                    </div>
-                  </div>
-
-                  <div className="mb-4">
-                    <h4 className="font-heading text-xl lg:text-2xl font-medium text-white tracking-tight mb-1.5">
-                      Turnkey Luxury Interiors
-                    </h4>
-                    <p className="font-body text-xs lg:text-[13px] text-[#CCCCCC] leading-relaxed">
-                      Bespoke modular kitchens, handcrafted woodwork, and complete home transformations backed by a guaranteed 10-year warranty.
-                    </p>
-                  </div>
-
-                  <div className="space-y-2.5 pt-3.5 border-t border-white/[0.08]">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        closeMenu();
-                        openModal({
-                          title: 'Book a Free Design Consultation',
-                          subtitle: 'Talk with our senior design architects to plan your layout, 3D designs, and exact budget.'
-                        });
-                      }}
-                      className="w-full font-body group inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-neutral-950 py-2.5 sm:py-3 px-5 rounded-full font-semibold text-xs sm:text-sm transition-all duration-300 active:scale-95 shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 cursor-pointer"
-                    >
-                      <Sparkles size={14} className="text-neutral-950" />
-                      <span>Book Free Consultation</span>
-                    </button>
-
-                    <div className="grid grid-cols-2 gap-2">
-                      <a
-                        href="tel:+919916565945"
-                        className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-[#1b1b1f] hover:bg-[#232328] border border-white/[0.08] hover:border-[#E9C27A]/30 text-white font-body text-xs font-medium transition-all active:scale-95"
-                      >
-                        <Phone size={12} className="text-primary shrink-0" />
-                        <span className="font-sans lining-nums">+91 99165 65945</span>
-                      </a>
-
-                      <a
-                        href="https://wa.me/919916565945?text=Hi%20Venetus%20Interior%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-full bg-[#1b1b1f] hover:bg-[#232328] border border-white/[0.08] hover:border-[#E9C27A]/30 text-white font-body text-xs font-medium transition-all active:scale-95"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" className="fill-whatsapp shrink-0">
-                          <path d={WA_PATH} />
-                        </svg>
-                        <span>WhatsApp</span>
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
-
+            {/* Main Content Container — Cleanly centered for Desktop & Tablet */}
+            <div className="w-full max-w-4xl mx-auto px-5 sm:px-8 md:px-12 my-auto relative z-10 py-4 sm:py-6 flex flex-col items-center justify-center text-center">
+              <div className="flex items-center justify-center gap-2 mb-4 md:mb-6">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span className="font-body text-label-caps text-[#F2C572] font-semibold tracking-[0.22em] uppercase text-[10px] sm:text-xs">
+                  Venetus Architecture & Living
+                </span>
               </div>
+
+              <nav className="flex flex-col items-center space-y-1.5 sm:space-y-2 md:space-y-2.5 w-full max-w-xl mx-auto" aria-label="Main Menu Links">
+                {navItems.map(({ label, to, count }, idx) => (
+                  <motion.div
+                    key={label}
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.35, delay: 0.05 + idx * 0.035, ease: 'easeOut' }}
+                    className="w-full flex justify-center"
+                  >
+                    <NavLink
+                      to={to}
+                      end={to === '/'}
+                      onClick={closeMenu}
+                      className={({ isActive }) =>
+                        `group inline-flex items-center justify-center gap-4 sm:gap-6 py-2 px-6 rounded-2xl transition-all duration-300 ${
+                          isActive
+                            ? 'bg-white/[0.05] text-[#E9C27A]'
+                            : 'text-white/80 hover:text-white hover:bg-white/[0.02]'
+                        }`
+                      }
+                    >
+                      {({ isActive }) => (
+                        <div className="flex items-center justify-center gap-3 sm:gap-5 md:gap-6">
+                          <span
+                            className={`font-body font-sans lining-nums text-xs sm:text-sm md:text-base font-semibold tracking-[0.25em] transition-colors w-7 sm:w-8 text-right ${
+                              isActive ? 'text-[#E9C27A]' : 'text-white/35 group-hover:text-[#E9C27A]/80'
+                            }`}
+                          >
+                            {count}
+                          </span>
+                          <span
+                            className={`font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[40px] tracking-wide transition-all duration-300 group-hover:scale-105 ${
+                              isActive
+                                ? 'text-[#E9C27A] italic font-medium drop-shadow-[0_2px_14px_rgba(233,194,122,0.35)]'
+                                : 'font-normal'
+                            }`}
+                          >
+                            {label}
+                          </span>
+                        </div>
+                      )}
+                    </NavLink>
+                  </motion.div>
+                ))}
+              </nav>
             </div>
 
             {/* Desktop / Tablet Bottom Information Strip */}

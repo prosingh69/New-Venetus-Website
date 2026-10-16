@@ -11,7 +11,7 @@ const propertyItems = [
     title: 'Apartments',
     tag: 'Bespoke Residences',
     number: '01',
-    image: '/property-apartment.png',
+    image: 'https://res.cloudinary.com/lbei6xmb/image/upload/v1792114830/WhatsApp_Image_2026-10-15_at_9.01.40_PM_ye9j4a.jpg',
     description:
       'We design customised apartment interiors that make the most of your space, combining smart layouts, elegant finishes and personalised details for comfortable everyday living.'
   },
@@ -20,7 +20,7 @@ const propertyItems = [
     title: 'Villas',
     tag: 'Expansive Living',
     number: '02',
-    image: '/property-villa.png',
+    image: 'https://res.cloudinary.com/lbei6xmb/image/upload/v1792114825/WhatsApp_Image_2026-10-15_at_8.57.52_PM_1_bdp3pd.jpg',
     description:
       'We create bespoke villa interiors that complement expansive spaces, bringing together refined materials, thoughtful layouts and unique design elements tailored to your lifestyle.'
   },
@@ -29,7 +29,7 @@ const propertyItems = [
     title: 'Penthouses',
     tag: 'Skyline Luxury',
     number: '03',
-    image: '/property-penthouse.png',
+    image: 'https://res.cloudinary.com/lbei6xmb/image/upload/v1792114839/WhatsApp_Image_2026-10-16_at_6.43.58_AM_zyp5xi.jpg',
     description:
       'We design sophisticated penthouse interiors that maximise space, light and views while combining bespoke furnishings, premium finishes and personalised designs.'
   }

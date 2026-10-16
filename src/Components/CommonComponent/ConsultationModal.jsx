@@ -128,7 +128,7 @@ const ConsultationModal = ({ isOpen, onClose, modalData = {} }) => {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3.5 sm:p-5 md:p-6">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-3.5 sm:p-5 md:p-6 overflow-y-auto">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -136,39 +136,42 @@ const ConsultationModal = ({ isOpen, onClose, modalData = {} }) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/75 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm"
           />
 
-          {/* Modal Outer Container — strictly contains scrollbar within rounded border */}
+          {/* Modal Outer Container — Dark Luxury Venetus Theme */}
           <motion.div
             initial={{ opacity: 0, scale: 0.94, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 16 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 w-full max-w-lg bg-white rounded-2xl sm:rounded-3xl shadow-2xl border-2 border-primary max-h-[90vh] flex flex-col overflow-hidden"
+            className="relative z-10 w-full max-w-lg bg-[#111114] rounded-2xl sm:rounded-3xl shadow-[0_25px_70px_rgba(0,0,0,0.95)] border border-[#E9C27A]/35 max-h-[90dvh] flex flex-col overflow-hidden my-auto"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Ambient luxury glow inside modal */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-36 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/15 via-transparent to-transparent pointer-events-none" />
+
             {/* Close Button */}
             <button
               onClick={onClose}
               aria-label="Close form"
               type="button"
-              className="absolute top-3.5 sm:top-4 right-3.5 sm:right-4 z-20 w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 hover:text-gray-900 flex items-center justify-center transition-all cursor-pointer shadow-sm hover:scale-105 active:scale-95"
+              className="absolute top-3.5 sm:top-4 right-3.5 sm:right-4 z-20 w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-white border border-white/10 hover:border-primary/40 flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95"
             >
               <X className="w-5 h-5" />
             </button>
 
             {/* Inner Scrollable Body — Custom sleek primary scrollbar */}
-            <div className="w-full flex-1 overflow-y-auto custom-modal-scrollbar p-5 sm:p-7 md:p-8">
+            <div className="w-full flex-1 overflow-y-auto custom-modal-scrollbar p-5 sm:p-7 md:p-8 relative z-10">
               {isSuccess ? (
                 <div className="py-10 text-center flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-full bg-primary/15 text-primary flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 rounded-full bg-primary/15 border border-primary/30 text-primary flex items-center justify-center mb-4 shadow-lg shadow-primary/10">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
-                  <h3 className="font-sans text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white mb-2 tracking-tight">
                     Request Confirmed!
                   </h3>
-                  <p className="text-secondary text-sm max-w-sm">
+                  <p className="font-body text-[#CCCCCC] text-sm max-w-sm leading-relaxed">
                     Our senior design consultant will contact you within 24 hours to schedule your session.
                   </p>
                 </div>
@@ -176,10 +179,14 @@ const ConsultationModal = ({ isOpen, onClose, modalData = {} }) => {
                 <>
                   {/* Heading */}
                   <div className="text-center pr-7 pl-1 mb-6 sm:mb-7">
-                    <h3 className="font-sans text-xl sm:text-2xl font-bold text-gray-900 tracking-tight leading-snug">
+                    <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full border border-primary/30 bg-primary/10 text-primary font-body text-[10px] tracking-[0.2em] uppercase mb-2.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      Venetus Interior
+                    </div>
+                    <h3 className="font-heading text-2xl sm:text-[28px] font-medium text-white tracking-tight leading-snug">
                       {title}
                     </h3>
-                    <p className="text-secondary text-xs sm:text-sm mt-1.5 leading-relaxed">
+                    <p className="font-body text-[#CCCCCC] text-xs sm:text-[13.5px] mt-1.5 leading-relaxed">
                       {subtitle}
                     </p>
                   </div>
@@ -194,13 +201,13 @@ const ConsultationModal = ({ isOpen, onClose, modalData = {} }) => {
                         id="modal_user_name"
                         required
                         placeholder=" "
-                        className="peer w-full px-4 pt-4 pb-2.5 sm:pt-4.5 sm:pb-3 text-sm sm:text-base text-gray-900 bg-white border border-gray-300 rounded-xl outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder-transparent"
+                        className="peer w-full px-4 pt-4 pb-2.5 sm:pt-4.5 sm:pb-3 text-sm sm:text-base text-white bg-white/[0.03] border border-white/15 rounded-xl outline-none transition-all duration-200 focus:border-[#E9C27A] focus:bg-white/[0.06] focus:ring-1 focus:ring-[#E9C27A]/30 placeholder-transparent"
                       />
                       <label
                         htmlFor="modal_user_name"
-                        className="absolute left-3.5 top-3.5 sm:top-4 px-1 bg-transparent text-xs sm:text-sm text-gray-400 font-normal transition-all duration-200 pointer-events-none origin-left 
-                        peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-xs peer-focus:text-primary peer-focus:font-semibold
-                        peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-600 peer-[:not(:placeholder-shown)]:font-medium"
+                        className="absolute left-3.5 top-3.5 sm:top-4 px-1.5 bg-[#111114] text-xs sm:text-sm text-white/45 font-normal transition-all duration-200 pointer-events-none origin-left 
+                        peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-xs peer-focus:text-[#E9C27A] peer-focus:font-medium
+                        peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-white/80 peer-[:not(:placeholder-shown)]:font-medium"
                       >
                         Your Name <span className="text-primary">*</span>
                       </label>
@@ -214,13 +221,13 @@ const ConsultationModal = ({ isOpen, onClose, modalData = {} }) => {
                         id="modal_user_phone"
                         required
                         placeholder=" "
-                        className="peer w-full px-4 pt-4 pb-2.5 sm:pt-4.5 sm:pb-3 text-sm sm:text-base text-gray-900 bg-white border border-gray-300 rounded-xl outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder-transparent"
+                        className="peer w-full px-4 pt-4 pb-2.5 sm:pt-4.5 sm:pb-3 text-sm sm:text-base text-white bg-white/[0.03] border border-white/15 rounded-xl outline-none transition-all duration-200 focus:border-[#E9C27A] focus:bg-white/[0.06] focus:ring-1 focus:ring-[#E9C27A]/30 placeholder-transparent"
                       />
                       <label
                         htmlFor="modal_user_phone"
-                        className="absolute left-3.5 top-3.5 sm:top-4 px-1 bg-transparent text-xs sm:text-sm text-gray-400 font-normal transition-all duration-200 pointer-events-none origin-left 
-                        peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-xs peer-focus:text-primary peer-focus:font-semibold
-                        peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-600 peer-[:not(:placeholder-shown)]:font-medium"
+                        className="absolute left-3.5 top-3.5 sm:top-4 px-1.5 bg-[#111114] text-xs sm:text-sm text-white/45 font-normal transition-all duration-200 pointer-events-none origin-left 
+                        peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-xs peer-focus:text-[#E9C27A] peer-focus:font-medium
+                        peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-white/80 peer-[:not(:placeholder-shown)]:font-medium"
                       >
                         Phone Number <span className="text-primary">*</span>
                       </label>
@@ -234,13 +241,13 @@ const ConsultationModal = ({ isOpen, onClose, modalData = {} }) => {
                         id="modal_user_email"
                         required
                         placeholder=" "
-                        className="peer w-full px-4 pt-4 pb-2.5 sm:pt-4.5 sm:pb-3 text-sm sm:text-base text-gray-900 bg-white border border-gray-300 rounded-xl outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder-transparent"
+                        className="peer w-full px-4 pt-4 pb-2.5 sm:pt-4.5 sm:pb-3 text-sm sm:text-base text-white bg-white/[0.03] border border-white/15 rounded-xl outline-none transition-all duration-200 focus:border-[#E9C27A] focus:bg-white/[0.06] focus:ring-1 focus:ring-[#E9C27A]/30 placeholder-transparent"
                       />
                       <label
                         htmlFor="modal_user_email"
-                        className="absolute left-3.5 top-3.5 sm:top-4 px-1 bg-transparent text-xs sm:text-sm text-gray-400 font-normal transition-all duration-200 pointer-events-none origin-left 
-                        peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-xs peer-focus:text-primary peer-focus:font-semibold
-                        peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-600 peer-[:not(:placeholder-shown)]:font-medium"
+                        className="absolute left-3.5 top-3.5 sm:top-4 px-1.5 bg-[#111114] text-xs sm:text-sm text-white/45 font-normal transition-all duration-200 pointer-events-none origin-left 
+                        peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-xs peer-focus:text-[#E9C27A] peer-focus:font-medium
+                        peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-white/80 peer-[:not(:placeholder-shown)]:font-medium"
                       >
                         Email Address <span className="text-primary">*</span>
                       </label>
@@ -256,30 +263,30 @@ const ConsultationModal = ({ isOpen, onClose, modalData = {} }) => {
                         onFocus={() => setIsSelectFocused(true)}
                         onBlur={() => setIsSelectFocused(false)}
                         onChange={(e) => setProjectType(e.target.value)}
-                        className="w-full px-4 pt-4 pb-2.5 sm:pt-4.5 sm:pb-3 text-sm sm:text-base text-gray-900 bg-white border border-gray-300 rounded-xl outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 appearance-none cursor-pointer pr-10"
+                        className="w-full px-4 pt-4 pb-2.5 sm:pt-4.5 sm:pb-3 text-sm sm:text-base text-white bg-[#111114] border border-white/15 rounded-xl outline-none transition-all duration-200 focus:border-[#E9C27A] focus:ring-1 focus:ring-[#E9C27A]/30 appearance-none cursor-pointer pr-10"
                       >
-                        <option value="" disabled></option>
-                        <option value="1 BHK Interior" className="text-gray-900">1 BHK Interior</option>
-                        <option value="2 BHK Interior" className="text-gray-900">2 BHK Interior</option>
-                        <option value="3 BHK Interior" className="text-gray-900">3 BHK Interior</option>
-                        <option value="4 BHK / Villa" className="text-gray-900">4 BHK / Villa</option>
-                        <option value="Modular Kitchen" className="text-gray-900">Modular Kitchen</option>
-                        <option value="Full Home Transformation" className="text-gray-900">Full Home Transformation</option>
-                        <option value="Others" className="text-gray-900">Others</option>
+                        <option value="" disabled className="bg-[#18181b] text-white/40"></option>
+                        <option value="1 BHK Interior" className="bg-[#18181b] text-white">1 BHK Interior</option>
+                        <option value="2 BHK Interior" className="bg-[#18181b] text-white">2 BHK Interior</option>
+                        <option value="3 BHK Interior" className="bg-[#18181b] text-white">3 BHK Interior</option>
+                        <option value="4 BHK / Villa" className="bg-[#18181b] text-white">4 BHK / Villa</option>
+                        <option value="Modular Kitchen" className="bg-[#18181b] text-white">Modular Kitchen</option>
+                        <option value="Full Home Transformation" className="bg-[#18181b] text-white">Full Home Transformation</option>
+                        <option value="Others" className="bg-[#18181b] text-white">Others</option>
                       </select>
                       <label
                         htmlFor="modal_project_type"
-                        className={`absolute left-3.5 px-1 bg-transparent transition-all duration-200 pointer-events-none origin-left ${
+                        className={`absolute left-3.5 px-1.5 bg-[#111114] transition-all duration-200 pointer-events-none origin-left ${
                           projectType || isSelectFocused
-                            ? '-top-2.5 left-3 text-xs font-semibold ' + (isSelectFocused ? 'text-primary' : 'text-gray-600')
-                            : 'top-3.5 sm:top-4 text-xs sm:text-sm text-gray-400 font-normal'
+                            ? '-top-2.5 left-3 text-xs font-medium ' + (isSelectFocused ? 'text-[#E9C27A]' : 'text-white/80')
+                            : 'top-3.5 sm:top-4 text-xs sm:text-sm text-white/45 font-normal'
                         }`}
                       >
                         Choose Project <span className="text-primary">*</span>
                       </label>
                       <ChevronDown
                         className={`w-4 h-4 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-200 ${
-                          isSelectFocused ? 'rotate-180 text-primary' : 'text-gray-500'
+                          isSelectFocused ? 'rotate-180 text-[#E9C27A]' : 'text-white/40'
                         }`}
                       />
                     </div>
@@ -291,13 +298,13 @@ const ConsultationModal = ({ isOpen, onClose, modalData = {} }) => {
                         name="project_location"
                         id="modal_project_location"
                         placeholder=" "
-                        className="peer w-full px-4 pt-4 pb-2.5 sm:pt-4.5 sm:pb-3 text-sm sm:text-base text-gray-900 bg-white border border-gray-300 rounded-xl outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder-transparent"
+                        className="peer w-full px-4 pt-4 pb-2.5 sm:pt-4.5 sm:pb-3 text-sm sm:text-base text-white bg-white/[0.03] border border-white/15 rounded-xl outline-none transition-all duration-200 focus:border-[#E9C27A] focus:bg-white/[0.06] focus:ring-1 focus:ring-[#E9C27A]/30 placeholder-transparent"
                       />
                       <label
                         htmlFor="modal_project_location"
-                        className="absolute left-3.5 top-3.5 sm:top-4 px-1 bg-transparent text-xs sm:text-sm text-gray-400 font-normal transition-all duration-200 pointer-events-none origin-left 
-                        peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-xs peer-focus:text-primary peer-focus:font-semibold
-                        peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-600 peer-[:not(:placeholder-shown)]:font-medium"
+                        className="absolute left-3.5 top-3.5 sm:top-4 px-1.5 bg-[#111114] text-xs sm:text-sm text-white/45 font-normal transition-all duration-200 pointer-events-none origin-left 
+                        peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-xs peer-focus:text-[#E9C27A] peer-focus:font-medium
+                        peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-white/80 peer-[:not(:placeholder-shown)]:font-medium"
                       >
                         Project Location (e.g. Whitefield, Sarjapur, HSR...)
                       </label>
@@ -310,13 +317,13 @@ const ConsultationModal = ({ isOpen, onClose, modalData = {} }) => {
                         id="modal_message"
                         placeholder=" "
                         rows="2"
-                        className="peer w-full px-4 pt-3.5 pb-2 text-sm sm:text-base text-gray-900 bg-white border border-gray-300 rounded-xl outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder-transparent resize-none h-20"
+                        className="peer w-full px-4 pt-3.5 pb-2 text-sm sm:text-base text-white bg-white/[0.03] border border-white/15 rounded-xl outline-none transition-all duration-200 focus:border-[#E9C27A] focus:bg-white/[0.06] focus:ring-1 focus:ring-[#E9C27A]/30 placeholder-transparent resize-none h-20"
                       />
                       <label
                         htmlFor="modal_message"
-                        className="absolute left-3.5 top-3.5 px-1 bg-transparent text-xs sm:text-sm text-gray-400 font-normal transition-all duration-200 pointer-events-none origin-left 
-                        peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-xs peer-focus:text-primary peer-focus:font-semibold
-                        peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-gray-600 peer-[:not(:placeholder-shown)]:font-medium"
+                        className="absolute left-3.5 top-3.5 px-1.5 bg-[#111114] text-xs sm:text-sm text-white/45 font-normal transition-all duration-200 pointer-events-none origin-left 
+                        peer-focus:-top-2.5 peer-focus:left-3 peer-focus:text-xs peer-focus:text-[#E9C27A] peer-focus:font-medium
+                        peer-[:not(:placeholder-shown)]:-top-2.5 peer-[:not(:placeholder-shown)]:left-3 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-white/80 peer-[:not(:placeholder-shown)]:font-medium"
                       >
                         Message / Specific Requirements (Optional)
                       </label>
@@ -327,18 +334,18 @@ const ConsultationModal = ({ isOpen, onClose, modalData = {} }) => {
                       <button
                         type="submit"
                         disabled={isLoading}
-                        className="w-full inline-flex items-center justify-center gap-3 bg-primary hover:bg-primary-hover text-neutral-950 font-semibold text-sm sm:text-[15px] py-3.5 sm:py-4 px-6 rounded-xl shadow-md shadow-black/20 hover:shadow-lg hover:shadow-primary/15 transition-all duration-300 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer group"
+                        className="w-full inline-flex items-center justify-center gap-3 bg-primary hover:bg-primary-hover text-neutral-950 font-semibold text-sm sm:text-[15px] py-3.5 sm:py-4 px-6 rounded-xl shadow-lg shadow-black/40 hover:shadow-primary/20 transition-all duration-300 active:scale-95 disabled:opacity-60 cursor-pointer group"
                       >
                         <span>{isLoading ? 'Scheduling Consultation...' : 'Confirm Free Consultation'}</span>
                         {isLoading ? (
-                          <Loader2 className="w-4 h-4 animate-spin shrink-0" />
+                          <Loader2 className="w-4 h-4 animate-spin shrink-0 text-neutral-950" />
                         ) : (
-                          <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5 shrink-0" />
+                          <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5 shrink-0 text-neutral-950" />
                         )}
                       </button>
                     </div>
 
-                    <p className="text-center text-[11px] sm:text-[12px] text-gray-500 pt-0.5">
+                    <p className="text-center text-[11px] sm:text-[12px] text-white/40 pt-0.5 font-body">
                       🔒 100% Privacy Protected · Zero Spam Calls
                     </p>
                   </form>

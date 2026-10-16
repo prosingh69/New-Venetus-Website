@@ -10,25 +10,29 @@ const stepsData = [
     id: 1,
     title: "Understanding requirements",
     description: "We deeply understand your lifestyle, preferences & dreams to create a personalized home that truly feels like you.",
-    image: "/bedroom3.jpeg"
+    image: "https://res.cloudinary.com/lbei6xmb/image/upload/v1792122429/gpt-image-2.5-flare_Photorealistic_DSLR_photo_16_9_a_young_professional_Indian_interior_designer_wea-0_cehbgr.jpg",
+    imagePosition: "85% center"
   },
   {
     id: 2,
     title: "3D Space Planning & Design",
     description: "Laser-accurate measurements & photorealistic 3D renders so you can preview every detail before we build.",
-    image: "/kitchen1.jpeg"
+    image: "https://res.cloudinary.com/lbei6xmb/image/upload/v1792122430/gpt-image-2.5-flare_Photorealistic_DSLR_photo_16_9_same_young_Indian_interior_designer_in_Black_T-Sh-0_luirzm.jpg",
+    imagePosition: "85% center"
   },
   {
     id: 3,
     title: "Material Selection & Clear Quote",
     description: "Hand-pick authentic BWR plywood, acrylics & German fittings with 100% itemized pricing. Zero hidden fees.",
-    image: "/premium.jpg"
+    image: "https://res.cloudinary.com/lbei6xmb/image/upload/v1792122431/gpt-image-2.5-flare_Photorealistic_DSLR_photo_16_9_same_Indian_designer_in_Black_T-Shirt_with_Gold_V-0_yliqk3.jpg",
+    imagePosition: "85% center"
   },
   {
     id: 4,
     title: "Precision Execution & Handover",
     description: "Factory fabrication, clean on-site assembly, 100+ point quality check & prompt handover with up to 10-year warranty.",
-    image: "/bedroom4.jpeg"
+    image: "https://res.cloudinary.com/lbei6xmb/image/upload/v1792122430/gpt-image-2.5-flare_Photorealistic_DSLR_photo_16_9_same_Indian_designer_in_Black_T-Shirt_with_Gold_V-0_1_exa2lt.jpg",
+    imagePosition: "85% center"
   }
 ];
 
@@ -176,7 +180,7 @@ const SimpleProcess = ({ locationName = 'Bangalore' }) => {
 
           {/* RIGHT - BORDER HATA DIYA */}
           <div className="lg:col-span-6 order-1 lg:order-2">
-            <div className="relative w-full aspect-[1.15/1] sm:aspect-[4/3] rounded-[24px] overflow-hidden bg-[#1A1A1E] shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
+            <div className="relative w-full aspect-[1.25/1] sm:aspect-[16/11] rounded-[24px] overflow-hidden bg-[#1A1A1E] shadow-[0_30px_80px_rgba(0,0,0,0.5)]">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={currentStep.id}
@@ -187,6 +191,7 @@ const SimpleProcess = ({ locationName = 'Bangalore' }) => {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.6 }}
                   className="w-full h-full object-cover"
+                  style={{ objectPosition: currentStep.imagePosition || '85% center' }}
                 />
               </AnimatePresence>
               {/* bottom se halka gradient depth ke liye, border nahi */}

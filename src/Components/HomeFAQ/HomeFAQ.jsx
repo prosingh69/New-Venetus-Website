@@ -92,7 +92,7 @@ const HomeFAQ = ({ locationName = 'Bangalore' }) => {
                 }}
               >
                 <img
-                  src="/design.jpg"
+                  src="https://res.cloudinary.com/lbei6xmb/image/upload/v1792114838/WhatsApp_Image_2026-10-16_at_6.43.55_AM_1_wcctmn.jpg"
                   alt={`Venetus Interior Living Room Design in ${locationName}`}
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -146,7 +146,7 @@ const HomeFAQ = ({ locationName = 'Bangalore' }) => {
                 className="absolute bottom-0 left-0 w-[78%] h-[40%] rounded-[28px] overflow-hidden shadow-2xl z-10"
               >
                 <img
-                  src="/design.jpg"
+                  src="https://res.cloudinary.com/lbei6xmb/image/upload/v1792114838/WhatsApp_Image_2026-10-16_at_6.43.55_AM_1_wcctmn.jpg"
                   alt={`Venetus Interior Living Room Design in ${locationName}`}
                   className="w-full h-full object-cover"
                   loading="lazy"
