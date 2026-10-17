@@ -9,25 +9,25 @@ const serviceCards = [
   {
     index: '01',
     title: 'Residential Interior Design',
-    image: '/bedroom4.jpeg',
+    image: 'https://res.cloudinary.com/lbei6xmb/image/upload/v1792114827/WhatsApp_Image_2026-10-15_at_9.01.25_PM_amjmpz.jpg',
     description: 'Tailored design services for private homes, including room makeovers and complete home transformations.'
   },
   {
     index: '02',
     title: 'Commercial Interior Design',
-    image: '/premium.jpg',
+    image: 'https://res.cloudinary.com/lbei6xmb/image/upload/v1792169588/Luxury-office-by-Decorilla-office-interior-decorators-Barbara-C_xouzcw.webp',
     description: 'Designing functional and attractive interiors for businesses, including offices, retail spaces, and hospitality venues.'
   },
   {
     index: '03',
     title: 'Interior Design Consultation',
-    image: '/design.jpg',
+    image: 'https://res.cloudinary.com/lbei6xmb/image/upload/v1792114837/WhatsApp_Image_2026-10-15_at_9.02.22_PM_aroot0.jpg',
     description: 'Providing professional advice on concepts, spatial layouts, curated color schemes, and premium material selection.'
   },
   {
     index: '04',
     title: 'Outdoor & Landscape Design',
-    image: '/kitchen1.jpeg',
+    image: 'https://res.cloudinary.com/lbei6xmb/image/upload/v1792171343/Contemporary-Scandinavian-backyard-patio-design-ideas_r5asw9.webp',
     description: 'Extending design services to outdoor spaces such as gardens, patios, and decks with weather-resistant finishes.'
   },
   {
@@ -39,10 +39,10 @@ const serviceCards = [
   {
     index: '06',
     title: 'Interior 2D/3D Layouts',
-    image: '/package-kitchen.jpg',
+    image: 'https://res.cloudinary.com/lbei6xmb/image/upload/v1792114827/WhatsApp_Image_2026-10-15_at_9.01.22_PM_2_enuora.jpg',
     description: 'Realistic 3D visualizations to help you envision your space, textures, and lighting before it’s built in real life.'
   }
-]
+];
 
 const gridVariants = {
   hidden: {},
@@ -76,7 +76,7 @@ const AboutService = () => {
 
         {/* Section Header matching Homepage & About theme */}
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-10 sm:mb-12 md:mb-16 px-4">
-          <h2 className="font-heading text-[24px] xs:text-[28px] sm:text-h2 font-medium text-white tracking-[-0.02em] leading-[1.2] sm:leading-[1.15] mb-3 sm:mb-4 text-center">
+          <h2 className="font-heading text-[26px] xs:text-[28px] sm:text-[36px] md:text-[44px] lg:text-[50px] xl:text-[54px] font-medium text-white tracking-[-0.02em] leading-[1.2] sm:leading-[1.14] mb-3 sm:mb-4 text-center">
             <span className="block sm:whitespace-nowrap">
               <LettersPullUp
                 text="Explore Our Comprehensive"

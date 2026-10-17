@@ -7,16 +7,6 @@ import { useConsultationModal } from '../../context/ConsultationModalContext'
 
 const packagesData = [
   {
-    id: '1bhk',
-    title: 'Urban Starter — 1 BHK',
-    badge: 'Starter',
-    scope: 'Compact modular kitchen, 2 custom wardrobes, TV entertainment unit & shoe console.',
-    priceRange: 'Starts at ₹3.5 Lakhs*',
-    image: '/design.jpg',
-    objectPosition: 'object-center',
-    hiddenOnMobile: true,
-  },
-  {
     id: '2bhk',
     title: 'Premium 2 BHK',
     badge: 'Premium',
@@ -53,16 +43,24 @@ const packagesData = [
     objectPosition: 'object-[center_35%]',
   },
   {
-    id: 'rental',
-    title: 'Quick Refresh — Rental Setup',
-    badge: 'Rental',
-    scope: 'Durable HDHMR modular kitchen, essential wardrobes & TV unit with 25-day handover.',
-    priceRange: '₹1.8 – ₹3.8 Lakhs*',
-    image: 'https://res.cloudinary.com/lbei6xmb/image/upload/f_auto,q_auto/v1786158021/WhatsApp_Image_2026-08-08_at_8.29.42_AM_gqiqg2.jpg',
-    objectPosition: 'object-[center_35%]',
-    hiddenOnMobile: true,
+    id: 'custom',
+    title: 'Custom Setup',
+    badge: 'Custom',
+    scope: 'Tailored architectural layouts, custom built-ins, curated luxury materials & personalized interior execution designed exclusively for your unique space.',
+    priceRange: 'Custom Quote',
+    image: '/design.jpg',
+    objectPosition: 'object-center',
   },
-]
+  {
+    id: 'commercial-studio',
+    title: 'Commercial & Studio Space',
+    badge: 'Commercial',
+    scope: 'Bespoke interior design for luxury boutique offices, creative studios, executive lounges & modern retail experience centers.',
+    priceRange: 'Custom Quote',
+    image: 'https://res.cloudinary.com/lbei6xmb/image/upload/v1792169588/Luxury-office-by-Decorilla-office-interior-decorators-Barbara-C_xouzcw.webp',
+    objectPosition: 'object-center',
+  },
+];
 
 const gridVariants = {
   hidden: {},

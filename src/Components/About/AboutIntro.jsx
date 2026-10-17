@@ -134,7 +134,7 @@ const AboutIntro = () => {
               className="relative w-full h-[260px] sm:h-[330px] lg:h-[405px] xl:h-[445px] rounded-[28px] sm:rounded-[32px] overflow-hidden shadow-2xl bg-neutral-900 border border-white/10 will-change-transform mb-7 sm:mb-8"
             >
               <img
-                src="/premium.jpg"
+                src="https://res.cloudinary.com/lbei6xmb/image/upload/v1792114836/WhatsApp_Image_2026-10-15_at_9.02.19_PM_pxaygu.jpg"
                 alt="Venetus Interior Living Room"
                 className="w-full h-full object-cover object-center"
                 loading="lazy"

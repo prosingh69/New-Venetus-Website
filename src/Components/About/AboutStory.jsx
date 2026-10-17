@@ -183,7 +183,7 @@ const AboutStory = () => {
               className="absolute top-0 right-4 sm:right-6 lg:right-7 w-[68%] h-[300px] sm:h-[360px] md:h-[400px] rounded-2xl overflow-hidden shadow-2xl shadow-black/70 border border-white/10"
             >
               <img
-                src="/bedroom.jpeg"
+                src="https://res.cloudinary.com/lbei6xmb/image/upload/v1792114827/WhatsApp_Image_2026-10-15_at_9.01.25_PM_amjmpz.jpg"
                 alt="Venetus Interior Bedroom Project"
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
@@ -202,7 +202,7 @@ const AboutStory = () => {
               className="relative z-10 w-[68%] h-[320px] sm:h-[390px] md:h-[440px] mt-20 sm:mt-24 lg:mt-28 rounded-2xl overflow-hidden shadow-2xl shadow-black/80 border border-white/15 mr-4 sm:mr-6 lg:mr-7"
             >
               <img
-                src="/design.jpg"
+                src="https://res.cloudinary.com/lbei6xmb/image/upload/v1792114837/WhatsApp_Image_2026-10-15_at_9.02.22_PM_aroot0.jpg"
                 alt="Venetus Interior — Our Story"
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
