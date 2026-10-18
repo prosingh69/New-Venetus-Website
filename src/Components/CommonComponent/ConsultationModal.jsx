@@ -106,6 +106,15 @@ const ConsultationModal = ({ isOpen, onClose, modalData = {} }) => {
 
       toast.success('Thank you! Your consultation request has been received.');
       setIsSuccess(true);
+
+      // Meta Pixel: Track Lead Event
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead', {
+          content_name: dataForSheet.service_title || 'Free Design Consultation',
+          currency: 'INR',
+        });
+      }
+
       if (formRef.current) {
         formRef.current.reset();
       }
