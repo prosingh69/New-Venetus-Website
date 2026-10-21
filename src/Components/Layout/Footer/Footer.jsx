@@ -71,10 +71,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: "Instagram", icon: <InstagramIcon />, url: "https://www.instagram.com/" },
-    { name: "LinkedIn", icon: <LinkedinIcon />, url: "https://www.linkedin.com/" },
-    { name: "YouTube", icon: <YoutubeIcon />, url: "https://www.youtube.com/" },
-    { name: "Facebook", icon: <FacebookIcon />, url: "https://www.facebook.com/" }
+    { name: "Instagram", icon: <InstagramIcon />, url: "https://www.instagram.com/venetus_interior/" },
+    { name: "LinkedIn", icon: <LinkedinIcon />, url: "https://www.linkedin.com/company/venetus-interior/?viewAsMember=true" },
+    { name: "YouTube", icon: <YoutubeIcon />, url: "https://www.youtube.com/@VenetusInterior" },
+    { name: "Facebook", icon: <FacebookIcon />, url: "https://www.facebook.com/profile.php?id=61595260975869" }
   ];
 
   return (
