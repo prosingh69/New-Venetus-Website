@@ -225,7 +225,7 @@ const ResidentialProjects = ({ locationName = 'Bangalore' }) => {
                       <div className="absolute top-0 left-0 right-0 p-2.5 sm:p-3 bg-gradient-to-b from-black/85 via-black/40 to-transparent flex items-center gap-2.5 z-10">
                         {/* Channel Icon */}
                         <div className="w-6 h-6 rounded-full bg-neutral-900 border border-white/20 flex items-center justify-center p-0.5 shrink-0 overflow-hidden shadow">
-                          <img src="/logo.png" alt="Venetus" className="w-full h-full object-contain" />
+                          <img src="https://res.cloudinary.com/lbei6xmb/image/upload/v1792067711/Venetus_Interior_gold-and-white_logo_gqrlmw.png" alt="Venetus" className="w-full h-full object-contain" />
                         </div>
                         {/* Title and Channel name */}
                         <div className="flex flex-col min-w-0">
