@@ -20,15 +20,13 @@ const Form = () => {
     const userMsg = formData.get('message') || ''
     const selectedType = formData.get('project_type') === 'Others' ? formData.get('other_project_type') : formData.get('project_type')
 
-    const fullMessage = `Type: ${selectedType || 'N/A'}, Location: ${projectLoc}${userMsg ? `, Message: ${userMsg}` : ''}`
-
     const dataForSheet = {
       user_name: formData.get('user_name'),
       user_email: formData.get('user_email'),
       user_phone: formData.get('user_phone'),
       project_type: selectedType,
       project_location: projectLoc,
-      message: fullMessage,
+      message: userMsg,
     }
 
     try {
