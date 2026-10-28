@@ -56,15 +56,13 @@ const ConsultationModal = ({ isOpen, onClose, modalData = {} }) => {
     const projectLoc = formData.get('project_location') || 'N/A';
     const projectTypeVal = formData.get('project_type') || 'N/A';
 
-    const fullMessage = `Type: ${projectTypeVal}, Location: ${projectLoc}${userMsg ? `, Message: ${userMsg}` : ''}`;
-
     const dataForSheet = {
       user_name: formData.get('user_name'),
       user_phone: formData.get('user_phone'),
       user_email: formData.get('user_email'),
       project_type: projectTypeVal,
       project_location: projectLoc,
-      message: fullMessage
+      message: userMsg
     };
 
     try {
