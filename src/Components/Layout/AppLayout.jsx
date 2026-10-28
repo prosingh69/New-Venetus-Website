@@ -34,7 +34,35 @@ const AppLayout = () => {
 
   return (
     <ConsultationModalProvider>
-      <Toaster position="top-center" reverseOrder={false} />
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        containerStyle={{ top: 24, zIndex: 99999999 }}
+        toastOptions={{
+          duration: 4500,
+          style: {
+            background: '#18181b',
+            color: '#ffffff',
+            border: '1px solid rgba(233, 194, 122, 0.45)',
+            boxShadow: '0 12px 35px rgba(0,0,0,0.65)',
+            fontSize: '14px',
+            borderRadius: '12px',
+            padding: '12px 18px',
+          },
+          error: {
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: '#ffffff',
+            },
+          },
+          success: {
+            iconTheme: {
+              primary: '#E9C27A',
+              secondary: '#000000',
+            },
+          },
+        }}
+      />
       <Navbar/>
       <main className="w-full">
         <Outlet/>

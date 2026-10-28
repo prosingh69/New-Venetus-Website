@@ -1,7 +1,7 @@
 import { ArrowRight, Loader2, ChevronDown } from 'lucide-react'
 import React, { useState, useRef } from 'react'
 import emailjs from '@emailjs/browser'
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 
 const Form = () => {
   const [projectType, setProjectType] = useState('')
@@ -11,21 +11,73 @@ const Form = () => {
   const formRef = useRef()
   const GOOGLE_SHEET_API_URL = import.meta.env.VITE_GOOGLE_SHEET_API_URL
 
+  // --- Validation with crystal-clear English feedback ---
+  const validateForm = (name, phone, email) => {
+    const cleanName = (name || '').trim()
+    if (!cleanName || cleanName.length < 2) {
+      toast.error('Please enter your full name (at least 2 characters).')
+      return false
+    }
+    if (/[0-9]/.test(cleanName)) {
+      toast.error('Name should not contain numbers.')
+      return false
+    }
+
+    // Clean phone: extract digits and remove leading country code 91 if 12 digits
+    const digitsOnly = (phone || '').replace(/\D/g, '')
+    const cleanPhone = digitsOnly.startsWith('91') && digitsOnly.length === 12
+      ? digitsOnly.slice(2)
+      : digitsOnly
+
+    if (!cleanPhone) {
+      toast.error('Please enter your 10-digit mobile number.')
+      return false
+    }
+    if (cleanPhone.length < 10) {
+      toast.error(`Phone number is incomplete (${cleanPhone.length}/10 digits entered).`)
+      return false
+    }
+    if (cleanPhone.length > 10) {
+      toast.error(`Phone number must be exactly 10 digits (${cleanPhone.length} digits entered).`)
+      return false
+    }
+    if (!/^[6-9]/.test(cleanPhone)) {
+      toast.error('Mobile number must start with 6, 7, 8, or 9.')
+      return false
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+    if (!email || !emailRegex.test((email || '').trim())) {
+      toast.error('Please enter a valid email address (e.g. name@gmail.com).')
+      return false
+    }
+
+    return cleanPhone
+  }
+
   const HandleData = async (e) => {
     e.preventDefault()
-    setIsLoading(true)
 
     const formData = new FormData(formRef.current)
+    const nameVal = formData.get('user_name') || ''
+    const phoneVal = formData.get('user_phone') || ''
+    const emailVal = formData.get('user_email') || ''
+
+    const validatedPhone = validateForm(nameVal, phoneVal, emailVal)
+    if (!validatedPhone) return
+
+    setIsLoading(true)
+
     const projectLoc = formData.get('project_location') || 'N/A'
     const userMsg = formData.get('message') || ''
     const selectedType = formData.get('project_type') === 'Others' ? formData.get('other_project_type') : formData.get('project_type')
 
     const dataForSheet = {
-      user_name: formData.get('user_name'),
-      user_email: formData.get('user_email'),
-      user_phone: formData.get('user_phone'),
-      project_type: selectedType,
-      project_location: projectLoc,
+      name: (nameVal || '').trim(),
+      email: (emailVal || '').trim(),
+      phone: validatedPhone,
+      project: selectedType,
+      location: projectLoc,
       message: userMsg,
     }
 
@@ -77,8 +129,6 @@ const Form = () => {
 
   return (
     <>
-      <Toaster position="top-center" reverseOrder={false} />
-
       <form
         ref={formRef}
         onSubmit={HandleData}

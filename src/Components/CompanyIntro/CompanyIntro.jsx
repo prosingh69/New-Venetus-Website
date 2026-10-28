@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Loader2, CheckCircle2, ChevronDown } from 'lucide-react';
 import emailjs from '@emailjs/browser';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import LettersPullUp from '../Animations/LettersPullUp';
 import FadeUp from '../Animations/FadeUp';
 
@@ -14,21 +14,73 @@ const CompanyIntro = ({ locationName = 'Bangalore' }) => {
 
   const GOOGLE_SHEET_API_URL = import.meta.env.VITE_GOOGLE_SHEET_API_URL;
 
+  // --- Validation with crystal-clear English feedback ---
+  const validateForm = (name, phone, email) => {
+    const cleanName = (name || '').trim();
+    if (!cleanName || cleanName.length < 2) {
+      toast.error('Please enter your full name (at least 2 characters).');
+      return false;
+    }
+    if (/[0-9]/.test(cleanName)) {
+      toast.error('Name should not contain numbers.');
+      return false;
+    }
+
+    // Clean phone: extract digits and remove leading country code 91 if 12 digits
+    const digitsOnly = (phone || '').replace(/\D/g, '');
+    const cleanPhone = digitsOnly.startsWith('91') && digitsOnly.length === 12
+      ? digitsOnly.slice(2)
+      : digitsOnly;
+
+    if (!cleanPhone) {
+      toast.error('Please enter your 10-digit mobile number.');
+      return false;
+    }
+    if (cleanPhone.length < 10) {
+      toast.error(`Phone number is incomplete (${cleanPhone.length}/10 digits entered).`);
+      return false;
+    }
+    if (cleanPhone.length > 10) {
+      toast.error(`Phone number must be exactly 10 digits (${cleanPhone.length} digits entered).`);
+      return false;
+    }
+    if (!/^[6-9]/.test(cleanPhone)) {
+      toast.error('Mobile number must start with 6, 7, 8, or 9.');
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!email || !emailRegex.test((email || '').trim())) {
+      toast.error('Please enter a valid email address (e.g. name@gmail.com).');
+      return false;
+    }
+
+    return cleanPhone;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
 
     const formData = new FormData(formRef.current);
+    const nameVal = formData.get('user_name') || '';
+    const phoneVal = formData.get('user_phone') || '';
+    const emailVal = formData.get('user_email') || '';
+
+    const validatedPhone = validateForm(nameVal, phoneVal, emailVal);
+    if (!validatedPhone) return;
+
+    setIsLoading(true);
+
     const userMsg = formData.get('message') || '';
     const projectLoc = formData.get('project_location') || 'N/A';
     const projectTypeVal = formData.get('project_type') || 'N/A';
 
     const dataForSheet = {
-      user_name: formData.get('user_name'),
-      user_phone: formData.get('user_phone'),
-      user_email: formData.get('user_email'),
-      project_type: projectTypeVal,
-      project_location: projectLoc,
+      name: (nameVal || '').trim(),
+      phone: validatedPhone,
+      email: (emailVal || '').trim(),
+      project: projectTypeVal,
+      location: projectLoc,
       message: userMsg
     };
 
@@ -82,8 +134,6 @@ const CompanyIntro = ({ locationName = 'Bangalore' }) => {
 
   return (
     <section className="w-full bg-[#18181b] py-14 sm:py-18 md:py-22 border-t border-b border-white/10 relative overflow-hidden">
-      <Toaster position="top-center" reverseOrder={false} />
-
       {/* Subtle background ambient glow */}
       <div className="absolute -top-24 right-0 w-96 h-96 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/8 via-transparent to-transparent pointer-events-none" />
 
