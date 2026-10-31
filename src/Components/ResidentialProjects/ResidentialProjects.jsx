@@ -21,64 +21,20 @@ const YouTubePlayButton = () => (
   </svg>
 );
 
-const YOUTUBE_VIDEO_ID = 'JuAa0bUDrGQ';
-
 const residentialProjects = [
   {
     id: 1,
-    name: 'ASPEN GREENS',
-    title: '4BHK Luxury Villa at Aspen Greens',
+    name: 'Dream Home Tour at Prestige City, Eden Park',
+    title: 'Dream Home Tour at Prestige City, Eden Park',
     thumbnail: '/residential-thumb-1.jpg',
-    startTime: 2
+    videoId: 'JuAa0bUDrGQ'
   },
   {
     id: 2,
-    name: 'ADARSH TRANQVILLE',
-    title: '4BHK Villa At Adarsh Tranqville',
+    name: "Your Family's Next Chapter Starts at Home",
+    title: "Your Family's Next Chapter Starts at Home",
     thumbnail: '/residential-thumb-2.jpg',
-    startTime: 14
-  },
-  {
-    id: 3,
-    name: 'BALAJI URBAN RETREAT',
-    title: 'Minimal. Majestic. Masterpiece',
-    thumbnail: '/residential-thumb-3.jpg',
-    startTime: 28
-  },
-  {
-    id: 4,
-    name: 'PRESTIGE CITY',
-    title: '4BHK Villa at Prestige City',
-    thumbnail: '/residential-thumb-4.jpg',
-    startTime: 42
-  },
-  {
-    id: 5,
-    name: 'CHAITHANYA SAMARTH',
-    title: 'The Art of Luxury Interiors',
-    thumbnail: '/residential-thumb-5.jpg',
-    startTime: 56
-  },
-  {
-    id: 6,
-    name: 'SECRET SOIL',
-    title: 'The Secret Soil Luxury Living',
-    thumbnail: '/residential-thumb-6.jpg',
-    startTime: 61
-  },
-  {
-    id: 7,
-    name: 'EPITOME ELAN',
-    title: 'A Symphony of Space',
-    thumbnail: '/residential-thumb-7.jpg',
-    startTime: 85
-  },
-  {
-    id: 8,
-    name: 'EMBASSY LAKE TERRACES',
-    title: 'Signature Spaces. Iconic Luxury',
-    thumbnail: '/residential-thumb-8.jpg',
-    startTime: 98
+    videoId: 'xBA-wSI5b8w'
   }
 ];
 
@@ -103,15 +59,17 @@ const ResidentialProjects = ({ locationName = 'Bangalore' }) => {
       }
     });
 
-    // Prefetch embed document so it is cached in browser before click
-    const prefetchUrl = `https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}`;
-    if (!document.querySelector(`link[href="${prefetchUrl}"]`)) {
-      const prefetch = document.createElement('link');
-      prefetch.rel = 'prefetch';
-      prefetch.href = prefetchUrl;
-      prefetch.as = 'document';
-      document.head.appendChild(prefetch);
-    }
+    // Prefetch embed documents so they are cached in browser before click
+    residentialProjects.forEach(({ videoId }) => {
+      const prefetchUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
+      if (!document.querySelector(`link[href="${prefetchUrl}"]`)) {
+        const prefetch = document.createElement('link');
+        prefetch.rel = 'prefetch';
+        prefetch.href = prefetchUrl;
+        prefetch.as = 'document';
+        document.head.appendChild(prefetch);
+      }
+    });
   }, []);
 
   const handlePlay = (id) => {
@@ -152,8 +110,8 @@ const ResidentialProjects = ({ locationName = 'Bangalore' }) => {
           </FadeUp>
         </div>
 
-        {/* 8-Card Responsive Video Grid (4 columns on lg, 2 on md/sm, 1 on xs) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        {/* 2-Video Responsive Grid (side-by-side on laptop, stacked on mobile) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
           {residentialProjects.map((project, index) => {
             const isPlaying = playingId === project.id;
 
@@ -167,7 +125,7 @@ const ResidentialProjects = ({ locationName = 'Bangalore' }) => {
                 className="flex flex-col"
               >
                 {/* Video Card Container */}
-                <div className="relative w-full aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_12px_36px_rgba(240,202,107,0.18)] transition-all duration-300 bg-neutral-900 border border-white/10 hover:border-primary/50">
+                <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-xl hover:shadow-[0_12px_36px_rgba(240,202,107,0.18)] transition-all duration-300 bg-neutral-900 border border-white/10 hover:border-primary/50">
                   {isPlaying ? (
                     <div className="relative w-full h-full bg-black">
                       {/* Loading state indicator while video buffers */}
@@ -187,7 +145,7 @@ const ResidentialProjects = ({ locationName = 'Bangalore' }) => {
                         </div>
                       )}
                       <iframe
-                        src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&start=${project.startTime}&rel=0&modestbranding=1&playsinline=1&enablejsapi=0`}
+                        src={`https://www.youtube-nocookie.com/embed/${project.videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=0`}
                         title={project.title}
                         className="w-full h-full border-0 relative z-20"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -229,10 +187,10 @@ const ResidentialProjects = ({ locationName = 'Bangalore' }) => {
                         </div>
                         {/* Title and Channel name */}
                         <div className="flex flex-col min-w-0">
-                          <span className="text-white text-xs sm:text-[13px] font-semibold truncate drop-shadow-sm leading-tight">
+                          <span className="font-heading text-white text-xs sm:text-[13px] font-semibold truncate drop-shadow-sm leading-tight">
                             {project.title}
                           </span>
-                          <span className="text-white/70 text-[10px] truncate leading-tight mt-0.5">
+                          <span className="font-heading text-white/70 text-[10px] truncate leading-tight mt-0.5">
                             Venetus Interior
                           </span>
                         </div>

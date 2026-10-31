@@ -260,17 +260,17 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation Links (With signature Venetus typography & lining numbers) */}
+        {/* Mobile Navigation Links (With signature Venetus typography) */}
         <div className="flex-1 overflow-y-auto px-5 py-5 flex flex-col justify-between custom-modal-scrollbar">
           <nav className="space-y-1" aria-label="Mobile Menu Links">
-            {navItems.map(({ label, to, count }) => (
+            {navItems.map(({ label, to }) => (
               <NavLink
                 key={label}
                 to={to}
                 end={to === '/'}
                 onClick={closeSidebar}
                 className={({ isActive }) =>
-                  `flex items-center justify-between px-3 py-2.5 rounded-xl transition-all duration-200 ${
+                  `flex items-center px-3 py-2.5 rounded-xl transition-all duration-200 ${
                     isActive
                       ? 'text-[#E9C27A] bg-white/[0.04] font-medium'
                       : 'text-white/80 hover:text-white hover:bg-white/[0.02]'
@@ -278,14 +278,9 @@ const Navbar = () => {
                 }
               >
                 {({ isActive }) => (
-                  <>
-                    <span className={`font-heading text-lg sm:text-xl tracking-wide ${isActive ? 'italic text-[#E9C27A]' : ''}`}>
-                      {label}
-                    </span>
-                    <span className="font-body font-sans lining-nums text-[11px] font-semibold text-[#E9C27A]/60 tracking-wider">
-                      {count}
-                    </span>
-                  </>
+                  <span className={`font-heading text-lg sm:text-xl tracking-wide ${isActive ? 'italic text-[#E9C27A]' : ''}`}>
+                    {label}
+                  </span>
                 )}
               </NavLink>
             ))}
