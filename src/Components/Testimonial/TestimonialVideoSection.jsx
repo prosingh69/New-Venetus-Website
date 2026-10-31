@@ -84,12 +84,12 @@ const TestimonialVideoSection = () => {
   const videos = [
     {
       id: 'SPrI_-in-Zg',
-      label: 'Watch Real Client Walkthrough',
+      label: 'Akash Gupta takes you through his Sobha Royal Pavilion home interior By Venetus Interior',
       sublabel: 'Latest Project — Click to Play',
     },
     {
       id: 'PIQm4m7j16Q',
-      label: 'Watch Real Client Walkthrough',
+      label: 'Honest Client Review + Full Home Tour | Venetus Interior at The Prestige City',
       sublabel: 'Click to Play Inside Website',
     },
   ]
