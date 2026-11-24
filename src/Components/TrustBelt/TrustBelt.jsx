@@ -48,7 +48,7 @@ const TrustBelt = ({ embedded = false }) => {
             <AnimatedCounter endValue={12} suffix="+" duration={2000} />
           </span>
           <span className="font-body text-stats-label text-[#EAEAEA] text-balance tracking-[0.02em] drop-shadow-sm">
-            Years Of Experience
+            Years of Working Experience
           </span>
         </motion.div>
 

@@ -80,10 +80,10 @@ const PortfolioTrust = () => {
 
           <motion.div variants={itemVariants} className="col-span-2 md:col-span-1 flex flex-col items-center justify-center text-center px-2">
             <span className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-primary tracking-tight mb-1 drop-shadow-md">
-              <AnimatedCounter endValue={15} suffix="+" duration={2000} />
+              <AnimatedCounter endValue={12} suffix="+" duration={2000} />
             </span>
             <span className="text-[11px] sm:text-xs md:text-sm lg:text-base font-medium text-white/90 leading-tight">
-              Years Experience
+              Years of Working Experience
             </span>
           </motion.div>
         </motion.div>

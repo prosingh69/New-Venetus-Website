@@ -55,9 +55,9 @@ const ClientTrustBelt = () => {
 
         <motion.div variants={itemVariants} className="flex flex-col items-center justify-start text-center px-1">
           <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary tracking-tight mb-1">
-            <AnimatedCounter endValue={15} suffix="+" duration={2000} />
+            <AnimatedCounter endValue={12} suffix="+" duration={2000} />
           </span>
-          <span className="text-xs sm:text-sm md:text-base ubuntu-medium text-gray-700 leading-tight text-balance">Years Trusted</span>
+          <span className="text-xs sm:text-sm md:text-base ubuntu-medium text-gray-700 leading-tight text-balance">Years of Working Experience</span>
         </motion.div>
 
       </motion.div>
