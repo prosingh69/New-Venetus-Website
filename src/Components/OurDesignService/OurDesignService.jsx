@@ -124,7 +124,7 @@ const OurDesignService = ({ locationName = 'Bangalore' }) => {
                 charDelay={0.035}
                 align="center"
               />
-            </span>
+            </span>{' '}
             <span className="block">
               <LettersPullUp
                 text={`in ${locationName}`}
@@ -137,8 +137,9 @@ const OurDesignService = ({ locationName = 'Bangalore' }) => {
             </span>
           </h2>
 
-          {/* Desktop & Tablet view (sm and up): Exactly as it was originally */}
-          <h2 className="hidden sm:block font-heading text-h2 font-medium text-white tracking-[-0.02em] leading-[1.15] text-balance mb-4 text-center">
+          {/* Desktop & Tablet view (sm and up): Exactly as it was originally.
+              Same words as the mobile H2 above, so it is marked as a heading for screen readers instead of a second <h2>. */}
+          <p role="heading" aria-level={2} className="hidden sm:block font-heading text-h2 font-medium text-white tracking-[-0.02em] leading-[1.15] text-balance mb-4 text-center">
             <LettersPullUp
               text={`Our Interior Design Services in ${locationName}`}
               highlightWord={locationName}
@@ -147,7 +148,7 @@ const OurDesignService = ({ locationName = 'Bangalore' }) => {
               charDelay={0.035}
               align="center"
             />
-          </h2>
+          </p>
 
           <FadeUp delay={0.4} duration={0.6}>
             <p className="font-body text-[15.5px] md:text-[16.5px] font-[400] leading-[1.7] tracking-[-0.01em] text-[#D4D4D8] md:text-[#D1D1D1] max-w-[680px] mx-auto text-center text-pretty mt-4 md:mt-5 opacity-90 px-2">

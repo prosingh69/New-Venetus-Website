@@ -236,7 +236,7 @@ const ServiceGallery = () => {
           >
             <div className="w-full">
               <h2 className="font-heading text-[clamp(32px,5.5vw,46px)] lg:text-[48px] xl:text-[52px] font-medium tracking-tight leading-[1.1] mb-4 sm:mb-5 text-center lg:text-left -mt-4 sm:-mt-2 lg:mt-0">
-                <span className="block text-white sm:whitespace-nowrap">Venetus Interior</span>
+                <span className="block text-white sm:whitespace-nowrap">Venetus Interior</span>{' '}
                 <span className="block font-heading italic font-medium text-[#E9C27A] sm:whitespace-nowrap">Design Studio</span>
               </h2>
 

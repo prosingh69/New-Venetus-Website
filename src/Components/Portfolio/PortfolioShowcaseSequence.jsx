@@ -127,7 +127,7 @@ const TextSection = ({ line1, line2, subtitle }) => {
           transition={{ duration: 0.75, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.15 }}
           className="font-heading text-[clamp(24px,5.8vw,52px)] font-medium text-white tracking-[-0.01em] leading-[1.18] sm:leading-[1.22] text-center w-full max-w-4xl drop-shadow-md flex flex-col items-center justify-center"
         >
-          <span className="block whitespace-nowrap">{line1}</span>
+          <span className="block whitespace-nowrap">{line1}</span>{' '}
           <span className="block mt-1 sm:mt-2 text-[#E9C27A] italic whitespace-nowrap">{line2}</span>
         </motion.h2>
 

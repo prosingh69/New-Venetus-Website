@@ -59,7 +59,7 @@ const Testimonial = ({ showButton = true, locationName = 'Bangalore' }) => {
                             charDelay={0.03}
                             align="center"
                         />
-                    </span>
+                    </span>{' '}
                     <span className="block mt-1 sm:mt-1.5">
                         <LettersPullUp
                             text={locationName}

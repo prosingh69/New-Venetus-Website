@@ -169,7 +169,7 @@ const HomeFAQ = ({ locationName = 'Bangalore' }) => {
                     align="responsive-lg"
                     nowrap={true}
                   />
-                </span>
+                </span>{' '}
                 <span className="block mt-1.5 sm:mt-2 whitespace-nowrap">
                   <LettersPullUp
                     text={`in ${locationName}`}

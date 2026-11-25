@@ -86,7 +86,7 @@ const AboutService = () => {
                 charDelay={0.025}
                 align="center"
               />
-            </span>
+            </span>{' '}
             <span className="block sm:whitespace-nowrap">
               <LettersPullUp
                 text="Interior Design Services"

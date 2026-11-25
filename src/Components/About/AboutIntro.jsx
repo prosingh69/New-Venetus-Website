@@ -75,10 +75,10 @@ const AboutIntro = () => {
             <h2 className="font-heading text-h2 font-medium text-white leading-[1.15] tracking-[-0.02em] mb-6 sm:mb-8 lg:mb-10 text-center sm:text-left text-balance">
               <span className="block whitespace-nowrap">
                 We Shape <span className="text-[#E9C27A] italic font-heading font-medium">Interior Designs,</span>
-              </span>
+              </span>{' '}
               <span className="block whitespace-nowrap">
                 <span className="text-[#E9C27A] italic font-heading font-medium">Crafting Timeless</span> And
-              </span>
+              </span>{' '}
               <span className="block whitespace-nowrap">
                 Inspiring Spaces
               </span>
@@ -97,8 +97,8 @@ const AboutIntro = () => {
                 
                 {/* Words placed directly under 20 (centered on mobile, under zero on desktop) */}
                 <h3 className="font-heading text-base sm:text-lg md:text-[20px] lg:text-[22px] font-medium text-white leading-[1.25] text-center sm:text-left sm:self-end sm:mr-1 lg:mr-3 mt-2 sm:mt-2 shrink-0">
-                  <span className="sm:hidden">Projects Completed</span>
-                  <span className="hidden sm:inline">Projects<br />Completed</span>
+                  {/* One text, with the line break only from sm up (it was written twice before) */}
+                  Projects<br className="hidden sm:inline" /> Completed
                 </h3>
               </div>
 

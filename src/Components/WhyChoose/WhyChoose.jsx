@@ -57,7 +57,7 @@ const WhyChoose = ({ locationName = 'Bangalore' }) => {
                   charDelay={0.03}
                   align="responsive-lg"
                 />
-              </span>
+              </span>{' '}
               <span className="block mt-1 sm:mt-1.5">
                 <LettersPullUp
                   text={locationName}

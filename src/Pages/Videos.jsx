@@ -218,6 +218,8 @@ const Videos = () => {
 
       {/* Full Window Snapping Container */}
       <main className="w-full h-screen h-[100dvh] overflow-y-scroll snap-y snap-mandatory bg-black text-white scroll-smooth scrollbar-none">
+        {/* The page has no visible title (it is full-screen video), so its H1 is for screen readers and search engines */}
+        <h1 className="sr-only">Interior Design Videos: Luxury Home Tours in Bangalore by Venetus Interior</h1>
         {projectVideos.map((video, index) => (
           <VideoItem
             key={video.id}

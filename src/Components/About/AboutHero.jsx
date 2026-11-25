@@ -45,42 +45,45 @@ const AboutHero = () => {
         </motion.p>
 
         {/* Main Title — Mobile View: 2 Lines (Line 1 White, Line 2 Gold) - exact match with PortfolioHero */}
-        <div className="md:hidden flex flex-col items-center text-center mb-3.5 w-full">
-          <motion.h1
+        {/* The one H1 of the page: both lines, so search engines read the full title */}
+        <h1 className="md:hidden flex flex-col items-center text-center mb-3.5 w-full">
+          <motion.span
             initial={{ opacity: 0, y: 14 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-heading text-[clamp(28px,7.8vw,44px)] min-[390px]:text-[clamp(32px,8.6vw,44px)] font-medium text-white tracking-tight leading-[1.12] drop-shadow-md whitespace-nowrap"
+            className="block font-heading text-[clamp(28px,7.8vw,44px)] min-[390px]:text-[clamp(32px,8.6vw,44px)] font-medium text-white tracking-tight leading-[1.12] drop-shadow-md whitespace-nowrap"
           >
             Crafting Timeless Homes
-          </motion.h1>
+          </motion.span>{' '}
 
-          <motion.div
+          <motion.span
             initial={{ opacity: 0, y: 14 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-1"
+            className="block mt-1"
           >
             <span className="font-heading italic text-[clamp(24px,6.2vw,36px)] min-[390px]:text-[clamp(26px,6.8vw,36px)] font-medium text-primary tracking-tight leading-[1.18] drop-shadow-md block whitespace-nowrap">
               Shaped Around Your Life
             </span>
-          </motion.div>
-        </div>
+          </motion.span>
+        </h1>
 
         {/* Main Title — Desktop View: Grand Editorial Title - exact match with PortfolioHero */}
-        <motion.h1
+        <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.75, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.4 }}
+          role="heading"
+          aria-level={1}
           className="hidden md:block font-heading text-4xl lg:text-5xl xl:text-[54px] font-medium text-white leading-[1.2] tracking-tight mb-5 max-w-4xl"
         >
           <span className="block whitespace-nowrap">
             We don't just design homes.
-          </span>
+          </span>{' '}
           <span className="block font-heading italic font-medium text-primary mt-1.5 whitespace-nowrap drop-shadow-[0_2px_14px_rgba(212,165,58,0.25)]">
             We design the way you live.
           </span>
-        </motion.h1>
+        </motion.p>
 
         {/* Sub-line — exact match with PortfolioHero typography */}
         <motion.p

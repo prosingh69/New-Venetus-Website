@@ -112,7 +112,7 @@ const AboutStory = () => {
             >
               <span className="block sm:whitespace-nowrap">
                 Born in Bangalore,
-              </span>
+              </span>{' '}
               <span className="block sm:whitespace-nowrap text-[#E9C27A] italic font-medium">
                 Built for Your Home.
               </span>

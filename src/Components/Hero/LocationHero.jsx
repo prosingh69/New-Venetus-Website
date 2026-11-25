@@ -66,17 +66,18 @@ const LocationHeroPanel1 = ({ locationName = 'Bangalore', bgImage = '/design.jpg
 
         {/* Unified Title: Serif + italic gold + curved underline (Exact Homepage Styling) */}
         {/* On mobile: Strictly TWO single lines (Line 1: White, Line 2: Gold italic), maximized responsive font, no line wrap */}
-        <div className="flex flex-col items-center text-center mb-6 sm:mb-8 md:mb-10 w-full px-2">
-          <motion.h1
+        {/* Both lines form one H1 ("Interior Designers in <area>"), the most important heading for local search */}
+        <h1 className="flex flex-col items-center text-center mb-6 sm:mb-8 md:mb-10 w-full px-2">
+          <motion.span
             initial={{ opacity: 0, y: 14 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="font-heading font-medium text-white tracking-[-0.02em] leading-[1.08] drop-shadow-md whitespace-nowrap text-[clamp(1.75rem,8.6vw,5.2rem)]"
+            className="block font-heading font-medium text-white tracking-[-0.02em] leading-[1.08] drop-shadow-md whitespace-nowrap text-[clamp(1.75rem,8.6vw,5.2rem)]"
           >
             Interior Designers in
-          </motion.h1>
+          </motion.span>{' '}
 
-          <motion.div
+          <motion.span
             initial={{ opacity: 0, y: 14 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.28 }}
@@ -90,6 +91,7 @@ const LocationHeroPanel1 = ({ locationName = 'Bangalore', bgImage = '/design.jpg
             <svg
               viewBox="0 0 260 12"
               fill="none"
+              aria-hidden="true"
               className="w-[clamp(210px,66vw,460px)] h-2 sm:h-2.5 md:h-3.5 mt-1 sm:mt-1.5 text-primary/80 pointer-events-none"
             >
               <path
@@ -99,8 +101,8 @@ const LocationHeroPanel1 = ({ locationName = 'Bangalore', bgImage = '/design.jpg
                 strokeLinecap="round"
               />
             </svg>
-          </motion.div>
-        </div>
+          </motion.span>
+        </h1>
 
         {/* Action Buttons — Symmetrical Center Stack on mobile, Row on tablet/desktop */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
