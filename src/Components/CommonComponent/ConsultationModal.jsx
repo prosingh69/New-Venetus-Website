@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowRight, Loader2, ChevronDown, CheckCircle2 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
+import { trackEvent } from '../../utils/analytics';
 
 const ConsultationModal = ({ isOpen, onClose, modalData = {} }) => {
   const [projectType, setProjectType] = useState('');
@@ -164,6 +165,9 @@ const ConsultationModal = ({ isOpen, onClose, modalData = {} }) => {
           currency: 'INR',
         });
       }
+
+      // Google Analytics / Tag Manager: Track Lead Event
+      trackEvent('generate_lead', { form_name: 'consultation_popup', service: dataForSheet.service_title || 'Free Design Consultation' });
 
       if (formRef.current) {
         formRef.current.reset();

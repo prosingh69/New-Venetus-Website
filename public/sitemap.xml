@@ -3,7 +3,7 @@
   <!-- Core Static Pages -->
   <url>
     <loc>https://www.venetusinterior.in/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -24,7 +24,7 @@
 
   <url>
     <loc>https://www.venetusinterior.in/portfolio</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -48,6 +48,13 @@
     <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.venetusinterior.in/videos</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Priority Client Project Communities & Localities -->

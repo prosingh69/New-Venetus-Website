@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Loader2, CheckCircle2, ChevronDown } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
+import { trackEvent } from '../../utils/analytics';
 import LettersPullUp from '../Animations/LettersPullUp';
 import FadeUp from '../Animations/FadeUp';
 
@@ -122,6 +123,7 @@ const CompanyIntro = ({ locationName = 'Bangalore' }) => {
       }
 
       toast.success('Thank you! Your quote request has been received.');
+      trackEvent('generate_lead', { form_name: 'quote_form' });
       e.target.reset();
       setProjectType('');
     } catch (error) {

@@ -213,7 +213,7 @@ const Videos = () => {
           content="Experience our interior designs in cinematic motion. Explore luxury Bangalore homes, modular kitchens, master suites, and bespoke turnkey spaces."
         />
         <meta name="keywords" content="interior design videos, luxury home tour, Bangalore turnkey interiors video showcase" />
-        <link rel="canonical" href="https://www.venetusinterior.in/video" />
+        <link rel="canonical" href="https://www.venetusinterior.in/videos" />
       </Helmet>
 
       {/* Full Window Snapping Container */}

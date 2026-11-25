@@ -2,6 +2,7 @@ import { ArrowRight, Loader2, ChevronDown } from 'lucide-react'
 import React, { useState, useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import toast from 'react-hot-toast'
+import { trackEvent } from '../../utils/analytics'
 
 const Form = () => {
   const [projectType, setProjectType] = useState('')
@@ -117,6 +118,7 @@ const Form = () => {
       }
 
       toast.success('Thank you! Details submitted successfully.')
+      trackEvent('generate_lead', { form_name: 'contact_page_form' })
       e.target.reset()
       setProjectType('')
     } catch (error) {

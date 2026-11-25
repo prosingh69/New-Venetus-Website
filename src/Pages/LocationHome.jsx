@@ -232,7 +232,10 @@ const LocationHome = () => {
     } Living`
   };
 
-  const canonicalUrl = `https://www.venetusinterior.in${location.pathname}`;
+  // One canonical URL per area, whichever address was typed: lowercase, always "/interior-designers-in-<area>",
+  // and "sarjapura" is the same page as "sarjapur" (otherwise Google sees duplicate pages).
+  const canonicalSlug = currentSlug.toLowerCase() === 'sarjapura' ? 'sarjapur' : currentSlug.toLowerCase();
+  const canonicalUrl = `https://www.venetusinterior.in/interior-designers-in-${canonicalSlug}`;
 
   // Structured Data (JSON-LD) for Google Local SEO & Rich Snippets
   const localBusinessSchema = {
